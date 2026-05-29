@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Operações Aritméticas Basicas</title>
+  <style>
+    body {
+      font-family: Garamond, sans-serif;
+      text-align: center;
+      background-color: #f9e4e1;
+      display: flex;
+      justify-content: center;
+      padding: 90px;
+    }
+
+    .calculator {
+      background-color: #fbecce;
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-box;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .calculator input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .calculator button {
+      width: 45%;
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      background-color: #ee8878;
+      color: white;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>CALCULADORA DE OPERAÇÕES
+        <br> ARITMÉTICAS BASICAS</h1>
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <br>
+    <button onclick="somar()">Somar</button>
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <br>
+    <button class="reset-button" onclick="resetar()">Resetar</button>
+    <div class="result" id="resultado"></div>
+  </div>
+
+  <script>
+    function somar() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('resultado').textContent = 'A soma dos numeros é: ' + (num1 + num2);
+    }
+
+    function subtrair() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('resultado').textContent = 'A subtração dos numeros é: ' + (num1 - num2);
+    }
+
+    function multiplicar() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('resultado').textContent = 'A multiplicação dos numeros é: ' + (num1 * num2);
+    }
+
+    function dividir() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      if (num2 !== 0) {
+        document.getElementById('resultado').textContent = 'A divisão dos numeros é: ' + (num1 / num2);
+      } else {
+        document.getElementById('resultado').textContent = 'ERRO: Não é possível dividir por zero!';
+      }
+    }
+    
+    function resetar() {
+      document.getElementById('num1').value = '';
+      document.getElementById('num2').value = '';
+      document.getElementById('resultado').textContent = '';
+    }
+  </script>
+</body>
+</html>

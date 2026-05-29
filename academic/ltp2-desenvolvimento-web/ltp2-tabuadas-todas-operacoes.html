@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operações Aritméticas</title>
+  <style>
+    body {
+      font-family: Garamond, sans-serif;
+      background-color: #f9e4e1;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .container {
+      background-color: #fbecce;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .container-secondary {
+      margin-top: 10px;
+      background-color: #fbecce;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #ee8878;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d9280c;
+    }
+
+    .nav-button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #e0aafe;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .nav-button:hover {
+      background-color: #d743e6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Saiba as Tabuadas</h1>
+    <input type="number" id="numero" placeholder="Digite o número">
+    <br>
+    <button onclick="calcular('soma')">Somar</button>
+    <button onclick="calcular('subtracao')">Subtrair</button>
+    <button onclick="calcular('multiplicacao')">Multiplicar</button>
+    <button onclick="calcular('divisao')">Dividir</button>
+    <br>
+    <button class="nav-button" onclick="window.location.href='Pagina - Verifique se Individuo pode votar - Atividade 5 de LTP2.html'">Ir para a página de verificação de idade</button>
+  </div>
+
+  <div class="container-secondary" id="resultado-container">
+    <h3>Resultado</h3>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular(operacao) {
+      const numero = parseFloat(document.getElementById("numero").value);
+      const resultadoContainer = document.getElementById("resultado-container");
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(numero)) {
+        resultadoContainer.style.display = "block";
+        resultado.innerHTML = "Número inválido! Tente novamente... ";
+        return;
+      }
+
+      let resultadoTexto = "";
+
+      switch (operacao) {
+        case 'soma':
+          resultadoTexto = `<h4>Adição:</h4>`;
+          for (let i = 1; i <= 10; i++) {
+            resultadoTexto += `${numero} + ${i} = ${numero + i}<br>`;
+          }
+          break;
+        case 'subtracao':
+          resultadoTexto = `<h4>Subtração:</h4>`;
+          for (let i = 1; i <= 10; i++) {
+            resultadoTexto += `${numero} - ${i} = ${numero - i}<br>`;
+          }
+          break;
+        case 'multiplicacao':
+          resultadoTexto = `<h4>Multiplicação:</h4>`;
+          for (let i = 1; i <= 10; i++) {
+            resultadoTexto += `${numero} x ${i} = ${numero * i}<br>`;
+          }
+          break;
+        case 'divisao':
+          resultadoTexto = `<h4>Divisão:</h4>`;
+          for (let i = 1; i <= 10; i++) {
+            resultadoTexto += `${numero} ÷ ${i} = ${(numero / i).toFixed(2)}<br>`;
+          }
+          break;
+          default:
+          resultadoTexto = "Operação inválida! Tente novamente... ";
+      }
+
+      resultadoContainer.style.display = "block";
+      resultado.innerHTML = resultadoTexto;
+    }
+  </script>
+</body>
+</html>

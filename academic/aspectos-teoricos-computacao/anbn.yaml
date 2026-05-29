@@ -1,0 +1,41 @@
+name: anbn
+source code: |
+  input: 'aaabbb'
+  blank: ' '
+  start state: start
+
+  table:
+    start:
+      a: {write: A, R: find_b}
+      A: R
+      B: {R: check}
+      b: {R: reject}
+      ' ': {R: reject}
+
+    find_b:
+      a: R
+      B: R
+      b: {write: B, L: back}
+      ' ': {R: reject}
+
+    back:
+      a: L
+      B: L
+      A: {R: start}
+
+    check:
+      B: R
+      ' ': {R: accept}
+      a: {R: reject}
+      b: {R: reject}
+
+    accept:
+
+    reject:
+positions:
+  start: {x: 533.21, y: 212.19, fixed: false}
+  find_b: {x: 507.32, y: 352.58, fixed: false}
+  back: {x: 402.32, y: 241.07, fixed: false}
+  check: {x: 412.67, y: 132.53, fixed: false}
+  accept: {x: 270.74, y: 163.59, fixed: false}
+  reject: {x: 395.19, y: 282.11, fixed: false}

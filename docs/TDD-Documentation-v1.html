@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Duplicate Detector - Documentação v1</title>
+  <style>
+    :root {
+      --sticky-nav-offset: 64px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(90deg, #6a85e6 0%, #8f9be8 50%, #8360c3 100%);
+      color: #222;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .section,
+    .section-content {
+      scroll-margin-top: var(--sticky-nav-offset);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: transparent;
+    }
+
+    .navbar {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(30, 41, 59, 0.72) 55%, rgba(17, 24, 39, 0.78) 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      min-height: 58px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: saturate(160%) blur(12px);
+    }
+
+    .navbar .logo {
+      font-size: 1.05em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      height: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .navbar nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.12s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .navbar nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 0.90em;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: background 0.14s ease, transform 0.14s ease, box-shadow 0.14s ease;
+      display: flex;
+      align-items: center;
+      height: auto;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
+      white-space: nowrap;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+      background: rgba(99, 102, 241, 0.22) !important;
+      border-color: rgba(99, 102, 241, 0.30);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(2, 6, 23, 0.20);
+    }
+
+    .main-content {
+      flex: 1 1 auto;
+      width: 100vw;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 40px 24px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #667eea;
+      margin-top: 0.5em;
+    }
+
+    .page-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 18px;
+      border-radius: 18px;
+      background:
+        radial-gradient(1000px 400px at 20% 0%, rgba(99, 102, 241, 0.22), transparent 55%),
+        radial-gradient(700px 280px at 70% 35%, rgba(34, 211, 238, 0.18), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.78) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 18px 42px rgba(2, 6, 23, 0.14);
+      backdrop-filter: blur(10px) saturate(140%);
+    }
+
+    .page-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .page-hero-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #22d3ee 0%, #4f46e5 100%);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 16px 28px rgba(79, 70, 229, 0.18);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .page-hero-title {
+      min-width: 0;
+    }
+
+    h1 {
+      text-align: left;
+      margin: 0;
+      font-size: 2.35em;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #111827 0%, #3730a3 40%, #4f46e5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .page-subtitle {
+      margin: 6px 0 0 0;
+      color: #475569;
+      line-height: 1.45;
+      font-size: 1.02em;
+    }
+
+    .page-hero-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.10);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      color: #3730a3;
+      font-weight: 800;
+      font-size: 0.88em;
+      white-space: nowrap;
+    }
+
+    .hero-pill .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22d3ee 0%, #4f46e5 100%);
+      box-shadow: 0 10px 18px rgba(79, 70, 229, 0.16);
+    }
+
+    .ov-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+
+    .ov-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      padding: 14px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      min-height: 110px;
+    }
+
+    .ov-ic {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.60);
+      box-shadow: 0 14px 24px rgba(2, 6, 23, 0.14);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .ov-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.02em;
+      color: #111827;
+    }
+
+    .ov-card p {
+      margin: 0;
+      color: #5a5f75;
+      line-height: 1.45;
+      font-size: 0.98em;
+    }
+
+    @media (max-width: 900px) {
+      .page-hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .page-hero-right {
+        justify-content: flex-start;
+      }
+
+      .ov-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    ul,
+    ol {
+      margin-left: 1.5em;
+    }
+
+    .section {
+      margin-bottom: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-content {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(102, 126, 234, 0.10);
+      padding: 28px 32px;
+      margin: 0 0 24px 0;
+      transition: box-shadow 0.2s;
+      border-left: 6px solid #667eea;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.18);
+    }
+
+    .changelog {
+      background: #f6f8fa;
+      border-left: 4px solid #667eea;
+      padding: 1em 1.5em;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .highlight {
+      background: #e0e7ff;
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      font-weight: bold;
+      color: #4c51bf;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      font-size: 0.85em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(102, 126, 234, 0.12);
+      color: #4c51bf;
+      border: 1px solid rgba(102, 126, 234, 0.18);
+      white-space: nowrap;
+    }
+
+    /* Color utilities (visual only) */
+    .ic-blue {
+      background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-indigo {
+      background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-purple {
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-pink {
+      background: linear-gradient(135deg, #fb7185 0%, #db2777 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-cyan {
+      background: linear-gradient(135deg, #22d3ee 0%, #0284c7 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-green {
+      background: linear-gradient(135deg, #34d399 0%, #16a34a 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-orange {
+      background: linear-gradient(135deg, #fdba74 0%, #f97316 100%) !important;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .ic-yellow {
+      background: linear-gradient(135deg, #fde047 0%, #f59e0b 100%) !important;
+      color: #111827 !important;
+      border-color: transparent !important;
+    }
+
+    .ic-slate {
+      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%) !important;
+      color: #0f172a !important;
+      border-color: transparent !important;
+    }
+
+    .lead {
+      color: #2f2f2f;
+      line-height: 1.55;
+      font-size: 1.02em;
+      margin-top: 6px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin: 14px 0 8px 0;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      padding: 18px 18px 16px 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      color: #2e2a4a;
+      min-height: 150px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(18, 21, 30, 0.10);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.18);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    /* Give feature icons some variety without changing content */
+    .feature-card:nth-child(1) .feature-icon {
+      background: linear-gradient(135deg, #22d3ee 0%, #2563eb 100%);
+    }
+
+    .feature-card:nth-child(2) .feature-icon {
+      background: linear-gradient(135deg, #34d399 0%, #16a34a 100%);
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background: linear-gradient(135deg, #fdba74 0%, #f97316 100%);
+    }
+
+    .feature-card:nth-child(4) .feature-icon {
+      background: linear-gradient(135deg, #fb7185 0%, #db2777 100%);
+    }
+
+    .feature-card:nth-child(5) .feature-icon {
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    }
+
+    .feature-card:nth-child(6) .feature-icon {
+      background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05em;
+      color: #3b3663;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: #5a5f75;
+      line-height: 1.45;
+      font-size: 0.98em;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .req-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      padding: 16px 16px 14px 16px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      color: #2e2a4a;
+    }
+
+    .req-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(18, 21, 30, 0.10);
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.78em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(102, 126, 234, 0.25);
+      background: rgba(102, 126, 234, 0.10);
+      color: #4c51bf;
+      white-space: nowrap;
+    }
+
+    .tag-ok {
+      border-color: rgba(16, 185, 129, 0.28);
+      background: rgba(16, 185, 129, 0.12);
+      color: #0f766e;
+    }
+
+    .tag-plan {
+      border-color: rgba(245, 158, 11, 0.30);
+      background: rgba(245, 158, 11, 0.14);
+      color: #92400e;
+    }
+
+    .req-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.03em;
+      color: #3b3663;
+    }
+
+    .req-card p {
+      margin: 0 0 12px 0;
+      color: #5a5f75;
+      line-height: 1.45;
+      font-size: 0.98em;
+    }
+
+    .ref-box {
+      background: #f6f8fa;
+      border: 1px solid rgba(18, 21, 30, 0.06);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.85em;
+      line-height: 1.35;
+      overflow-x: auto;
+      color: #2f2f2f;
+      margin: 0;
+    }
+
+    .uc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .callout {
+      background: #f3f6fb;
+      border: 1px solid rgba(18, 21, 30, 0.06);
+      border-left: 4px solid rgba(16, 185, 129, 0.85);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: #1f2937;
+      margin: 10px 0 12px 0;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+      align-items: stretch;
+    }
+
+    .step-card {
+      background: #f3f6fb;
+      border: 1px solid rgba(18, 21, 30, 0.06);
+      border-radius: 14px;
+      padding: 12px;
+      color: #2e2a4a;
+      position: relative;
+      min-height: 92px;
+    }
+
+    .step-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
+      border: 1px solid rgba(255, 255, 255, 0.60);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: 0 10px 18px rgba(102, 126, 234, 0.16);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .step-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #111827;
+      font-size: 0.98em;
+    }
+
+    .tri-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .tech-col {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      padding: 14px;
+    }
+
+    .tech-col h3 {
+      margin: 0 0 8px 0;
+      font-size: 0.92em;
+      color: #1d4ed8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    details.tech-item {
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 14px;
+      background: #f8fafc;
+      overflow: hidden;
+      margin-top: 10px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    details.tech-item:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+      background: #ffffff;
+    }
+
+    details.tech-item>summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+      font-weight: 650;
+      color: #111827;
+    }
+
+    details.tech-item>summary:hover {
+      background: rgba(99, 102, 241, 0.06);
+    }
+
+    details.tech-item>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .tech-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .tech-ic {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #ffffff;
+      font-weight: 800;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 18px rgba(102, 126, 234, 0.16);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    /* Tech chevron like print */
+    details.tech-item>summary .chev {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.10);
+      border: 1px solid rgba(99, 102, 241, 0.16);
+      color: #4f46e5;
+    }
+
+    details[open].tech-item>summary .chev {
+      transform: rotate(90deg);
+    }
+
+    .tech-meta {
+      min-width: 0;
+    }
+
+    .tech-meta small {
+      display: block;
+      font-weight: 500;
+      color: #6b7280;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tech-body {
+      padding: 10px 12px 12px 12px;
+      background: #f9fafb;
+      border-top: 1px solid rgba(18, 21, 30, 0.06);
+      color: #374151;
+    }
+
+    .dev-hero {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      padding: 18px 18px 16px 18px;
+      margin-top: 14px;
+    }
+
+    .dev-hero-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .dev-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.10);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      color: #1d4ed8;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.10);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .dev-hero h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #111827;
+    }
+
+    .dev-hero p {
+      margin: 0;
+      color: #5a5f75;
+      line-height: 1.55;
+    }
+
+    .dev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .dev-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 180px;
+    }
+
+    .dev-card h4 {
+      margin: 0;
+      font-size: 1.05em;
+      color: #111827;
+    }
+
+    .dev-card p {
+      margin: 0;
+      color: #5a5f75;
+      line-height: 1.55;
+    }
+
+    .dev-card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dev-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .dev-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.85em;
+      font-weight: 700;
+      color: #475569;
+      background: rgba(148, 163, 184, 0.14);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      white-space: nowrap;
+    }
+
+    .dev-callout {
+      margin-top: auto;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f3f4f6;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .dev-callout strong {
+      color: #111827;
+    }
+
+    .dev-callout.blue {
+      border-left: 4px solid #2563eb;
+    }
+
+    .dev-callout.green {
+      border-left: 4px solid #16a34a;
+    }
+
+    .dev-callout.red {
+      border-left: 4px solid #ef4444;
+    }
+
+    @media (max-width: 900px) {
+      .dev-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .structure-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      margin-top: 14px;
+      align-items: start;
+    }
+
+    .structure-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      overflow: hidden;
+    }
+
+    .structure-head {
+      background: #5b6ee6;
+      color: #fff;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .structure-head .fh {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .structure-body {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tree-entry {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .tree-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .tree-ic {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #22d3ee 0%, #4f46e5 100%);
+      border: 1px solid rgba(255, 255, 255, 0.60);
+      color: #ffffff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      font-size: 0.9em;
+      box-shadow: 0 10px 18px rgba(102, 126, 234, 0.14);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .tree-name {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.92em;
+      color: #111827;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tree-desc {
+      color: #5a5f75;
+      line-height: 1.42;
+      font-size: 0.95em;
+    }
+
+    .tree-entry.indent {
+      padding-left: 18px;
+    }
+
+    .tree-entry.indent .tree-ic {
+      background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+      border-color: rgba(255, 255, 255, 0.60);
+      color: #ffffff;
+    }
+
+    .stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid rgba(18, 21, 30, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(18, 21, 30, 0.06);
+      padding: 16px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .stat-ic {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #a78bfa 0%, #4f46e5 100%);
+      border: 1px solid rgba(255, 255, 255, 0.60);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 22px rgba(79, 70, 229, 0.18);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .stat-num {
+      font-size: 1.35em;
+      font-weight: 900;
+      color: #111827;
+      line-height: 1.0;
+      margin-bottom: 2px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .structure-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tree-entry {
+        grid-template-columns: 1fr;
+      }
+
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mini-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+      border: 1px solid rgba(102, 126, 234, 0.14);
+      border-radius: 14px;
+      padding: 12px 12px;
+      box-shadow: 0 1px 10px rgba(102, 126, 234, 0.08);
+      color: #2e2a4a;
+      line-height: 1.35;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 0.92em;
+      margin-bottom: 6px;
+      color: #3b3663;
+    }
+
+    details.accordion {
+      border: 1px solid rgba(102, 126, 234, 0.18);
+      border-radius: 14px;
+      background: rgba(102, 126, 234, 0.04);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    details.accordion>summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      user-select: none;
+      font-weight: 600;
+      color: #3b3663;
+    }
+
+    details.accordion>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chev {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      transition: transform 0.15s ease;
+      flex: 0 0 auto;
+      border-radius: 6px;
+      background: rgba(102, 126, 234, 0.12);
+      color: #4c51bf;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    details[open].accordion>summary .chev {
+      transform: rotate(90deg);
+    }
+
+    .accordion-body {
+      padding: 12px 16px 16px 16px;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .accordion-body ul,
+    .accordion-body ol {
+      margin-left: 1.2em;
+    }
+
+    .muted {
+      color: #666;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 12px 2vw;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .req-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .uc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tri-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 18px 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --sticky-nav-offset: 56px;
+      }
+
+      .container {
+        padding: 4px 0;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .navbar {
+        padding: 8px 10px;
+        min-height: 52px;
+      }
+
+      .navbar nav {
+        gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .navbar nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .navbar nav a {
+        padding: 8px 10px;
+        font-size: 0.92em;
+        white-space: nowrap;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .req-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .uc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tri-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 10px 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="logo">
+            Tab Duplicate Detector
+    </div>
+    <div class="nav-actions">
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#quickstart">Quick Start</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#requisitos-funcionais">Requisitos</a>
+        <a href="#requisitos-futuros">Futuros</a>
+        <a href="#casos-de-uso">Casos de Uso</a>
+        <a href="#desenvolvimento">Desenvolvimento</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#arquitetura">Arquitetura</a>
+      </nav>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="container" style="background:none;box-shadow:none;border-radius:0;padding-top:32px;">
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="page-hero-mark">📄</div>
+          <div class="page-hero-title">
+            <h1>Documentação v1</h1>
+            <p class="page-subtitle">Guia completo do Tab Duplicate Detector: visão geral, requisitos, fluxos e
+              estrutura do projeto.</p>
+          </div>
+        </div>
+        <div class="page-hero-right">
+          <span class="hero-pill"><span class="dot"></span> Manifest V3</span>
+          <span class="hero-pill"><span class="dot"></span> ES6 Modules</span>
+          <span class="hero-pill"><span class="dot"></span> 100% Local</span>
+        </div>
+      </div>
+      <div class="section" id="overview">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Overview</h2>
+            <span class="pill">Visão Geral</span>
+          </div>
+
+          <p class="lead">Uma extensão Chrome (Manifest V3) para detectar e gerenciar abas duplicadas de forma segura e
+            controlada, com arquitetura modular e preparada para evolução.</p>
+
+          <div class="ov-grid">
+            <div class="ov-card">
+              <div class="ov-ic ic-cyan">🔍</div>
+              <div>
+                <h3>O que faz</h3>
+                <p>Executa um scan das abas abertas, normaliza URLs e agrupa duplicatas para análise e ações.</p>
+              </div>
+            </div>
+            <div class="ov-card">
+              <div class="ov-ic ic-green">🛡</div>
+              <div>
+                <h3>Segurança & Privacidade</h3>
+                <p>Processamento local no navegador: sem envio de dados para servidor. Ações de fechamento/movimento são
+                  sempre iniciadas pelo usuário.</p>
+              </div>
+            </div>
+            <div class="ov-card">
+              <div class="ov-ic ic-indigo">🧩</div>
+              <div>
+                <h3>Arquitetura</h3>
+                <p>Camadas claras: <span class="highlight">core</span> (lógica), <span class="highlight">browser</span>
+                  (Chrome APIs), <span class="highlight">orchestration</span> (fluxos) e <span
+                    class="highlight">popup</span> (UI).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ov-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+            <div class="ov-card">
+              <div class="ov-ic ic-purple">⚙</div>
+              <div>
+                <h3>Principais ações</h3>
+                <p>Fechar duplicatas mantendo 1, mover para nova janela e agrupar abas duplicadas (quando suportado).
+                </p>
+              </div>
+            </div>
+            <div class="ov-card">
+              <div class="ov-ic ic-orange">🚀</div>
+              <div>
+                <h3>Como usar (30s)</h3>
+                <p>Abra o popup → clique em <b>Scan Tabs</b> → revise grupos → execute a ação desejada com feedback na
+                  UI.</p>
+              </div>
+            </div>
+          </div>
+
+          <details class="accordion" open>
+            <summary>
+              Fluxo de alto nível
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <div class="step-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+                <div class="step-card">
+                  <div class="step-badge">1</div>
+                  <strong>Coletar</strong>
+                  <div class="muted">Busca abas via Chrome API e filtra o que não deve entrar no scan.</div>
+                </div>
+                <div class="step-card">
+                  <div class="step-badge">2</div>
+                  <strong>Normalizar</strong>
+                  <div class="muted">Remove ruídos (ex.: hash/UTM) para comparar URLs de forma consistente.</div>
+                </div>
+                <div class="step-card">
+                  <div class="step-badge">3</div>
+                  <strong>Agrupar</strong>
+                  <div class="muted">Identifica duplicatas e calcula estatísticas para orientar ações.</div>
+                </div>
+                <div class="step-card">
+                  <div class="step-badge">4</div>
+                  <strong>Agir</strong>
+                  <div class="muted">Usuário executa fechar/mover/agrupar e a UI atualiza o resultado.</div>
+                </div>
+              </div>
+
+              <pre class="ref-box" style="margin-top: 10px;">Referências:
+  browser/tabs-collector.js
+  core/url-normalizer.js
+  core/duplicate-detector.js
+  orchestration/scan-orchestrator.js
+  popup/popup-controller.js
+  popup/ui-renderer.js</pre>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="section" id="quickstart">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Quick Start</h2>
+            <span class="pill">Instalação + Uso</span>
+          </div>
+
+          <div class="cards-grid">
+            <div class="mini-card"><strong>1</strong>Garanta que a estrutura do projeto esteja correta.</div>
+            <div class="mini-card"><strong>2</strong>Abra <span class="highlight">chrome://extensions/</span> e ative o
+              modo desenvolvedor.</div>
+            <div class="mini-card"><strong>3</strong>Carregue a pasta com o <span
+                class="highlight">manifest.json</span>.</div>
+          </div>
+
+          <details class="accordion" open>
+            <summary>
+              Passo a passo
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <ol>
+                <li>Verifique se a pasta raiz contém <span class="highlight">manifest.json</span> e as pastas <span
+                    class="highlight">core/</span>, <span class="highlight">browser/</span>, <span
+                    class="highlight">orchestration/</span> e <span class="highlight">popup/</span>.</li>
+                <li>Abra <span class="highlight">chrome://extensions/</span> e ative <b>Modo do desenvolvedor</b>.</li>
+                <li>Clique em <b>Carregar sem compactação</b> e selecione a pasta do projeto.</li>
+                <li>Fixe o ícone: Quebra-cabeça → “Tab Duplicate Detector” → alfinete.</li>
+                <li>Abra o popup e clique em <b>Scan Tabs</b> para gerar a lista de duplicatas e estatísticas.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Checklist de validação
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <ul>
+                <li>A extensão aparece em <span class="highlight">chrome://extensions</span> sem erros.</li>
+                <li>O ícone fica visível na barra (fixado no alfinete).</li>
+                <li>Ao clicar em <b>Scan Tabs</b>, o popup exibe estatísticas e/ou grupos.</li>
+              </ul>
+
+              <details class="accordion" style="margin-top: 14px;">
+                <summary>
+                  Testes rápidos sugeridos
+                  <span class="chev">›</span>
+                </summary>
+                <div class="accordion-body">
+                  <ul>
+                    <li><b>Normalização:</b> URLs como <span class="highlight">#readme</span> e <span
+                        class="highlight">utm_source</span> devem cair no mesmo grupo.</li>
+                    <li><b>Ações:</b> “Fechar duplicatas” fecha as demais e mantém uma aba aberta (reversível via
+                      histórico do navegador).</li>
+                    <li><b>Mover/Agrupar:</b> “Mover para nova janela” cria nova janela; “Agrupar abas” usa Tab Groups.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="section" id="funcionalidades">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Funcionalidades</h2>
+            <span class="pill">O que já existe</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Guia prático do que a extensão faz e como usar.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">S</div>
+              <h3>Varredura de Abas</h3>
+              <p>Analisa todas as abas abertas em todas as janelas e identifica duplicatas por URL normalizada.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">Σ</div>
+              <h3>Estatísticas em Tempo Real</h3>
+              <p>Mostra grupos encontrados, total de abas duplicadas e o potencial de fechamento mantendo 1 por grupo.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">U</div>
+              <h3>Normalização de URLs</h3>
+              <p>Remove fragmentos hash e parâmetros UTM, ignorando diferenças irrelevantes e mantendo parâmetros
+                funcionais.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">X</div>
+              <h3>Fechar Duplicatas</h3>
+              <p>Mantém uma aba aberta automaticamente e fecha as outras instâncias duplicadas (ação iniciada por
+                clique).</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">W</div>
+              <h3>Mover para Nova Janela</h3>
+              <p>Cria uma nova janela do Chrome e move todas as abas duplicadas para lá, mantendo a ordem.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">G</div>
+              <h3>Agrupar Abas</h3>
+              <p>Usa Tab Groups para criar um grupo “Duplicates” (cor cinza) com as duplicatas na janela atual.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="section" id="requisitos-funcionais">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Requisitos Funcionais</h2>
+            <span class="pill">Escopo Atual</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Especificações funcionais implementadas, com mapeamento para os
+            arquivos responsáveis.</p>
+
+          <div class="req-grid">
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF01</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Varredura de abas (Scan)</h3>
+              <p>Coleta abas em todas as janelas, filtra abas inválidas e roda a análise completa retornando um
+                resultado consolidado.</p>
+              <pre class="ref-box">Orquestração:
+  orchestration/scan-orchestrator.js
+Browser:
+  browser/tabs-collector.js
+Core:
+  core/url-normalizer.js
+  core/duplicate-detector.js
+UI:
+  popup/popup-controller.js
+  popup/ui-renderer.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF02</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Normalização e validação de URLs</h3>
+              <p>Normaliza URLs para comparação (remove hash e UTM) e valida URLs para análise no scan.</p>
+              <pre class="ref-box">Core:
+  core/url-normalizer.js
+Browser (aplica filtros):
+  browser/tabs-collector.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF03</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Detecção, agrupamento e estatísticas</h3>
+              <p>Agrupa por URL normalizada, ordena grupos e calcula estatísticas (grupos, total de duplicatas e
+                potencial de fechamento).</p>
+              <pre class="ref-box">Core:
+  core/duplicate-detector.js
+UI:
+  popup/ui-renderer.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF04</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Fechar duplicatas mantendo 1</h3>
+              <p>Valida o grupo, mantém uma aba e fecha as demais instâncias duplicadas a partir de uma ação explícita
+                do usuário.</p>
+              <pre class="ref-box">Orquestração:
+  orchestration/action-orchestrator.js
+Browser (ação):
+  browser/tabs-actions.js
+UI:
+  popup/popup-controller.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF05</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Mover duplicatas para nova janela</h3>
+              <p>Cria uma nova janela e move todas as abas duplicadas para ela, mantendo a ordem das abas.</p>
+              <pre class="ref-box">Orquestração:
+  orchestration/action-orchestrator.js
+Browser (ação):
+  browser/tabs-actions.js
+UI:
+  popup/popup-controller.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RF06</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Agrupar duplicatas (Tab Groups)</h3>
+              <p>Cria um Tab Group (título “Duplicates”, cor cinza) e adiciona as abas duplicadas na janela atual.</p>
+              <pre class="ref-box">Orquestração:
+  orchestration/action-orchestrator.js
+Browser (ação):
+  browser/tabs-actions.js
+UI:
+  popup/popup-controller.js</pre>
+            </div>
+          </div>
+        </div>
+        <div class="card section-content" id="requisitos-nao-funcionais">
+          <div class="card-title-row">
+            <h2>Requisitos Não Funcionais</h2>
+            <span class="pill">Qualidade</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Requisitos de qualidade, segurança e manutenibilidade do projeto.
+          </p>
+
+          <div class="req-grid">
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RNF02</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Performance e eficiência</h3>
+              <p>Detecção e agrupamento com Map (complexidade O(n)), com renderização orientada a grupos.</p>
+              <pre class="ref-box">Core:
+  core/duplicate-detector.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RNF03</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Testabilidade e modularidade</h3>
+              <p>Core não depende das Chrome APIs; camadas isoladas e importação por ES6 modules.</p>
+              <pre class="ref-box">Core:
+  core/url-normalizer.js
+  core/duplicate-detector.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RNF04</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Segurança e filtros</h3>
+              <p>Aplica filtros e validações para evitar erros e manter a operação segura durante o scan.</p>
+              <pre class="ref-box">Browser:
+  browser/tabs-collector.js
+Core:
+  core/url-normalizer.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">RNF05</span>
+                <span class="tag tag-ok">Implementado</span>
+              </div>
+              <h3>Compatibilidade (Manifest V3)</h3>
+              <p>Projeto configurado como extensão Manifest V3 com permissões necessárias para tabs e tabGroups.</p>
+              <pre class="ref-box">Config:
+  manifest.json
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="requisitos-futuros">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Req. Funcionais Futuros</h2>
+            <span class="pill">Roadmap</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Itens planejados para futuras versões (prospecção).</p>
+
+          <div class="req-grid">
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">v1.1.0</span>
+                <span class="tag tag-plan">Planejado</span>
+              </div>
+              <h3>Novas features</h3>
+              <p>Persistência de configurações, escolha de aba a manter, atalhos, indicador de abas fechadas e desfazer
+                última ação.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">v1.2.0</span>
+                <span class="tag tag-plan">Planejado</span>
+              </div>
+              <h3>Melhorias e relatórios</h3>
+              <p>Histórico de varreduras, estatísticas ao longo do tempo, exportação (CSV/JSON), regras customizáveis e
+                ignorar domínios.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">v1.3.0</span>
+                <span class="tag tag-plan">Planejado</span>
+              </div>
+              <h3>Interface e performance de lista</h3>
+              <p>Temas, paginação, virtual scrolling, filtros/busca e drag-and-drop para reorganização.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">v2.0.0</span>
+                <span class="tag tag-plan">Planejado</span>
+              </div>
+              <h3>Mudanças maiores</h3>
+              <p>Migração para TypeScript, service worker para varredura em background, persistência via chrome.storage,
+                sincronização e API REST.</p>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">Tech</span>
+                <span class="tag tag-plan">Planejado</span>
+              </div>
+              <h3>Melhorias técnicas e integrações</h3>
+              <p>Testes automatizados, E2E, CI/CD, lint/format; integrações futuras e melhorias de performance (web
+                workers, IndexedDB, lazy loading).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="casos-de-uso">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Casos de Uso</h2>
+            <span class="pill">Cenários</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Cenários que descrevem como o usuário executa tarefas, do objetivo
+            ao resultado esperado.</p>
+
+          <div class="uc-grid">
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">UC01</span>
+                <span class="tag tag-ok">Definido</span>
+              </div>
+              <h3>Detectar duplicatas (Scan Tabs)</h3>
+              <p><b>Objetivo:</b> identificar grupos de abas duplicadas e exibir estatísticas e grupos no popup.</p>
+              <pre class="ref-box">Atores: Usuário
+Pré-condições: Extensão instalada; popup aberto.
+Pós-condições: Lista/estatísticas exibidas (ou estado vazio/erro).
+
+Referências:
+  popup/popup-controller.js
+  orchestration/scan-orchestrator.js
+  browser/tabs-collector.js
+  core/url-normalizer.js
+  core/duplicate-detector.js
+  popup/ui-renderer.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">UC02</span>
+                <span class="tag tag-ok">Definido</span>
+              </div>
+              <h3>Fechar duplicatas (manter 1)</h3>
+              <p><b>Objetivo:</b> reduzir duplicatas fechando as instâncias extras e mantendo uma aba por grupo.</p>
+              <div class="callout"><b>Destaque:</b> ações são iniciadas por clique do usuário e têm validações antes de
+                executar.</div>
+              <pre class="ref-box">Atores: Usuário
+Pré-condições: Grupo de duplicatas existe no resultado do scan.
+Pós-condições: Abas duplicadas fechadas; UI atualizada.
+
+Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">UC03</span>
+                <span class="tag tag-ok">Definido</span>
+              </div>
+              <h3>Mover duplicatas para nova janela</h3>
+              <p><b>Objetivo:</b> organizar trabalho movendo duplicatas para uma nova janela do navegador.</p>
+              <div class="callout"><b>Destaque:</b> a ação move as abas mantendo a ordem, para separar contextos.</div>
+              <pre class="ref-box">Atores: Usuário
+Pré-condições: Grupo de duplicatas existe no resultado do scan.
+Pós-condições: Nova janela criada; abas movidas; UI atualizada.
+
+Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+            </div>
+
+            <div class="req-card">
+              <div class="tag-row">
+                <span class="tag">UC04</span>
+                <span class="tag tag-ok">Definido</span>
+              </div>
+              <h3>Agrupar duplicatas (Tab Groups)</h3>
+              <p><b>Objetivo:</b> agrupar duplicatas na janela atual usando Tab Groups para melhorar organização.</p>
+              <div class="callout"><b>Destaque:</b> cria grupo “Duplicates” (cor cinza), que pode ser ajustado
+                manualmente depois.</div>
+              <pre class="ref-box">Atores: Usuário
+Pré-condições: Grupo de duplicatas existe no resultado do scan.
+Pós-condições: Grupo criado e abas agrupadas; UI atualizada.
+
+Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+            </div>
+          </div>
+        </div>
+        <div class="card section-content" id="diagramas-casos-uso">
+          <div class="card-title-row">
+            <h2>Diagramas de Casos de Uso</h2>
+            <span class="pill">Fluxo</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Fluxos em cards (sem imagens), no formato passo a passo.</p>
+
+          <div class="req-card" style="margin-top: 14px;">
+            <div class="tag-row">
+              <span class="tag">UC01</span>
+              <span class="tag tag-ok">Scan</span>
+            </div>
+            <h3>UC01 — Scan Tabs</h3>
+
+            <div class="step-grid">
+              <div class="step-card">
+                <div class="step-badge">1</div>
+                <strong>Abrir popup</strong>
+                <div class="muted">Usuário abre a extensão.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">2</div>
+                <strong>Iniciar scan</strong>
+                <div class="muted">Clica em “Scan Tabs”.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">3</div>
+                <strong>Coletar + filtrar</strong>
+                <div class="muted">Coleta abas e aplica filtros para evitar erros no scan.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">4</div>
+                <strong>Agrupar + renderizar</strong>
+                <div class="muted">Agrupa duplicatas, calcula stats e exibe no UI.</div>
+              </div>
+            </div>
+
+            <div class="tri-grid">
+              <div class="step-card">
+                <strong>Pré-condições</strong>
+                <div class="muted">Extensão instalada e popup acessível.</div>
+              </div>
+              <div class="step-card">
+                <strong>Pós-condições</strong>
+                <div class="muted">Estatísticas e grupos renderizados (ou estado vazio/erro).</div>
+              </div>
+              <div class="step-card">
+                <strong>Fluxo alternativo</strong>
+                <div class="muted">Sem duplicatas: exibe estado vazio. Em falha: exibe erro.</div>
+              </div>
+            </div>
+
+            <pre class="ref-box" style="margin-top: 12px;">Referências:
+  popup/popup-controller.js
+  orchestration/scan-orchestrator.js
+  browser/tabs-collector.js
+  core/url-normalizer.js
+  core/duplicate-detector.js
+  popup/ui-renderer.js</pre>
+          </div>
+
+          <div class="req-card" style="margin-top: 14px;">
+            <div class="tag-row">
+              <span class="tag">UC02</span>
+              <span class="tag tag-ok">Ação</span>
+            </div>
+            <h3>UC02 — Fechar duplicatas (manter 1)</h3>
+
+            <div class="step-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+              <div class="step-card">
+                <div class="step-badge">1</div>
+                <strong>Selecionar grupo</strong>
+                <div class="muted">Usuário escolhe “Fechar duplicatas”.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">2</div>
+                <strong>Validar + executar</strong>
+                <div class="muted">Orquestrador valida e executa fechamento das abas extras.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">3</div>
+                <strong>Atualizar UI</strong>
+                <div class="muted">Remove/atualiza grupo e exibe feedback.</div>
+              </div>
+            </div>
+
+            <div class="tri-grid">
+              <div class="step-card">
+                <strong>Pré-condições</strong>
+                <div class="muted">Scan executado e grupo disponível.</div>
+              </div>
+              <div class="step-card">
+                <strong>Pós-condições</strong>
+                <div class="muted">Abas fechadas (exceto 1) e UI atualizada.</div>
+              </div>
+              <div class="step-card">
+                <strong>Fluxo alternativo</strong>
+                <div class="muted">Falha parcial: retorna erros por aba e UI continua consistente.</div>
+              </div>
+            </div>
+
+            <pre class="ref-box" style="margin-top: 12px;">Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+          </div>
+
+          <div class="req-card" style="margin-top: 14px;">
+            <div class="tag-row">
+              <span class="tag">UC03</span>
+              <span class="tag tag-ok">Ação</span>
+            </div>
+            <h3>UC03 — Mover duplicatas para nova janela</h3>
+
+            <div class="step-grid">
+              <div class="step-card">
+                <div class="step-badge">1</div>
+                <strong>Selecionar grupo</strong>
+                <div class="muted">Usuário escolhe “Mover para nova janela”.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">2</div>
+                <strong>Validar ação</strong>
+                <div class="muted">Orquestrador valida o grupo e prepara as abas a mover.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">3</div>
+                <strong>Criar janela + mover</strong>
+                <div class="muted">Cria nova janela e move as duplicatas mantendo a ordem.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">4</div>
+                <strong>Atualizar UI</strong>
+                <div class="muted">Atualiza lista/grupo e exibe feedback da operação.</div>
+              </div>
+            </div>
+
+            <div class="tri-grid">
+              <div class="step-card">
+                <strong>Pré-condições</strong>
+                <div class="muted">Scan executado e grupo disponível.</div>
+              </div>
+              <div class="step-card">
+                <strong>Pós-condições</strong>
+                <div class="muted">Nova janela criada e duplicatas movidas; UI atualizada.</div>
+              </div>
+              <div class="step-card">
+                <strong>Fluxo alternativo</strong>
+                <div class="muted">Falha na criação/movimentação: retorna erro e mantém UI consistente.</div>
+              </div>
+            </div>
+
+            <pre class="ref-box" style="margin-top: 12px;">Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+          </div>
+
+          <div class="req-card" style="margin-top: 14px;">
+            <div class="tag-row">
+              <span class="tag">UC04</span>
+              <span class="tag tag-ok">Ação</span>
+            </div>
+            <h3>UC04 — Agrupar duplicatas (Tab Groups)</h3>
+
+            <div class="step-grid">
+              <div class="step-card">
+                <div class="step-badge">1</div>
+                <strong>Selecionar grupo</strong>
+                <div class="muted">Usuário escolhe “Agrupar duplicatas”.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">2</div>
+                <strong>Validar + preparar</strong>
+                <div class="muted">Orquestrador valida e prepara o conjunto de abas alvo.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">3</div>
+                <strong>Criar grupo</strong>
+                <div class="muted">Cria Tab Group “Duplicates” (cinza) na janela atual.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-badge">4</div>
+                <strong>Atribuir abas + atualizar</strong>
+                <div class="muted">Adiciona as duplicatas ao grupo e atualiza o UI.</div>
+              </div>
+            </div>
+
+            <div class="tri-grid">
+              <div class="step-card">
+                <strong>Pré-condições</strong>
+                <div class="muted">Scan executado e grupo disponível na UI.</div>
+              </div>
+              <div class="step-card">
+                <strong>Pós-condições</strong>
+                <div class="muted">Grupo criado e duplicatas agrupadas; UI atualizada.</div>
+              </div>
+              <div class="step-card">
+                <strong>Fluxo alternativo</strong>
+                <div class="muted">Sem suporte/erro em grouping: retorna erro e não altera abas.</div>
+              </div>
+            </div>
+
+            <pre class="ref-box" style="margin-top: 12px;">Referências:
+  popup/popup-controller.js
+  orchestration/action-orchestrator.js
+  browser/tabs-actions.js</pre>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="desenvolvimento">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Desenvolvimento</h2>
+            <span class="pill">Como evoluir</span>
+          </div>
+
+          <div class="dev-hero">
+            <div class="dev-hero-top">
+              <div class="dev-icon">⏱</div>
+              <div>
+                <h3>Visão Geral</h3>
+                <div class="muted">Decisões práticas para manter o projeto simples, seguro e evolutivo.</div>
+              </div>
+            </div>
+            <p>
+              A extensão é construída em JavaScript com ES6 Modules e Manifest V3, sem dependências externas.
+              A separação por camadas mantém a lógica de negócio independente das APIs do Chrome, facilitando manutenção
+              e futuras melhorias.
+            </p>
+          </div>
+
+          <div class="dev-grid">
+            <div class="dev-card">
+              <div class="dev-card-top">
+                <div class="dev-icon ic-green">🛡</div>
+                <div>
+                  <h4>Segurança</h4>
+                  <div class="muted">Permissões mínimas e ações explícitas do usuário.</div>
+                </div>
+              </div>
+              <p>
+                A extensão trabalha localmente com abas do navegador; não envia dados para rede.
+                As operações que alteram estado (fechar/mover/agrupar) só ocorrem quando o usuário confirma no popup.
+              </p>
+              <div class="dev-callout blue"><strong>Destaque:</strong> validações antes de executar ações em <span
+                  class="highlight">orchestration/action-orchestrator.js</span>.</div>
+            </div>
+
+            <div class="dev-card">
+              <div class="dev-card-top">
+                <div class="dev-icon ic-blue">⚡</div>
+                <div>
+                  <h4>Desempenho</h4>
+                  <div class="muted">Scan rápido e renderização incremental.</div>
+                </div>
+              </div>
+              <p>
+                O scan coleta dados essenciais e agrupa por URL normalizada em memória.
+                A UI renderiza estatísticas e grupos de forma direta, evitando processamento pesado no popup.
+              </p>
+              <div class="dev-callout green"><strong>Destaque:</strong> normalização reduz duplicidade falsa em <span
+                  class="highlight">core/url-normalizer.js</span>.</div>
+            </div>
+
+            <div class="dev-card">
+              <div class="dev-card-top">
+                <div class="dev-icon ic-indigo">▦</div>
+                <div>
+                  <h4>Estrutura & Boas Práticas</h4>
+                  <div class="muted">Camadas com dependências unidirecionais.</div>
+                </div>
+              </div>
+              <p>
+                <span class="highlight">core/</span> não depende do Chrome; <span class="highlight">browser/</span>
+                isola APIs;
+                <span class="highlight">orchestration/</span> coordena fluxos; <span class="highlight">popup/</span>
+                cuida da UI.
+              </p>
+              <div class="dev-chip-row">
+                <span class="dev-chip">Core</span>
+                <span class="dev-chip">Browser</span>
+                <span class="dev-chip">Orchestration</span>
+                <span class="dev-chip">UI</span>
+              </div>
+              <div class="dev-callout blue"><strong>Destaque:</strong> lógica de duplicatas fica em <span
+                  class="highlight">core/duplicate-detector.js</span> (puro).</div>
+            </div>
+
+            <div class="dev-card">
+              <div class="dev-card-top">
+                <div class="dev-icon ic-pink">🧪</div>
+                <div>
+                  <h4>Testes & CI</h4>
+                  <div class="muted">Prioridade para estabilidade do fluxo principal.</div>
+                </div>
+              </div>
+              <p>
+                Não há suíte automatizada no runtime atual.
+                O caminho natural é começar por testes de unidade do <span class="highlight">core/</span> (normalização
+                e detecção).
+              </p>
+              <div class="dev-callout red"><strong>Planejado:</strong> adicionar testes do core e checagens automáticas
+                em pipeline (CI).</div>
+            </div>
+
+            <div class="dev-card" style="grid-column: span 2;">
+              <div class="dev-card-top">
+                <div class="dev-icon ic-cyan">👥</div>
+                <div>
+                  <h4>Contribuição</h4>
+                  <div class="muted">Como adicionar regras, ações e UI sem quebrar camadas.</div>
+                </div>
+              </div>
+              <p>
+                Para evoluir com baixo risco, mantenha mudanças de regra no <span class="highlight">core/</span>.
+                Ações devem ser implementadas em <span class="highlight">browser/tabs-actions.js</span> e orquestradas
+                em <span class="highlight">orchestration/action-orchestrator.js</span>.
+                A UI fica concentrada em <span class="highlight">popup/popup-controller.js</span> e <span
+                  class="highlight">popup/ui-renderer.js</span>.
+              </p>
+              <pre class="ref-box">Onde mexer:
+  Nova regra: core/url-normalizer.js
+  Nova ação: browser/tabs-actions.js + orchestration/action-orchestrator.js
+  Novo fluxo de scan: orchestration/scan-orchestrator.js
+  UI/Interações: popup/popup-controller.js + popup/ui-renderer.js</pre>
+              <div class="dev-callout blue"><strong>Destaque:</strong> manter core puro evita acoplamento com Chrome
+                API.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="tecnologias">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Tecnologias Utilizadas</h2>
+            <span class="pill">Stack</span>
+          </div>
+
+          <p class="muted" style="margin: 6px 0 0 0;">Stack do projeto e onde cada tecnologia aparece no código.</p>
+
+          <div class="tech-grid">
+            <div class="tech-col">
+              <h3>Core & Qualidade</h3>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-yellow">JS</span>
+                    <span class="tech-meta">
+                      JavaScript (ES6 Modules)
+                      <small>Imports/exports por módulo</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> módulos independentes por responsabilidade
+                    (core/browser/orchestration/popup).</div>
+                  <pre class="ref-box" style="margin-top:10px;">Exemplos:
+  core/url-normalizer.js
+  core/duplicate-detector.js</pre>
+                </div>
+              </details>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-indigo">CA</span>
+                    <span class="tech-meta">
+                      Clean Architecture
+                      <small>Separação de camadas e dependências</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> core puro; browser isola Chrome APIs; orquestração coordena;
+                    UI só apresenta.</div>
+                </div>
+              </details>
+            </div>
+
+            <div class="tech-col">
+              <h3>Extensão & APIs</h3>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-purple">MV3</span>
+                    <span class="tech-meta">
+                      Manifest V3
+                      <small>Configuração da extensão</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> define permissões e o popup da action.</div>
+                  <pre class="ref-box" style="margin-top:10px;">Config:
+  manifest.json</pre>
+                </div>
+              </details>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-blue">API</span>
+                    <span class="tech-meta">
+                      Chrome Extensions API
+                      <small>tabs e tabGroups</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> coleta de abas e execução de ações (fechar/mover/agrupar).
+                  </div>
+                  <pre class="ref-box" style="margin-top:10px;">Browser:
+  browser/tabs-collector.js
+  browser/tabs-actions.js</pre>
+                </div>
+              </details>
+            </div>
+
+            <div class="tech-col">
+              <h3>UI & Docs</h3>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-orange">UI</span>
+                    <span class="tech-meta">
+                      HTML + CSS (Popup)
+                      <small>Interface com cards/estados</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> layout e componentes do popup + renderização dinâmica de
+                    grupos.</div>
+                  <pre class="ref-box" style="margin-top:10px;">UI:
+  popup/popup.html
+  popup/popup.css
+  popup/ui-renderer.js</pre>
+                </div>
+              </details>
+
+              <details class="tech-item">
+                <summary>
+                  <span class="tech-left">
+                    <span class="tech-ic ic-slate">DOC</span>
+                    <span class="tech-meta">
+                      Documentação
+                      <small>Arquitetura, estruturas e instalação</small>
+                    </span>
+                  </span>
+                  <span class="chev">›</span>
+                </summary>
+                <div class="tech-body">
+                  <div class="muted"><b>Uso no projeto:</b> guia de arquitetura, estruturas de dados,
+                    instalação/validação e changelog.</div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="arquitetura">
+        <div class="card section-content">
+          <div class="card-title-row">
+            <h2>Arquitetura e Estrutura Completa</h2>
+            <span class="pill">Clean Architecture</span>
+          </div>
+
+          <p class="lead">O projeto segue Clean Architecture com dependências unidirecionais (camadas externas dependem
+            das internas, nunca o contrário).</p>
+
+          <div class="cards-grid">
+            <div class="mini-card"><strong>Core</strong>Lógica de negócio pura (<span class="highlight">core/</span>)
+            </div>
+            <div class="mini-card"><strong>Browser</strong>Integração com Chrome API (<span
+                class="highlight">browser/</span>)</div>
+            <div class="mini-card"><strong>Orchestration</strong>Coordenação de fluxos (<span
+                class="highlight">orchestration/</span>)</div>
+            <div class="mini-card"><strong>UI</strong>Interface do usuário (<span class="highlight">popup/</span>)</div>
+          </div>
+
+          <div class="structure-layout">
+            <div class="structure-card">
+              <div class="structure-head">
+                <span class="fh">📁</span>
+                Estrutura do Projeto
+              </div>
+              <div class="structure-body">
+                <div class="muted">Somente o que é essencial para a extensão funcionar (runtime).</div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📄</span>
+                    <div class="tree-name">manifest.json</div>
+                  </div>
+                  <div class="tree-desc">Manifest V3: define permissões, action/popup e ícones da extensão.</div>
+                </div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📁</span>
+                    <div class="tree-name">core/</div>
+                  </div>
+                  <div class="tree-desc">Lógica de negócio pura: normalização e detecção de duplicatas (sem Chrome API).
+                  </div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">core/url-normalizer.js</div>
+                  </div>
+                  <div class="tree-desc">Normaliza URLs (remove hash/UTM) e valida URLs para análise (ignora páginas
+                    internas).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">core/duplicate-detector.js</div>
+                  </div>
+                  <div class="tree-desc">Agrupa abas por URL normalizada e calcula estatísticas de duplicatas.</div>
+                </div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📁</span>
+                    <div class="tree-name">browser/</div>
+                  </div>
+                  <div class="tree-desc">Integração com Chrome APIs (read/write): coleta abas e executa ações.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">browser/tabs-collector.js</div>
+                  </div>
+                  <div class="tree-desc">Coleta abas e aplica filtros + normalização.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">browser/tabs-actions.js</div>
+                  </div>
+                  <div class="tree-desc">Ações sobre abas: fechar, mover para nova janela e agrupar (tabGroups), com
+                    resultado detalhado.</div>
+                </div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📁</span>
+                    <div class="tree-name">orchestration/</div>
+                  </div>
+                  <div class="tree-desc">Coordena fluxos entre camadas: scan completo e ações do usuário com validações.
+                  </div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">orchestration/scan-orchestrator.js</div>
+                  </div>
+                  <div class="tree-desc">Orquestra o scan: coleta abas → detecta duplicatas → calcula estatísticas →
+                    retorna ScanResult.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">orchestration/action-orchestrator.js</div>
+                  </div>
+                  <div class="tree-desc">Orquestra ações (fechar/mover/agrupar) validando grupos e abas antes de
+                    executar.</div>
+                </div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📁</span>
+                    <div class="tree-name">popup/</div>
+                  </div>
+                  <div class="tree-desc">Interface do usuário (popup): eventos/estado, renderização e estilos.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">📄</span>
+                    <div class="tree-name">popup/popup.html</div>
+                  </div>
+                  <div class="tree-desc">Estrutura do popup (layout, containers, pontos de renderização).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">🎨</span>
+                    <div class="tree-name">popup/popup.css</div>
+                  </div>
+                  <div class="tree-desc">Estilos visuais do popup (cards, botões, estados e responsividade).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">popup/popup.js</div>
+                  </div>
+                  <div class="tree-desc">Entry point: inicializa o controlador e tratamento global de erros.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">popup/popup-controller.js</div>
+                  </div>
+                  <div class="tree-desc">Gerencia eventos e estado local do popup (ex.: último scan) e aciona
+                    orquestradores.</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">JS</span>
+                    <div class="tree-name">popup/ui-renderer.js</div>
+                  </div>
+                  <div class="tree-desc">Renderiza estatísticas e grupos; atualiza UI após ações (loading/empty/error).
+                  </div>
+                </div>
+
+                <div class="tree-entry">
+                  <div class="tree-left">
+                    <span class="tree-ic">📁</span>
+                    <div class="tree-name">icons/</div>
+                  </div>
+                  <div class="tree-desc">Ícones usados pelo Chrome para exibir a extensão (toolbar, manager e store).
+                  </div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">🖼️</span>
+                    <div class="tree-name">icons/icon16.png</div>
+                  </div>
+                  <div class="tree-desc">Ícone 16×16 (UI do Chrome).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">🖼️</span>
+                    <div class="tree-name">icons/icon48.png</div>
+                  </div>
+                  <div class="tree-desc">Ícone 48×48 (gerenciador/extensões).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">🖼️</span>
+                    <div class="tree-name">icons/icon128.png</div>
+                  </div>
+                  <div class="tree-desc">Ícone 128×128 (Chrome Web Store / details).</div>
+                </div>
+                <div class="tree-entry indent">
+                  <div class="tree-left">
+                    <span class="tree-ic">SVG</span>
+                    <div class="tree-name">icons/icon.svg</div>
+                  </div>
+                  <div class="tree-desc">Fonte vetorial do ícone.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-col">
+              <div class="stat-card">
+                <div class="stat-ic">JS</div>
+                <div>
+                  <div class="stat-num">9</div>
+                  <div class="muted">Módulos JS (runtime)</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-ic">CSS</div>
+                <div>
+                  <div class="stat-num">1</div>
+                  <div class="muted">Arquivo CSS (popup)</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-ic">&lt;300</div>
+                <div>
+                  <div class="stat-num">290</div>
+                  <div class="muted">Maior arquivo (linhas)</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-ic">ES6</div>
+                <div>
+                  <div class="stat-num">Modules</div>
+                  <div class="muted">Imports/exports nativos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details class="accordion" style="margin-top: 16px;">
+            <summary>
+              Métricas: linhas por arquivo (runtime)
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <pre class="ref-box">popup/popup.css: 290
+popup/ui-renderer.js: 254
+popup/popup-controller.js: 227
+browser/tabs-actions.js: 202
+orchestration/action-orchestrator.js: 173
+browser/tabs-collector.js: 120
+core/duplicate-detector.js: 115
+orchestration/scan-orchestrator.js: 100
+core/url-normalizer.js: 90
+popup/popup.html: 66
+popup/popup.js: 49</pre>
+            </div>
+          </details>
+
+          <div class="card" style="margin: 18px 0 0 0; border-left-color: rgba(102,126,234,0.55);">
+            <div class="card-title-row" style="margin-bottom: 6px;">
+              <h3 style="margin:0;">Arquitetura de Dados (essencial)</h3>
+              <span class="pill">POJOs</span>
+            </div>
+            <p class="muted" style="margin: 6px 0 0 0;">Estruturas mínimas para trafegar dados entre camadas (tabs →
+              grupos → UI).</p>
+
+            <div class="data-grid">
+              <div class="req-card">
+                <div class="tag-row">
+                  <span class="tag">DT01</span>
+                  <span class="tag tag-ok">Em uso</span>
+                </div>
+                <h3>NormalizedTab</h3>
+                <p>Representa uma aba normalizada para análise (dados necessários, sem Tab nativo do Chrome).</p>
+                <pre class="ref-box">Usado em:
+  browser/tabs-collector.js
+  core/duplicate-detector.js</pre>
+              </div>
+
+              <div class="req-card">
+                <div class="tag-row">
+                  <span class="tag">DT02</span>
+                  <span class="tag tag-ok">Em uso</span>
+                </div>
+                <h3>DuplicateGroup</h3>
+                <p>Grupo de duplicatas por <span class="highlight">normalizedUrl</span> com lista de abas e contagem.
+                </p>
+                <pre class="ref-box">Usado em:
+  core/duplicate-detector.js
+  popup/ui-renderer.js</pre>
+              </div>
+
+              <div class="req-card">
+                <div class="tag-row">
+                  <span class="tag">DT03</span>
+                  <span class="tag tag-ok">Em uso</span>
+                </div>
+                <h3>ScanResult + Statistics</h3>
+                <p>Resultado consolidado do scan (sucesso, grupos, stats, erro, timestamp) para renderização na UI.</p>
+                <pre class="ref-box">Usado em:
+  orchestration/scan-orchestrator.js
+  popup/popup-controller.js
+  popup/ui-renderer.js</pre>
+              </div>
+            </div>
+          </div>
+
+          <details class="accordion">
+            <summary>
+              Visão do sistema (camadas)
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <pre style="background:#f6f8fa;border-radius:8px;padding:1em;overflow-x:auto;">
+UI (popup.html + CSS)
+  ↓
+Presentation (popup-controller, ui-renderer)
+  ↓
+Orchestration (scan-orchestrator, action-orchestrator)
+  ↓
+Browser (tabs-collector, tabs-actions)  +  Core (url-normalizer, duplicate-detector)
+  ↓
+Chrome APIs (apenas na Browser Layer)
+              </pre>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Fluxo: Scan Tabs
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <pre style="background:#f6f8fa;border-radius:8px;padding:1em;overflow-x:auto;">
+[User clicks "Scan Tabs"]
+  → popup-controller.js (handleScanClick)
+  → scan-orchestrator.js (performScan)
+  → tabs-collector.js (collectAllTabs)
+      → url-normalizer.js (normalizeUrl)
+  → duplicate-detector.js (detectDuplicates + calculateStatistics)
+  → ui-renderer.js (renderStatistics + renderDuplicateGroups)
+              </pre>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Fluxo: Fechar duplicatas (exemplo)
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <pre style="background:#f6f8fa;border-radius:8px;padding:1em;overflow-x:auto;">
+[User clicks "Close Duplicates"]
+  → popup-controller.js (handleGroupActionClick + handleCloseAction)
+  → action-orchestrator.js (closeDuplicatesKeepOne)
+      → valida grupo e abas
+  → tabs-actions.js (closeTabs)
+      → chrome.tabs.remove()
+  → popup-controller.js atualiza UI
+  → ui-renderer.js removeGroupFromUI()
+              </pre>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Detalhes: Estruturas de dados (referência)
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <p class="muted" style="margin-top: 0;">Resumo formal dos formatos.</p>
+
+              <details class="accordion" style="margin-top: 12px;">
+                <summary>
+                  Ver formatos (resumo)
+                  <span class="chev">›</span>
+                </summary>
+                <div class="accordion-body">
+                  <pre style="background:#f6f8fa;border-radius:8px;padding:1em;overflow-x:auto;">
+NormalizedTab {
+  id, url, normalizedUrl, title, windowId, index,
+  metadata: { active, highlighted, groupId }
+}
+
+DuplicateGroup { normalizedUrl, count, tabs: NormalizedTab[] }
+
+Statistics { totalGroups, totalDuplicateTabs, potentialTabsToClose }
+
+ScanResult {
+  success, totalTabsScanned, duplicateGroups, statistics,
+  error, timestamp
+}
+
+BatchOperationResult { successCount, failureCount, errors: [{ tabId, error }] }
+                  </pre>
+                  <p class="muted">Obs.: <span class="highlight">potentialTabsToClose</span> é a soma de <span
+                      class="highlight">(count - 1)</span> por grupo (mantém uma aba por grupo).</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Matriz de responsabilidades (módulos)
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <pre style="background:#f6f8fa;border-radius:8px;padding:1em;overflow-x:auto;">
+Module               | Read Chrome API | Write Chrome API | Business Logic | UI Logic
+url-normalizer       | No             | No              | Yes            | No
+duplicate-detector   | No             | No              | Yes            | No
+tabs-collector       | Yes            | No              | No             | No
+tabs-actions         | No             | Yes             | No             | No
+scan-orchestrator    | No             | No              | No             | No
+action-orchestrator  | No             | No              | No             | No
+popup-controller     | No             | No              | No             | Yes
+ui-renderer          | No             | No              | No             | Yes
+              </pre>
+            </div>
+          </details>
+
+          <details class="accordion">
+            <summary>
+              Estado e erros
+              <span class="chev">›</span>
+            </summary>
+            <div class="accordion-body">
+              <ul>
+                <li><b>Sem estado global:</b> módulos core e adapters são desenhados de forma stateless/pura.</li>
+                <li><b>Estado local:</b> <span class="highlight">popup-controller.js</span> mantém estado do último scan
+                  em memória.</li>
+                <li><b>Estratégia de erro por camada:</b> Browser pode falhar com contexto; orquestração captura e
+                  transforma em objetos de resultado; UI exibe mensagens amigáveis.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

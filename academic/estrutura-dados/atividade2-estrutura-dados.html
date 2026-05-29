@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2 - Estrutura de Dados</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ECF0F1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 25px;
+            color: #2C3E50;
+        }
+
+        /* Container principal */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            align-items: flex-start;
+        }
+
+        /* Seções individuais */
+        .section {
+            flex-grow: 1;
+            min-width: 280px;
+            border: 4px solid #2C3E50;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+        }
+
+        /* Lista de valores */
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 40%;
+            margin: auto;
+        }
+
+        /* Itens da lista */
+        li {
+            background: #60d24c;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Texto do item centralizado */
+        .item-texto {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Botões */
+        button {
+            background-color: #4ca7d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 8px 12px;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #159edf;
+        }
+
+        /* Botão de remover */
+        .remover {
+            background-color: #f43c23;
+            padding: 5px 10px;
+        }
+
+        .remover:hover {
+            background-color: #ef2308;
+        }
+
+        /* Espaçamento para os botões centrais */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Botões especiais */
+        .btn-duplicar, .btn-limpar, .btn-multiplicar {
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .btn-duplicar {
+            background-color: #ffa500;
+        }
+
+        .btn-duplicar:hover {
+            background-color: #ff8c00;
+        }
+
+        .btn-limpar {
+            background-color: #f43c23;
+        }
+
+        .btn-limpar:hover {
+            background-color: #ef2308;
+        }
+
+        .btn-multiplicar {
+            background-color: #3498db;
+        }
+
+        .btn-multiplicar:hover {
+            background-color: #2980b9;
+        }
+
+        /* Campo de entrada para multiplicação */
+        #multiplicador {
+            width: 60px;
+            padding: 8px;
+            text-align: center;
+            font-size: 16px;
+            border: 2px solid #2C3E50;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Atividade 2 - Estrutura de Dados</h1>
+
+    <div class="container">
+        <!-- Seção para adicionar 3 valores -->
+        <div class="section">
+            <h3>Adicionar 3 valores</h3>
+            <input type="number" id="valor1" placeholder="Valor 1">
+            <input type="number" id="valor2" placeholder="Valor 2">
+            <input type="number" id="valor3" placeholder="Valor 3">
+            <button onclick="adicionarValores()">Adicionar Valores</button>
+        </div>
+
+        <!-- Seção para inserir novo valor -->
+        <div class="section">
+            <h3>Inserir novo valor</h3>
+            <input type="number" id="novoValor" placeholder="Novo Valor">
+            <button onclick="inserirNaLista()">Inserir novo valor</button>
+        </div>
+    </div>
+
+    <!-- Entrada e botões centrais -->
+    <div class="buttons-container">
+        <input type="number" id="multiplicador" placeholder="x2">
+        <button class="btn-multiplicar" onclick="multiplicarLista()">Multiplicar</button>
+        <button class="btn-duplicar" onclick="duplicarLista()">Duplicar</button>
+        <button class="btn-limpar" onclick="limparLista()">Limpar</button>
+    </div>
+
+    <!-- Seção Resultados -->
+    <div class="section">
+        <h3>Resultados</h3>
+        <ul id="listaValores"></ul>
+    </div>
+
+    <script>
+        let lista = []; // Vetor para armazenar os valores
+        const tamanhoMaximo = 20; // Define o tamanho máximo da lista
+
+        function adicionarValores() {
+            let v1 = parseInt(document.getElementById("valor1").value);
+            let v2 = parseInt(document.getElementById("valor2").value);
+            let v3 = parseInt(document.getElementById("valor3").value);
+
+            if (isNaN(v1) || isNaN(v2) || isNaN(v3)) {
+                alert("Por favor, insira números válidos!");
+                return;
+            }
+
+            lista.push(v1, v2, v3);
+            atualizarLista();
+        }
+
+        function inserirNaLista() {
+            let novoValor = parseInt(document.getElementById("novoValor").value);
+
+            if (isNaN(novoValor)) {
+                alert("Por favor, insira um número válido!");
+                return;
+            }
+
+            if (lista.length < tamanhoMaximo) {
+                lista.push(novoValor);
+                atualizarLista();
+            } else {
+                alert("A lista atingiu o tamanho máximo!");
+            }
+        }
+
+        function duplicarLista() {
+            let novaLista = [];
+            
+            lista.forEach(valor => {
+                novaLista.push(valor, valor);
+            });
+
+            lista = novaLista;
+            atualizarLista();
+        }
+
+        function limparLista() {
+            lista = []; // Esvazia a lista
+            atualizarLista();
+        }
+
+        function multiplicarLista() {
+            let multiplicador = parseInt(document.getElementById("multiplicador").value);
+
+            if (isNaN(multiplicador)) {
+                alert("Por favor, insira um número válido para multiplicar!");
+                return;
+            }
+
+            lista = lista.map(valor => valor * multiplicador);
+            atualizarLista();
+        }
+
+        function removerItem(index) {
+            lista.splice(index, 1);
+            atualizarLista();
+        }
+
+        function atualizarLista() {
+            let listaElement = document.getElementById("listaValores");
+            listaElement.innerHTML = "";
+
+            lista.forEach((valor, index) => {
+                let item = document.createElement("li");
+                item.innerHTML = `<span class="item-texto">${valor}</span> <button class="remover" onclick="removerItem(${index})">X</button>`;
+                listaElement.appendChild(item);
+            });
+        }
+    </script>
+
+</body>
+</html>

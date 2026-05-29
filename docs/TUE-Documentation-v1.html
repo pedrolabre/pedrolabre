@@ -1,0 +1,2558 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Tab URL Extractor — TUE-Documentation v1</title>
+  <style>
+    /*
+      TUE Documentation (v1)
+      Theme based on popup/popup.css variables
+    */
+
+    :root {
+      --color-primary: #4285f4;
+      --color-primary-hover: #3367d6;
+      --color-primary-active: #2952b3;
+      --color-secondary: #5f6368;
+      --color-secondary-hover: #4a4d50;
+      --color-success: #34a853;
+      --color-error: #ea4335;
+      --color-warning: #fbbc04;
+
+      --color-bg: #ffffff;
+      --color-surface: #f8f9fa;
+      --color-border: #dadce0;
+      --color-text-primary: #202124;
+      --color-text-secondary: #5f6368;
+      --color-text-disabled: #9aa0a6;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+
+      --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      --shadow-md: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+
+      --max-content: 1040px;
+      --sidebar-width: 320px;
+      --topbar-height: 56px;
+
+      --mono-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --ui-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: var(--ui-font);
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+    }
+
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-primary-hover); text-decoration: underline; }
+
+    code, pre { font-family: var(--mono-font); }
+    pre {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      overflow: auto;
+    }
+    code {
+      background: rgba(66, 133, 244, 0.08);
+      padding: 0 6px;
+      border-radius: var(--radius-sm);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ========================================
+       Landing components
+       ======================================== */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      padding: 6px 10px;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge strong {
+      color: var(--color-text-primary);
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: #fff;
+      padding: 12px 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .i-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      border: 1px solid rgba(91, 114, 255, 0.22);
+      background: #eef2ff;
+      color: #3b5bfd;
+      box-shadow: 0 6px 18px rgba(91, 114, 255, 0.18);
+    }
+
+    .i-green { background: rgba(52, 168, 83, 0.14); color: #0f7a39; border-color: rgba(52, 168, 83, 0.25); box-shadow: 0 6px 18px rgba(52, 168, 83, 0.16); }
+    .i-orange { background: rgba(251, 188, 4, 0.18); color: #a05c00; border-color: rgba(251, 188, 4, 0.30); box-shadow: 0 6px 18px rgba(251, 188, 4, 0.18); }
+    .i-pink { background: rgba(233, 30, 99, 0.12); color: #a51d4f; border-color: rgba(233, 30, 99, 0.22); box-shadow: 0 6px 18px rgba(233, 30, 99, 0.12); }
+    .i-cyan { background: rgba(0, 184, 212, 0.12); color: #006b7c; border-color: rgba(0, 184, 212, 0.22); box-shadow: 0 6px 18px rgba(0, 184, 212, 0.12); }
+    .i-purple { background: rgba(124, 58, 237, 0.12); color: #4c1d95; border-color: rgba(124, 58, 237, 0.22); box-shadow: 0 6px 18px rgba(124, 58, 237, 0.14); }
+
+    .card-top h3 { margin: 0 0 6px; }
+    .card-top p { margin: 0; }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .flow-step {
+      grid-column: span 3;
+      border: 1px solid #e5e7eb;
+      background: #f3f6ff;
+      border-radius: 14px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .flow-step .n {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: #5b72ff;
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .flow-step h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      letter-spacing: -0.1px;
+    }
+
+    .flow-step p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 12.5px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .accent-note {
+      margin-top: 10px;
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      border-left: 4px solid #5b72ff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: var(--color-text-primary);
+    }
+
+    .accent-note strong { font-weight: 900; }
+
+    .tech-col-title {
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      font-size: 12px;
+      color: #1a56db;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .tech-item {
+      border: 1px solid #eef2f7;
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      margin-top: 10px;
+    }
+
+    .tech-item:first-of-type { margin-top: 0; }
+
+    .tech-item-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tech-item-head h4 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: -0.1px;
+    }
+
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: #f3f4f6;
+      color: #374151;
+      font-weight: 800;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 980px) {
+      .flow-step { grid-column: span 12; }
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: -0.1px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .mini-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--color-text-secondary);
+      margin: 14px 0 6px;
+    }
+
+    .link-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .link-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       Requirements/Future cards (section-only)
+       ======================================== */
+    .section-panel {
+      margin-top: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+      color: #5b72ff;
+    }
+
+    .section-subtitle {
+      margin: 0 0 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: rgba(66, 133, 244, 0.08);
+      color: #3b5bfd;
+      font-weight: 700;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .chip.gray {
+      background: #f3f4f6;
+      color: #374151;
+      border-color: #e5e7eb;
+    }
+
+    .chip.green {
+      background: rgba(52, 168, 83, 0.12);
+      color: #0f7a39;
+      border-color: rgba(52, 168, 83, 0.35);
+    }
+
+    .chip.orange {
+      background: rgba(251, 188, 4, 0.14);
+      color: #a05c00;
+      border-color: rgba(251, 188, 4, 0.45);
+    }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .req-card {
+      grid-column: span 4;
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 16px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      min-width: 0;
+    }
+
+    .req-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .req-card h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      letter-spacing: -0.1px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .req-card p {
+      margin: 0 0 10px;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .req-code {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 10px;
+      font-family: var(--mono-font);
+      font-size: 12px;
+      color: #111827;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .req-code strong {
+      font-family: var(--ui-font);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #374151;
+    }
+
+    @media (max-width: 980px) {
+      .req-card { grid-column: span 12; }
+    }
+
+    /* ========================================
+       Use cases (cards + diagrams)
+       ======================================== */
+    .uc-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .uc-card {
+      grid-column: span 6;
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 16px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      min-width: 0;
+    }
+
+    .uc-card h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      letter-spacing: -0.1px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .uc-card p {
+      margin: 0 0 10px;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .uc-kv {
+      margin: 0 0 8px;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+
+    .uc-kv strong {
+      color: var(--color-text-primary);
+    }
+
+    .uc-highlight {
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      border-left: 4px solid rgba(52, 168, 83, 0.85);
+      color: var(--color-text-primary);
+    }
+
+    .uc-highlight strong {
+      font-weight: 800;
+    }
+
+    .uc-diagram {
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 18px;
+      background: #fff;
+      padding: 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      margin-top: 14px;
+      min-width: 0;
+    }
+
+    .uc-diagram-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.1px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .step {
+      grid-column: span 3;
+      border: 1px solid #e5e7eb;
+      background: #f3f6ff;
+      border-radius: 14px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .step .n {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: #5b72ff;
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .step h5 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      letter-spacing: -0.1px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 12.5px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .info {
+      grid-column: span 4;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 12px;
+      min-width: 0;
+    }
+
+    .info h5 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      letter-spacing: -0.1px;
+    }
+
+    .info p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 12.5px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    @media (max-width: 980px) {
+      .uc-card { grid-column: span 12; }
+      .step { grid-column: span 12; }
+      .info { grid-column: span 12; }
+    }
+
+    /* ========================================
+       Architecture (section-only)
+       ======================================== */
+    .arch-layer-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .arch-layer {
+      grid-column: span 4;
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 16px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      min-width: 0;
+    }
+
+    .arch-layer h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: -0.1px;
+    }
+
+    .arch-layer p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .arch-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(91, 114, 255, 0.12);
+      color: #3b5bfd;
+      border: 1px solid rgba(91, 114, 255, 0.25);
+      font-family: var(--mono-font);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .arch-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .arch-structure {
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      min-width: 0;
+    }
+
+    .arch-structure-head {
+      padding: 14px 14px;
+      background: linear-gradient(90deg, #5b72ff, #6b4be3);
+      color: #fff;
+      display: grid;
+      gap: 6px;
+    }
+
+    .arch-structure-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+
+    .arch-structure-title .ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.22);
+      font-weight: 900;
+    }
+
+    .arch-structure-head .sub {
+      color: rgba(255,255,255,0.86);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .arch-rows {
+      padding: 12px 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .arch-row {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 14px;
+      padding: 10px 0;
+      border-top: 1px solid #eef2f7;
+      min-width: 0;
+    }
+
+    .arch-row:first-child { border-top: 0; }
+
+    .arch-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .fi {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #eef2ff;
+      color: #3b5bfd;
+      border: 1px solid rgba(91, 114, 255, 0.22);
+      font-weight: 900;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+
+    .fi.folder { background: rgba(52, 168, 83, 0.12); color: #0f7a39; border-color: rgba(52, 168, 83, 0.25); }
+    .fi.file { background: rgba(66, 133, 244, 0.10); color: #1a56db; border-color: rgba(66, 133, 244, 0.22); }
+    .fi.js { background: rgba(91, 114, 255, 0.15); color: #3b5bfd; border-color: rgba(91, 114, 255, 0.25); }
+    .fi.css { background: rgba(251, 188, 4, 0.15); color: #a05c00; border-color: rgba(251, 188, 4, 0.28); }
+
+    .arch-path {
+      font-family: var(--mono-font);
+      font-size: 12px;
+      color: #111827;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .arch-right {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      min-width: 0;
+    }
+
+    .arch-side {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .arch-metric {
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      border-radius: 18px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .arch-metric-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      border: 1px solid rgba(91, 114, 255, 0.22);
+      background: #eef2ff;
+      color: #3b5bfd;
+      flex: 0 0 auto;
+    }
+
+    .arch-metric-ico.css { background: rgba(251, 188, 4, 0.15); color: #a05c00; border-color: rgba(251, 188, 4, 0.28); }
+    .arch-metric-ico.muted { background: #f3f4f6; color: #374151; border-color: #e5e7eb; }
+
+    .arch-metric-value {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.05;
+    }
+
+    .arch-metric-label {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 980px) {
+      .arch-layer { grid-column: span 12; }
+      .arch-layout { grid-template-columns: 1fr; }
+      .arch-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 980px) {
+      .two-col { grid-template-columns: 1fr; }
+      .col-6, .col-4, .col-8 { grid-column: span 12; }
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      grid-template-rows: var(--topbar-height) 1fr;
+      grid-template-areas:
+        "topbar topbar"
+        "sidebar content";
+      min-height: 100vh;
+    }
+
+    .topbar {
+      grid-area: topbar;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      flex: 0 0 auto;
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-title strong {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .brand-title span {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.2;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      padding: 6px 10px;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      color: var(--color-text-primary);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .btn:hover { background: var(--color-surface); }
+    .btn:active { background: #eef0f2; }
+    .btn-primary {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+    .btn-primary:active { background: var(--color-primary-active); border-color: var(--color-primary-active); }
+
+    .sidebar {
+      grid-area: sidebar;
+      border-right: 1px solid var(--color-border);
+      background: #fff;
+      position: sticky;
+      top: var(--topbar-height);
+      height: calc(100vh - var(--topbar-height));
+      overflow: auto;
+    }
+
+    .sidebar-inner {
+      padding: 14px;
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 10px 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      outline: none;
+      font-size: 13px;
+    }
+
+    .search input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      background: var(--color-surface);
+      border-color: var(--color-border);
+      text-decoration: none;
+    }
+
+    .nav a[aria-current="true"] {
+      background: rgba(66, 133, 244, 0.12);
+      border-color: rgba(66, 133, 244, 0.35);
+    }
+
+    .nav .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--color-border);
+      flex: 0 0 auto;
+    }
+
+    .nav a[aria-current="true"] .dot { background: var(--color-primary); }
+
+    .content {
+      grid-area: content;
+      padding: 24px 22px 64px;
+    }
+
+    .content-inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+    }
+
+    .hero {
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, rgba(66,133,244,0.10), rgba(248,249,250,1));
+      border-radius: var(--radius-lg);
+      padding: 18px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Anchor scrolling (account for sticky topbar) */
+    .hero,
+    .section {
+      scroll-margin-top: calc(var(--topbar-height) + 12px);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .muted { color: var(--color-text-secondary); }
+
+    .callout {
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: #fff;
+    }
+
+    .callout.info {
+      border-color: rgba(66, 133, 244, 0.35);
+      background: rgba(66, 133, 244, 0.06);
+    }
+
+    .callout.warn {
+      border-color: rgba(251, 188, 4, 0.55);
+      background: rgba(251, 188, 4, 0.10);
+    }
+
+    .callout.success {
+      border-color: rgba(52, 168, 83, 0.45);
+      background: rgba(52, 168, 83, 0.08);
+    }
+
+    .kbd {
+      font-family: var(--mono-font);
+      font-size: 12px;
+      border: 1px solid var(--color-border);
+      border-bottom-width: 2px;
+      border-radius: 6px;
+      padding: 1px 6px;
+      background: #fff;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--topbar-height) auto 1fr;
+        grid-template-areas:
+          "topbar"
+          "sidebar"
+          "content";
+      }
+      .sidebar {
+        position: relative;
+        top: 0;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <!-- Minimal "TUE" glyph -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 7v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M6 6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <strong>Tab URL Extractor</strong>
+          <span>TUE-Documentation v1</span>
+        </div>
+      </div>
+
+      <!-- topbar actions removidas por design -->
+    </header>
+
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="search">
+          <input id="search" type="search" placeholder="Buscar na documentação…" autocomplete="off" />
+        </div>
+
+        <nav class="nav" id="nav">
+          <a href="#intro" aria-current="true"><span class="dot"></span>Introdução</a>
+          <a href="#overview"><span class="dot"></span>Overview</a>
+          <a href="#quick-start"><span class="dot"></span>Quick Start</a>
+          <a href="#features"><span class="dot"></span>Funcionalidades</a>
+          <a href="#requirements"><span class="dot"></span>Requisitos</a>
+          <a href="#future"><span class="dot"></span>Futuros</a>
+          <a href="#use-cases"><span class="dot"></span>Casos de Uso</a>
+          <a href="#architecture"><span class="dot"></span>Arquitetura</a>
+          <a href="#technologies"><span class="dot"></span>Tecnologias</a>
+          <a href="#development"><span class="dot"></span>Desenvolvimento</a>
+        </nav>
+
+        <div class="callout info" style="margin-top: 14px;">
+          <div style="font-weight: 700; margin-bottom: 4px;">Como usar esta página</div>
+          <div class="muted">Ela é uma visão geral do projeto, pronta para apresentação. Se você quiser, os documentos em <span class="kbd">docs/</span> trazem o detalhamento técnico completo.</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-inner">
+        <section id="intro" class="hero">
+          <h1>Tab URL Extractor</h1>
+          <p>
+            Uma extensão Chrome (Manifest V3) para <strong>coletar URLs das abas</strong>, <strong>normalizar</strong>, <strong>deduplicar</strong>,
+            <strong>agrupar por domínio</strong> e <strong>exportar</strong> em formatos amigáveis para automação.
+          </p>
+          <div class="badges" aria-label="Destaques">
+            <div class="badge"><strong>MV3</strong> Service Worker (module)</div>
+            <div class="badge"><strong>Export</strong> json / txt / txt-simple</div>
+            <div class="badge"><strong>Estado</strong> temporário em memória</div>
+            <div class="badge"><strong>Privacidade</strong> sem nuvem</div>
+          </div>
+
+          <div class="grid" style="margin-top: 14px;">
+            <div class="card col-4">
+              <div class="card-top">
+                <div class="i-badge i-cyan">🔎</div>
+                <div>
+                  <h3>Por que existe</h3>
+                  <p>Transforma “um monte de abas abertas” em um dataset exportável e previsível para pipelines, scripts e apps.</p>
+                </div>
+              </div>
+              <div class="accent-note"><strong>Destaque:</strong> é uma ferramenta de extração/estruturação — não interpreta conteúdo.</div>
+            </div>
+            <div class="card col-4">
+              <div class="card-top">
+                <div class="i-badge i-pink">⛔</div>
+                <div>
+                  <h3>O que ele não faz</h3>
+                  <p>Não classifica conteúdo, não faz scraping, não sincroniza dados e não mantém histórico (estado é temporário).</p>
+                </div>
+              </div>
+              <div class="req-code" style="margin-top: 10px;"><strong>Princípio</strong>
+Mesmo input → mesma saída
+Sem rede/terceiros</div>
+            </div>
+            <div class="card col-4">
+              <div class="card-top">
+                <div class="i-badge">⚡</div>
+                <div>
+                  <h3>Como usar</h3>
+                  <p>Analisar → revisar matrizes → exportar tudo ou por domínio (json/txt/txt-simple).</p>
+                </div>
+              </div>
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/matrix-builder.js
+core/exporter.js</div>
+            </div>
+
+            <div class="card col-12">
+              <div class="card-top">
+                <div class="i-badge i-purple">🧩</div>
+                <div>
+                  <h3>Pontos principais do código</h3>
+                  <p>Onde cada parte do fluxo mora: UI → orquestração → core → infra (downloads).</p>
+                </div>
+              </div>
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+manifest.json
+popup/popup.js
+background/service-worker.js
+infrastructure/tab-collector.js
+core/url-processor.js
+core/matrix-builder.js
+core/exporter.js
+infrastructure/download-manager.js
+utils/validators.js
+utils/logger.js</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="overview" class="section">
+          <h2 class="sr-only">Overview</h2>
+
+          <div class="section-panel" aria-label="Overview">
+            <div class="section-head">
+              <h3>Overview</h3>
+              <span class="chip">Visão Geral</span>
+            </div>
+            <p class="section-subtitle">
+              Tab URL Extractor (TUE) é uma extensão Chrome (MV3) focada em uma tarefa: <strong>extrair URLs das abas abertas</strong>,
+              aplicar um processamento técnico consistente (normalização + deduplicação) e entregar um export pronto para ser consumido
+              por scripts e aplicações.
+            </p>
+
+            <div class="grid">
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-cyan">🧾</div>
+                  <div>
+                    <h3>O que faz</h3>
+                    <p>Executa uma coleta de URLs, processa tecnicamente e entrega uma URL-Matriz por domínio pronta para export.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+infrastructure/tab-collector.js
+core/url-processor.js
+core/matrix-builder.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-green">🛡️</div>
+                  <div>
+                    <h3>Segurança & Privacidade</h3>
+                    <p>Processamento local no navegador; sem envio para rede. Ações são iniciadas pelo usuário e validadas antes do export.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+manifest.json
+utils/validators.js
+background/service-worker.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-purple">🏗️</div>
+                  <div>
+                    <h3>Arquitetura</h3>
+                    <p>Camadas claras: <code>core</code> (lógica), <code>infrastructure</code> (Chrome APIs), <code>background</code> (fluxo) e <code>popup</code> (UI).</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/*
+infrastructure/*
+background/service-worker.js
+popup/popup.js</div>
+              </div>
+            </div>
+
+            <div class="grid" style="margin-top: 12px;">
+              <div class="card col-6">
+                <div class="card-top">
+                  <div class="i-badge">🎛️</div>
+                  <div>
+                    <h3>Principais ações</h3>
+                    <p>Fluxo minimalista, com estado temporário entre análise e exportação.</p>
+                  </div>
+                </div>
+                <ul style="margin: 10px 0 0; color: var(--color-text-secondary); line-height: 1.55; font-size: 13px;">
+                  <li><strong>Analisar</strong>: coleta abas e monta URL-Matrizes.</li>
+                  <li><strong>Exportar tudo</strong>: gera arquivo com todas as matrizes.</li>
+                  <li><strong>Exportar por domínio</strong>: gera arquivo apenas do grupo escolhido.</li>
+                  <li><strong>Nova análise</strong>: reinicia o estado e reprocessa as abas.</li>
+                </ul>
+                <div class="accent-note"><strong>Destaque:</strong> export depende do resultado da última análise em memória.</div>
+              </div>
+
+              <div class="card col-6">
+                <div class="card-top">
+                  <div class="i-badge i-orange">🚀</div>
+                  <div>
+                    <h3>Como usar (30s)</h3>
+                    <p>Do objetivo ao arquivo gerado, em poucas etapas.</p>
+                  </div>
+                </div>
+                <ol style="margin: 10px 0 0; color: var(--color-text-secondary); line-height: 1.55; font-size: 13px;">
+                  <li>Abra o popup da extensão.</li>
+                  <li>Clique em <strong>Analisar</strong>.</li>
+                  <li>Revise os domínios e contagens.</li>
+                  <li>Escolha o formato (<code>json</code> / <code>txt</code> / <code>txt-simple</code>) e exporte.</li>
+                </ol>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+core/exporter.js
+infrastructure/download-manager.js</div>
+              </div>
+            </div>
+
+            <div class="mini-title">Fluxo de alto nível</div>
+            <div class="flow-grid" aria-label="Fluxo de alto nível">
+              <div class="flow-step"><div class="n">1</div><h4>Coletar</h4><p>Busca abas via Chrome Tabs API e extrai URLs válidas.</p></div>
+              <div class="flow-step"><div class="n">2</div><h4>Processar</h4><p>Normaliza e valida URLs; remove duplicatas exatas.</p></div>
+              <div class="flow-step"><div class="n">3</div><h4>Agrupar</h4><p>Constrói URL-Matrizes por domínio para revisão e export seletivo.</p></div>
+              <div class="flow-step"><div class="n">4</div><h4>Exportar</h4><p>Gera payload e inicia download via <code>chrome.downloads</code>.</p></div>
+            </div>
+
+            <div class="req-code" style="margin-top: 12px;"><strong>Referências</strong>
+infrastructure/tab-collector.js
+core/url-processor.js
+core/matrix-builder.js
+core/exporter.js
+infrastructure/download-manager.js
+background/service-worker.js</div>
+          </div>
+        </section>
+
+        <section id="quick-start" class="section">
+          <h2 class="sr-only">Quick Start</h2>
+
+          <div class="section-panel" aria-label="Quick Start">
+            <div class="section-head">
+              <h3>Quick Start</h3>
+              <span class="chip">Instalação & Uso</span>
+            </div>
+            <p class="section-subtitle">Primeiros passos para rodar a extensão no navegador (modo desenvolvedor) e gerar seu primeiro export.</p>
+
+            <div class="two-col">
+              <div class="card">
+                <div class="card-top">
+                  <div class="i-badge i-cyan">🧩</div>
+                  <div>
+                    <h3>1) Instalar (modo desenvolvedor)</h3>
+                    <p>Carregue a pasta do projeto como uma extensão sem compactação.</p>
+                  </div>
+                </div>
+                <ol style="margin: 10px 0 0; color: var(--color-text-secondary); line-height: 1.55; font-size: 13px;">
+                  <li>Abra <code>chrome://extensions</code> (ou <code>edge://extensions</code>).</li>
+                  <li>Ative <strong>Modo do desenvolvedor</strong>.</li>
+                  <li>Clique em <strong>Carregar sem compactação</strong>.</li>
+                  <li>Selecione a pasta raiz do projeto (onde está o <code>manifest.json</code>).</li>
+                </ol>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+manifest.json
+popup/popup.html
+background/service-worker.js</div>
+              </div>
+
+              <div class="card">
+                <div class="card-top">
+                  <div class="i-badge i-orange">⚡</div>
+                  <div>
+                    <h3>2) Usar (primeiro export)</h3>
+                    <p>Analise as abas, revise os grupos e exporte no formato desejado.</p>
+                  </div>
+                </div>
+                <ol style="margin: 10px 0 0; color: var(--color-text-secondary); line-height: 1.55; font-size: 13px;">
+                  <li>Abra o popup da extensão.</li>
+                  <li>Clique em <strong>Analisar</strong> para gerar as URL-Matrizes.</li>
+                  <li>Exporte <strong>tudo</strong> ou <strong>por domínio</strong>.</li>
+                  <li>Escolha <code>json</code>, <code>txt</code> ou <code>txt-simple</code>.</li>
+                </ol>
+                <div class="callout warn">
+                  <div style="font-weight: 700; margin-bottom: 4px;">Importante</div>
+                  <div class="muted">Como o estado é temporário em memória, exportações dependem de uma análise prévia.</div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+core/matrix-builder.js
+core/exporter.js
+infrastructure/download-manager.js</div>
+              </div>
+            </div>
+
+            <div class="grid" style="margin-top: 12px;">
+              <div class="card col-12">
+                <div class="card-top">
+                  <div class="i-badge i-green">✅</div>
+                  <div>
+                    <h3>Checklist rápido</h3>
+                    <p>Valide o fluxo ponta a ponta em 60s.</p>
+                  </div>
+                </div>
+                <ul style="margin: 10px 0 0; color: var(--color-text-secondary); line-height: 1.55; font-size: 13px;">
+                  <li>Abra 10+ abas em domínios diferentes e confirme o agrupamento.</li>
+                  <li>Duplique uma URL e confirme a deduplicação após normalização.</li>
+                  <li>Gere export em <code>txt-simple</code> e verifique “uma URL por linha”.</li>
+                </ul>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/url-processor.js
+core/matrix-builder.js
+core/exporter.js</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="section">
+          <h2 class="sr-only">Funcionalidades</h2>
+
+          <div class="section-panel" aria-label="Funcionalidades">
+            <div class="section-head">
+              <h3>Funcionalidades</h3>
+              <span class="chip">O que já existe</span>
+            </div>
+            <p class="section-subtitle">Guia prático do que a extensão faz e como usar.</p>
+
+            <div class="grid">
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-cyan">📥</div>
+                  <div>
+                    <h3>Coleta de URLs</h3>
+                    <p>Extrai URLs das abas abertas (janela atual ou todas), filtrando entradas inválidas/restritas.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+infrastructure/tab-collector.js
+background/service-worker.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge">🧹</div>
+                  <div>
+                    <h3>Normalização + validação</h3>
+                    <p>Reduz ruído (ex.: parâmetros), aplica regras de consistência e valida antes de agrupar/exportar.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/url-processor.js
+utils/validators.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-green">✅</div>
+                  <div>
+                    <h3>Deduplicação exata</h3>
+                    <p>Remove duplicatas idênticas após normalização, mantendo saída enxuta e previsível.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/url-processor.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-purple">🧱</div>
+                  <div>
+                    <h3>URL-Matriz</h3>
+                    <p>Agrupa por domínio e produz estrutura estável para UI e export (com contagens por grupo).</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/matrix-builder.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-orange">📤</div>
+                  <div>
+                    <h3>Exportação (json/txt/txt-simple)</h3>
+                    <p>Gera arquivos para inspeção humana e automação (uma URL por linha no <code>txt-simple</code>).</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/exporter.js
+utils/constants.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-green">⬇️</div>
+                  <div>
+                    <h3>Download</h3>
+                    <p>Inicia o download via <code>chrome.downloads</code> com nome sugerido e MIME adequado ao formato.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+infrastructure/download-manager.js
+background/service-worker.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-pink">🧠</div>
+                  <div>
+                    <h3>Estado temporário em memória</h3>
+                    <p>Resultado da análise é mantido apenas durante a sessão (entre analisar e exportar).</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+background/service-worker.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.0</span></div>
+                <div class="card-top">
+                  <div class="i-badge">🧾</div>
+                  <div>
+                    <h3>Observabilidade (logs)</h3>
+                    <p>Logs estruturados ajudam a depurar validações, erros de export e respostas do Service Worker.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+utils/logger.js
+background/service-worker.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="req-tags" style="margin-bottom: 8px;"><span class="chip">v1.1</span></div>
+                <div class="card-top">
+                  <div class="i-badge i-cyan">🪟</div>
+                  <div>
+                    <h3>Seleção de janelas específicas</h3>
+                    <p>Permite escolher janelas específicas de um domínio para exportação seletiva, filtrando por windowId.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="requirements" class="section">
+          <h2 class="sr-only">Requisitos</h2>
+
+          <div class="section-panel" aria-label="Requisitos Funcionais">
+            <div class="section-head">
+              <h3>Requisitos Funcionais</h3>
+              <span class="chip">Escopo Atual</span>
+            </div>
+            <p class="section-subtitle">Especificações funcionais implementadas, mapeadas para os módulos responsáveis.</p>
+
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF01</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Coleta de abas (Scan)</h4>
+                <p>Coleta URLs de abas abertas (janela atual ou todas as janelas), ignorando URLs inacessíveis/restritas.</p>
+                <div class="req-code"><strong>Orquestração</strong>\nbackground/service-worker.js\n\n<strong>Infra</strong>\ninfrastructure/tab-collector.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF02</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Normalização e validação</h4>
+                <p>Normaliza URLs para consistência e valida entradas para reduzir erros no processamento e export.</p>
+                <div class="req-code"><strong>Core</strong>\ncore/url-processor.js\n\n<strong>Utils</strong>\nutils/validators.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF03</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Deduplicação exata</h4>
+                <p>Remove duplicatas exatas após normalização, mantendo o conjunto final enxuto e previsível.</p>
+                <div class="req-code"><strong>Core</strong>\ncore/url-processor.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF04</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Agrupamento por domínio (URL-Matriz)</h4>
+                <p>Constrói matrizes por domínio para permitir export total ou seletivo, com contagens por grupo.</p>
+                <div class="req-code"><strong>Core</strong>\ncore/matrix-builder.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF05</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Exportação (json / txt / txt-simple)</h4>
+                <p>Gera arquivos em formatos pensados para automação e inspeção humana, com saída consistente.</p>
+                <div class="req-code"><strong>Core</strong>\ncore/exporter.js\n\n<strong>Utils</strong>\nutils/constants.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF06</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Download do arquivo exportado</h4>
+                <p>Dispara o download do conteúdo exportado via <code>chrome.downloads</code> com nome sugerido.</p>
+                <div class="req-code"><strong>Orquestração</strong>\nbackground/service-worker.js\n\n<strong>Infra</strong>\ninfrastructure/download-manager.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RF07</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.1</span>
+                </div>
+                <h4>Seleção de janelas específicas</h4>
+                <p>Permite escolher janelas específicas de um domínio para exportação seletiva, filtrando URLs por windowId.</p>
+                <div class="req-code"><strong>UI</strong>\npopup/popup.js\n\n<strong>Orquestração</strong>\nbackground/service-worker.js</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-panel" style="margin-top: 14px;" aria-label="Requisitos Não Funcionais">
+            <div class="section-head">
+              <h3>Requisitos Não Funcionais</h3>
+              <span class="chip">Qualidade</span>
+            </div>
+            <p class="section-subtitle">Requisitos de qualidade, segurança, compatibilidade e manutenibilidade do projeto.</p>
+
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF01</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Compatibilidade (Manifest V3)</h4>
+                <p>Arquitetura e execução compatíveis com MV3: Service Worker como módulo e mensagens runtime.</p>
+                <div class="req-code"><strong>Config</strong>\nmanifest.json\n\n<strong>SW</strong>\nbackground/service-worker.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF02</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Privacidade por padrão</h4>
+                <p>Não envia dados para rede/terceiros: processamento e export acontecem localmente no navegador.</p>
+                <div class="req-code"><strong>Design</strong>\nSem integração de rede\nSem serviços externos</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF03</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Estado temporário e previsível</h4>
+                <p>Mantém matrizes somente em memória entre “Analisar” e “Exportar” (sem persistência/histórico).</p>
+                <div class="req-code"><strong>SW</strong>\nbackground/service-worker.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF04</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Manutenibilidade e separação de camadas</h4>
+                <p>Core isolado de UI e APIs do Chrome, facilitando evolução e testes unitários.</p>
+                <div class="req-code"><strong>Core</strong>\ncore/*\n\n<strong>Infra</strong>\ninfrastructure/*\n\n<strong>UI</strong>\npopup/*</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF05</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Segurança e validações</h4>
+                <p>Valida entradas e formatos de export para reduzir erros e evitar comportamentos inesperados.</p>
+                <div class="req-code"><strong>Utils</strong>\nutils/validators.js\n\n<strong>Core</strong>\ncore/exporter.js</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">RNF06</span>
+                  <span class="chip green">Implementado</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Observabilidade (logs)</h4>
+                <p>Logging estruturado para facilitar diagnóstico durante desenvolvimento e troubleshooting.</p>
+                <div class="req-code"><strong>Utils</strong>\nutils/logger.js</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="future" class="section">
+          <h2 class="sr-only">Futuros</h2>
+
+          <div class="section-panel" aria-label="Requisitos Funcionais Futuros">
+            <div class="section-head">
+              <h3>Req. Funcionais Futuros</h3>
+              <span class="chip">Roadmap</span>
+            </div>
+            <p class="section-subtitle">Itens planejados para versões futuras (prospectação). Mantém o foco: extrair e estruturar URLs, sem virar um gerenciador de abas.</p>
+
+            <div class="req-grid">
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">v1.2.0</span>
+                  <span class="chip orange">Planejado</span>
+                </div>
+                <h4>Novas fontes de URLs</h4>
+                <p>Adicionar coleta opcional via Bookmarks e Histórico para montar matrizes além das abas abertas.</p>
+                <div class="req-code"><strong>Área</strong>\nInfrastructure + Core\n\n<strong>Ideia</strong>\nNovos coletores com mesma interface</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">v1.3.0</span>
+                  <span class="chip orange">Planejado</span>
+                </div>
+                <h4>Export mais flexível</h4>
+                <p>CSV e opções de export (ordenar, incluir/excluir colunas, presets para automação).</p>
+                <div class="req-code"><strong>Área</strong>\ncore/exporter.js\n\n<strong>Nota</strong>\nSem dependências externas</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">v1.4.0</span>
+                  <span class="chip orange">Planejado</span>
+                </div>
+                <h4>Filtros e seleção na UI</h4>
+                <p>Busca/filtros simples por domínio e seleção rápida (ex.: incluir/excluir domínios).</p>
+                <div class="req-code"><strong>Área</strong>\npopup/popup.js\n\n<strong>Nota</strong>\nMantém UI minimalista</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip">v1.5.0</span>
+                  <span class="chip orange">Planejado</span>
+                </div>
+                <h4>Critérios adicionais de agrupamento</h4>
+                <p>Agrupar por TLD, prefixos de path e regras configuráveis (sem interpretação semântica).</p>
+                <div class="req-code"><strong>Área</strong>\ncore/matrix-builder.js\n\n<strong>Nota</strong>\nConfig simples e previsível</div>
+              </div>
+
+              <div class="req-card">
+                <div class="req-tags">
+                  <span class="chip gray">Tech</span>
+                  <span class="chip orange">Planejado</span>
+                </div>
+                <h4>Qualidade (tests + CI)</h4>
+                <p>Testes automatizados do core (normalização/dedup/export) e pipeline de validação em CI.</p>
+                <div class="req-code"><strong>Área</strong>\nCore + docs/TEST_EXAMPLES.md\n\n<strong>Ideia</strong>\nIntroduzir testes sem mudar arquitetura</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="use-cases" class="section">
+          <h2 class="sr-only">Casos de Uso</h2>
+
+          <div class="section-panel" aria-label="Casos de Uso">
+            <div class="section-head">
+              <h3>Casos de Uso</h3>
+              <span class="chip">Cenários</span>
+            </div>
+            <p class="section-subtitle">Cenários que descrevem como o usuário executa tarefas, do objetivo ao resultado esperado.</p>
+
+            <div class="uc-grid">
+              <div class="uc-card">
+                <div class="req-tags">
+                  <span class="chip">UC01</span>
+                  <span class="chip green">Definido</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Analisar abas (gerar matrizes)</h4>
+                <p class="uc-kv"><strong>Objetivo:</strong> transformar abas abertas em URL-Matrizes prontas para exportação.</p>
+                <p class="uc-kv"><strong>Atores:</strong> Usuário</p>
+                <p class="uc-kv"><strong>Pré-condições:</strong> extensão instalada e popup acessível.</p>
+                <p class="uc-kv"><strong>Pós-condições:</strong> matrizes exibidas (ou estado vazio/erro com mensagem).</p>
+                <div class="req-code"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+infrastructure/tab-collector.js
+core/url-processor.js
+core/matrix-builder.js</div>
+              </div>
+
+              <div class="uc-card">
+                <div class="req-tags">
+                  <span class="chip">UC02</span>
+                  <span class="chip green">Definido</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Exportar tudo</h4>
+                <p class="uc-kv"><strong>Objetivo:</strong> exportar todas as matrizes/URLs em um único arquivo.</p>
+                <p class="uc-kv"><strong>Atores:</strong> Usuário</p>
+                <p class="uc-kv"><strong>Pré-condições:</strong> análise concluída com matrizes em memória.</p>
+                <p class="uc-kv"><strong>Pós-condições:</strong> download iniciado no formato escolhido.</p>
+                <div class="uc-highlight"><strong>Destaque:</strong> o export é uma ação explícita do usuário e depende do estado da última análise.</div>
+                <div class="req-code"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js
+infrastructure/download-manager.js</div>
+              </div>
+
+              <div class="uc-card">
+                <div class="req-tags">
+                  <span class="chip">UC03</span>
+                  <span class="chip green">Definido</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Exportar por domínio</h4>
+                <p class="uc-kv"><strong>Objetivo:</strong> exportar apenas uma URL-Matriz específica (um domínio).</p>
+                <p class="uc-kv"><strong>Atores:</strong> Usuário</p>
+                <p class="uc-kv"><strong>Pré-condições:</strong> análise concluída e domínio disponível na lista.</p>
+                <p class="uc-kv"><strong>Pós-condições:</strong> download iniciado contendo somente aquele grupo.</p>
+                <div class="req-code"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js
+core/matrix-builder.js</div>
+              </div>
+
+              <div class="uc-card">
+                <div class="req-tags">
+                  <span class="chip">UC04</span>
+                  <span class="chip green">Definido</span>
+                  <span class="chip">v1.0</span>
+                </div>
+                <h4>Nova análise (reset)</h4>
+                <p class="uc-kv"><strong>Objetivo:</strong> reiniciar o fluxo para refletir mudanças nas abas/janelas.</p>
+                <p class="uc-kv"><strong>Atores:</strong> Usuário</p>
+                <p class="uc-kv"><strong>Pré-condições:</strong> usuário está na tela de resultados ou com estado carregado.</p>
+                <p class="uc-kv"><strong>Pós-condições:</strong> estado do popup é resetado e uma nova análise pode ser executada.</p>
+                <div class="req-code"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js</div>
+              </div>
+
+              <div class="uc-card">
+                <div class="req-tags">
+                  <span class="chip">UC05</span>
+                  <span class="chip green">Definido</span>
+                  <span class="chip">v1.1</span>
+                </div>
+                <h4>Exportar por janelas específicas</h4>
+                <p class="uc-kv"><strong>Objetivo:</strong> exportar URLs de um domínio filtradas por janelas específicas.</p>
+                <p class="uc-kv"><strong>Atores:</strong> Usuário</p>
+                <p class="uc-kv"><strong>Pré-condições:</strong> análise concluída e domínio com múltiplas janelas disponível.</p>
+                <p class="uc-kv"><strong>Pós-condições:</strong> download iniciado contendo apenas URLs das janelas selecionadas.</p>
+                <div class="uc-highlight"><strong>Destaque:</strong> permite granularidade adicional ao exportar por domínio, selecionando apenas janelas relevantes.</div>
+                <div class="req-code"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-panel" style="margin-top: 14px;" aria-label="Diagramas de Casos de Uso">
+            <div class="section-head">
+              <h3>Diagramas de Casos de Uso</h3>
+              <span class="chip">Fluxo</span>
+            </div>
+            <p class="section-subtitle">Fluxos em cards (sem imagens), no formato passo a passo.</p>
+
+            <div class="uc-diagram">
+              <div class="req-tags">
+                <span class="chip">UC01</span>
+                <span class="chip gray">Scan</span>
+                <span class="chip">v1.0</span>
+              </div>
+              <div class="uc-diagram-title">UC01 — Analisar abas</div>
+
+              <div class="steps">
+                <div class="step"><div class="n">1</div><h5>Abrir popup</h5><p>Usuário abre a extensão e visualiza o estado atual.</p></div>
+                <div class="step"><div class="n">2</div><h5>Iniciar análise</h5><p>Usuário aciona “Analisar” para coletar URLs das abas.</p></div>
+                <div class="step"><div class="n">3</div><h5>Coletar + processar</h5><p>Coleta abas, aplica validações, normaliza e deduplica URLs.</p></div>
+                <div class="step"><div class="n">4</div><h5>Agrupar + exibir</h5><p>Constrói URL-Matrizes por domínio e renderiza o resultado no popup.</p></div>
+              </div>
+
+              <div class="info-row">
+                <div class="info"><h5>Pré-condições</h5><p>Extensão instalada e permissões concedidas; popup acessível.</p></div>
+                <div class="info"><h5>Pós-condições</h5><p>Lista de matrizes exibida (ou estado vazio/erro com mensagem).</p></div>
+                <div class="info"><h5>Fluxo alternativo</h5><p>Sem URLs válidas: exibe estado vazio. Em falha: exibe erro e permite tentar novamente.</p></div>
+              </div>
+
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+infrastructure/tab-collector.js
+core/url-processor.js
+core/matrix-builder.js</div>
+            </div>
+
+            <div class="uc-diagram">
+              <div class="req-tags">
+                <span class="chip">UC02</span>
+                <span class="chip gray">Export</span>
+                <span class="chip">v1.0</span>
+              </div>
+              <div class="uc-diagram-title">UC02 — Exportar tudo</div>
+
+              <div class="steps">
+                <div class="step"><div class="n">1</div><h5>Escolher formato</h5><p>Usuário seleciona o formato (json/txt/txt-simple).</p></div>
+                <div class="step"><div class="n">2</div><h5>Gerar payload</h5><p>Core gera o conteúdo exportável de forma consistente.</p></div>
+                <div class="step"><div class="n">3</div><h5>Iniciar download</h5><p>Infra dispara o download via <code>chrome.downloads</code>.</p></div>
+                <div class="step"><div class="n">4</div><h5>Confirmar resultado</h5><p>Usuário recebe o arquivo; pode repetir com outro formato se desejar.</p></div>
+              </div>
+
+              <div class="info-row">
+                <div class="info"><h5>Pré-condições</h5><p>Uma análise foi executada e há matrizes em memória para export.</p></div>
+                <div class="info"><h5>Pós-condições</h5><p>Download iniciado com nome sugerido e mime compatível com o formato.</p></div>
+                <div class="info"><h5>Fluxo alternativo</h5><p>Sem análise: UI solicita executar “Analisar” antes. Em erro de download: exibe mensagem e permite repetir.</p></div>
+              </div>
+
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js
+infrastructure/download-manager.js
+utils/constants.js</div>
+            </div>
+
+            <div class="uc-diagram">
+              <div class="req-tags">
+                <span class="chip">UC03</span>
+                <span class="chip gray">Export</span>
+                <span class="chip">v1.0</span>
+              </div>
+              <div class="uc-diagram-title">UC03 — Exportar por domínio</div>
+
+              <div class="steps">
+                <div class="step"><div class="n">1</div><h5>Selecionar matriz</h5><p>Usuário escolhe um domínio específico na lista.</p></div>
+                <div class="step"><div class="n">2</div><h5>Gerar subset</h5><p>Export limita o payload ao grupo selecionado.</p></div>
+                <div class="step"><div class="n">3</div><h5>Iniciar download</h5><p>Infra inicia o download do arquivo do grupo.</p></div>
+                <div class="step"><div class="n">4</div><h5>Repetir por grupos</h5><p>Usuário pode exportar outros domínios sem refazer a análise.</p></div>
+              </div>
+
+              <div class="info-row">
+                <div class="info"><h5>Pré-condições</h5><p>Análise concluída; domínio disponível na lista de matrizes.</p></div>
+                <div class="info"><h5>Pós-condições</h5><p>Arquivo exportado contém apenas as URLs do domínio selecionado.</p></div>
+                <div class="info"><h5>Fluxo alternativo</h5><p>Domínio vazio: export desabilitado/mostra aviso. Em erro: exibe mensagem e mantém a lista.</p></div>
+              </div>
+
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js
+core/matrix-builder.js</div>
+            </div>
+
+            <div class="uc-diagram">
+              <div class="req-tags">
+                <span class="chip">UC04</span>
+                <span class="chip gray">Reset</span>
+                <span class="chip">v1.0</span>
+              </div>
+              <div class="uc-diagram-title">UC04 — Nova análise (reset)</div>
+
+              <div class="steps">
+                <div class="step"><div class="n">1</div><h5>Abrir resultados</h5><p>Usuário está na tela de resultados ou com estado carregado.</p></div>
+                <div class="step"><div class="n">2</div><h5>Acionar reset</h5><p>Usuário clica em “Nova análise”.</p></div>
+                <div class="step"><div class="n">3</div><h5>Limpar estado UI</h5><p>Popup volta ao estado inicial e limpa indicadores do resultado anterior.</p></div>
+                <div class="step"><div class="n">4</div><h5>Reanalisar</h5><p>Usuário executa uma nova análise para refletir mudanças nas abas.</p></div>
+              </div>
+
+              <div class="info-row">
+                <div class="info"><h5>Pré-condições</h5><p>Usuário tem a extensão aberta; deseja atualizar o dataset.</p></div>
+                <div class="info"><h5>Pós-condições</h5><p>Fluxo reiniciado; uma nova análise pode ser executada imediatamente.</p></div>
+                <div class="info"><h5>Fluxo alternativo</h5><p>Se o popup já está no estado inicial, o reset apenas mantém o estado e orienta a analisar.</p></div>
+              </div>
+
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js</div>
+            </div>
+
+            <div class="uc-diagram">
+              <div class="req-tags">
+                <span class="chip">UC05</span>
+                <span class="chip gray">Export</span>
+                <span class="chip">v1.1</span>
+              </div>
+              <div class="uc-diagram-title">UC05 — Exportar por janelas específicas</div>
+
+              <div class="steps">
+                <div class="step"><div class="n">1</div><h5>Abrir seleção de janelas</h5><p>Usuário clica no botão de seleção de janelas em um domínio.</p></div>
+                <div class="step"><div class="n">2</div><h5>Selecionar janelas</h5><p>Usuário marca as janelas desejadas via checkboxes na lista.</p></div>
+                <div class="step"><div class="n">3</div><h5>Filtrar + gerar subset</h5><p>Export filtra URLs pelo windowId das janelas selecionadas.</p></div>
+                <div class="step"><div class="n">4</div><h5>Iniciar download</h5><p>Infra inicia o download do arquivo filtrado por janelas.</p></div>
+              </div>
+
+              <div class="info-row">
+                <div class="info"><h5>Pré-condições</h5><p>Análise concluída; domínio com múltiplas janelas disponível.</p></div>
+                <div class="info"><h5>Pós-condições</h5><p>Arquivo exportado contém apenas URLs das janelas selecionadas.</p></div>
+                <div class="info"><h5>Fluxo alternativo</h5><p>Nenhuma janela selecionada: botão de export desabilitado. Em erro: exibe mensagem e permite tentar novamente.</p></div>
+              </div>
+
+              <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/exporter.js</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="architecture" class="section">
+          <h2 class="sr-only">Arquitetura</h2>
+
+          <div class="section-panel" aria-label="Arquitetura">
+            <div class="section-head">
+              <h3>Arquitetura e Estrutura Completa</h3>
+              <span class="chip">Clean Architecture</span>
+              <span class="chip">v1.0</span>
+            </div>
+            <p class="section-subtitle">Clean Architecture com dependências unidirecionais (camadas externas dependem das internas). Separação clara entre core (puro), orquestração (MV3) e integrações com Chrome APIs.</p>
+
+            <div class="arch-layer-grid" role="list" aria-label="Camadas">
+              <div class="arch-layer" role="listitem">
+                <h4>Core</h4>
+                <p>Lógica de negócio pura (<span class="arch-pill">core/</span>)</p>
+              </div>
+              <div class="arch-layer" role="listitem">
+                <h4>Browser</h4>
+                <p>Integração com Chrome APIs (<span class="arch-pill">infrastructure/</span>)</p>
+              </div>
+              <div class="arch-layer" role="listitem">
+                <h4>Orquestração</h4>
+                <p>Coordenação de fluxos MV3 (<span class="arch-pill">background/</span>)</p>
+              </div>
+              <div class="arch-layer" role="listitem">
+                <h4>UI</h4>
+                <p>Interface do usuário (<span class="arch-pill">popup/</span>)</p>
+              </div>
+            </div>
+
+            <div class="arch-layout">
+              <div class="arch-structure" aria-label="Estrutura do Projeto">
+                <div class="arch-structure-head">
+                  <div class="arch-structure-title"><span class="ico">📁</span>Estrutura do Projeto</div>
+                  <div class="sub">Somente o que é essencial para a extensão funcionar (runtime).</div>
+                </div>
+
+                <div class="arch-rows">
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi file">📄</span>
+                      <div class="arch-path">manifest.json</div>
+                    </div>
+                    <div class="arch-right">Manifest V3: define permissões, action/popup, service worker e recursos da extensão.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi folder">📁</span>
+                      <div class="arch-path">background/</div>
+                    </div>
+                    <div class="arch-right">Orquestração MV3: recebe comandos do popup, coordena análise/export e mantém estado temporário em memória.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">background/service-worker.js</div>
+                    </div>
+                    <div class="arch-right">Ponto central do runtime: handlers de mensagem, cache do resultado da análise, filtragem por windowIds <span class="chip">v1.1</span> e gatilhos de export/download.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi folder">📁</span>
+                      <div class="arch-path">core/</div>
+                    </div>
+                    <div class="arch-right">Processamento browser-agnostic: normalização, validações, construção de matrizes e geração de payloads.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">core/url-processor.js</div>
+                    </div>
+                    <div class="arch-right">Normaliza/filtra URLs e aplica regras (ex.: remover parâmetros, ignorar internos, validar formato).</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">core/matrix-builder.js</div>
+                    </div>
+                    <div class="arch-right">Agrupa por domínio e constrói a URL-Matriz (estrutura usada no popup e no export).</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">core/exporter.js</div>
+                    </div>
+                    <div class="arch-right">Converte matrizes em formatos de export (json/txt/txt-simple), incluindo metadados e ordenação.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi folder">📁</span>
+                      <div class="arch-path">infrastructure/</div>
+                    </div>
+                    <div class="arch-right">Integração com Chrome APIs (tabs/downloads): coleta abas e gerencia downloads.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">infrastructure/tab-collector.js</div>
+                    </div>
+                    <div class="arch-right">Coleta abas, extrai URLs e entrega um dataset consistente para o core processar.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">infrastructure/download-manager.js</div>
+                    </div>
+                    <div class="arch-right">Inicia o download com nome e MIME apropriados, via <code>chrome.downloads</code>.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi folder">📁</span>
+                      <div class="arch-path">popup/</div>
+                    </div>
+                    <div class="arch-right">UI: dispara comandos (analisar/exportar), exibe métricas, lista de matrizes e tela de seleção de janelas <span class="chip">v1.1</span>.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi css">CSS</span>
+                      <div class="arch-path">popup/popup.css</div>
+                    </div>
+                    <div class="arch-right">Estilos do popup (tema/cores), mantendo UX consistente com a extensão.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi js">JS</span>
+                      <div class="arch-path">popup/popup.js</div>
+                    </div>
+                    <div class="arch-right">Handlers de UI: envia mensagens, renderiza resultados, controla estado da tela e seleção de janelas <span class="chip">v1.1</span>.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi folder">📁</span>
+                      <div class="arch-path">utils/</div>
+                    </div>
+                    <div class="arch-right">Constantes, logger e validações reutilizadas entre camadas.</div>
+                  </div>
+
+                  <div class="arch-row">
+                    <div class="arch-left">
+                      <span class="fi file">📦</span>
+                      <div class="arch-path">types/index.js</div>
+                    </div>
+                    <div class="arch-right">Tipos via JSDoc para guiar estrutura de dados e manter o core previsível.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arch-side" aria-label="Métricas">
+                <div class="arch-metric">
+                  <div class="arch-metric-ico">JS</div>
+                  <div>
+                    <div class="arch-metric-value">11</div>
+                    <div class="arch-metric-label">Módulos JS (runtime)</div>
+                  </div>
+                </div>
+
+                <div class="arch-metric">
+                  <div class="arch-metric-ico css">CSS</div>
+                  <div>
+                    <div class="arch-metric-value">1</div>
+                    <div class="arch-metric-label">Arquivo CSS (popup)</div>
+                  </div>
+                </div>
+
+                <div class="arch-metric">
+                  <div class="arch-metric-ico muted">&lt;800</div>
+                  <div>
+                    <div class="arch-metric-value">704</div>
+                    <div class="arch-metric-label">Maior arquivo (linhas) — <span class="kbd">popup/popup.css</span></div>
+                  </div>
+                </div>
+
+                <div class="arch-metric">
+                  <div class="arch-metric-ico">ES6</div>
+                  <div>
+                    <div class="arch-metric-value">Modules</div>
+                    <div class="arch-metric-label">Imports/exports nativos (MV3)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="technologies" class="section">
+          <h2 class="sr-only">Tecnologias</h2>
+
+          <div class="section-panel" aria-label="Tecnologias">
+            <div class="section-head">
+              <h3>Tecnologias Utilizadas</h3>
+              <span class="chip">Stack</span>
+            </div>
+            <p class="section-subtitle">Stack do projeto e onde cada tecnologia aparece no código.</p>
+
+            <div class="grid">
+              <div class="card col-4">
+                <div class="tech-col-title">Core & Qualidade</div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>JavaScript (ES Modules)</h4>
+                    <span class="tech-pill">JS</span>
+                  </div>
+                  <p class="muted">Uso no projeto: módulos independentes por responsabilidade (core/infra/background/popup).</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Exemplos</strong>
+core/url-processor.js
+core/matrix-builder.js
+core/exporter.js</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Clean Architecture (camadas)</h4>
+                    <span class="tech-pill">CA</span>
+                  </div>
+                  <p class="muted">Uso no projeto: core puro; infraestrutura isola APIs; service worker coordena fluxos; UI só apresenta.</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/*
+infrastructure/*
+background/service-worker.js
+popup/popup.js</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Tipagem via JSDoc</h4>
+                    <span class="tech-pill">Types</span>
+                  </div>
+                  <p class="muted">Uso no projeto: estrutura de dados documentada para manter matrizes/export previsíveis.</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+types/index.js</div>
+                </div>
+              </div>
+
+              <div class="card col-4">
+                <div class="tech-col-title">Extensão & APIs</div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Manifest V3</h4>
+                    <span class="tech-pill">MV3</span>
+                  </div>
+                  <p class="muted">Uso no projeto: define permissões, popup e Service Worker como módulo.</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Config</strong>
+manifest.json</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Chrome Tabs API</h4>
+                    <span class="tech-pill">API</span>
+                  </div>
+                  <p class="muted">Uso no projeto: coleta URLs de abas abertas para montar o dataset.</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+infrastructure/tab-collector.js</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Chrome Downloads API</h4>
+                    <span class="tech-pill">API</span>
+                  </div>
+                  <p class="muted">Uso no projeto: dispara o download do conteúdo exportado (com nome/mime adequados).</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+infrastructure/download-manager.js</div>
+                </div>
+              </div>
+
+              <div class="card col-4">
+                <div class="tech-col-title">UI & Docs</div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>HTML + CSS (Popup)</h4>
+                    <span class="tech-pill">UI</span>
+                  </div>
+                  <p class="muted">Uso no projeto: interface enxuta com estados claros (carregando/resultado/erro).</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.html
+popup/popup.css
+popup/popup.js</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Mensageria runtime</h4>
+                    <span class="tech-pill">runtime</span>
+                  </div>
+                  <p class="muted">Uso no projeto: UI manda comandos; Service Worker responde com resultados/erros.</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js</div>
+                </div>
+
+                <div class="tech-item">
+                  <div class="tech-item-head">
+                    <h4>Documentação</h4>
+                    <span class="tech-pill">DOC</span>
+                  </div>
+                  <p class="muted">Uso no projeto: guias técnicos (dados, fluxos e formatos) + página consolidada (este HTML).</p>
+                  <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+docs/ARCHITECTURE.md
+docs/EXPORT_FORMAT.md
+docs/DATA_FLOW.md
+docs/TUE-Documentation-v1.html</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="development" class="section">
+          <h2 class="sr-only">Desenvolvimento</h2>
+
+          <div class="section-panel" aria-label="Desenvolvimento">
+            <div class="section-head">
+              <h3>Desenvolvimento</h3>
+              <span class="chip">Como evoluir</span>
+            </div>
+            <p class="section-subtitle">Decisões práticas para manter o projeto simples, seguro e evolutivo — sempre preservando a separação de camadas.</p>
+
+            <div class="grid">
+              <div class="card col-12">
+                <div class="card-top">
+                  <div class="i-badge i-cyan">🧭</div>
+                  <div>
+                    <h3>Visão Geral</h3>
+                    <p>A extensão é construída em JavaScript com ES Modules e Manifest V3, sem dependências externas no runtime. O core permanece independente das APIs do Chrome.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+manifest.json
+core/*
+infrastructure/*
+background/service-worker.js
+popup/*</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-green">🛡️</div>
+                  <div>
+                    <h3>Segurança</h3>
+                    <p>Permissões mínimas e ações explícitas do usuário. Sem tráfego de rede: os dados ficam locais.</p>
+                  </div>
+                </div>
+                <div class="accent-note"><strong>Destaque:</strong> valide entradas antes de exportar.</div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+manifest.json
+utils/validators.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-orange">⚡</div>
+                  <div>
+                    <h3>Desempenho</h3>
+                    <p>Coleta apenas dados essenciais e processa em memória; UI renderiza grupos de forma direta para evitar overhead.</p>
+                  </div>
+                </div>
+                <div class="accent-note"><strong>Destaque:</strong> normalização reduz duplicidade falsa e melhora agrupamento.</div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/url-processor.js
+core/matrix-builder.js
+popup/popup.js</div>
+              </div>
+
+              <div class="card col-4">
+                <div class="card-top">
+                  <div class="i-badge i-purple">🧱</div>
+                  <div>
+                    <h3>Estrutura & Boas Práticas</h3>
+                    <p>Regras de evolução: mudanças de regra em <code>core/</code>; integrações em <code>infrastructure/</code>; coordenação no SW; UI só apresenta.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Mapa rápido</strong>
+core/            regras e transformações
+infrastructure/  Chrome APIs
+background/      fluxo/estado
+popup/           UI</div>
+              </div>
+
+              <div class="card col-6">
+                <div class="card-top">
+                  <div class="i-badge i-pink">🧪</div>
+                  <div>
+                    <h3>Testes & CI</h3>
+                    <p>O caminho natural é começar testando o core (normalização/dedup/export) e automatizar validações de regressão.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+core/url-processor.js
+core/exporter.js
+docs/TEST_EXAMPLES.md</div>
+              </div>
+
+              <div class="card col-6">
+                <div class="card-top">
+                  <div class="i-badge">🤝</div>
+                  <div>
+                    <h3>Contribuição</h3>
+                    <p>Para evoluir sem quebrar camadas: implemente regras no core, mantenha APIs em infrastructure e conecte tudo via mensagens no Service Worker.</p>
+                  </div>
+                </div>
+                <div class="req-code" style="margin-top: 10px;"><strong>Referências</strong>
+popup/popup.js
+background/service-worker.js
+core/*
+infrastructure/*</div>
+              </div>
+            </div>
+
+            <div class="mini-title">Estrutura (visão rápida)</div>
+            <pre><code>background/          Service Worker (MV3)
+core/               Lógica de processamento (browser-agnostic)
+infrastructure/     Integrações com APIs do Chrome (tabs, downloads)
+popup/              UI (HTML/CSS/JS)
+utils/              Constantes, logger e validadores
+types/              Tipos via JSDoc
+docs/               Documentação</code></pre>
+
+            <div class="mini-title">Checks manuais úteis</div>
+            <ul>
+              <li>Abrir 10–20 abas com domínios diferentes e confirmar agrupamento por domínio.</li>
+              <li>Duplicar a mesma URL em abas diferentes e confirmar deduplicação após normalização.</li>
+              <li>Exportar <code>json</code>, <code>txt</code> e <code>txt-simple</code> e validar o arquivo gerado.</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="footer"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Landing content is curated and summarized; deep dives remain in docs/*.md -->
+
+  <script>
+    (function () {
+      // Normaliza blocos de código embutidos: converte "\\n" literal em quebra de linha real
+      // (evita texto estourar o card quando o HTML foi gerado/colado com escapes)
+      document.querySelectorAll('.req-code').forEach(el => {
+        el.textContent = (el.textContent || '').replace(/\\n/g, '\n');
+      });
+
+      const nav = document.getElementById('nav');
+      const navLinks = Array.from(nav.querySelectorAll('a'));
+
+      function setActive(hash) {
+        navLinks.forEach(a => {
+          const isActive = a.getAttribute('href') === hash;
+          a.setAttribute('aria-current', isActive ? 'true' : 'false');
+        });
+      }
+
+      function normalizeText(text) {
+        return (text || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+      }
+
+      const search = document.getElementById('search');
+      search.addEventListener('input', () => {
+        const q = normalizeText(search.value.trim());
+        navLinks.forEach(a => {
+          const label = normalizeText(a.textContent);
+          a.style.display = !q || label.includes(q) ? '' : 'none';
+        });
+      });
+
+      function scrollToHash(hash, smooth) {
+        const safeHash = hash && hash.startsWith('#') ? hash : '#intro';
+        const target = document.querySelector(safeHash);
+        if (!target) return;
+        target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      }
+
+      // Smooth-scroll for nav clicks (more reliable than relying on default anchor jumps)
+      navLinks.forEach(a => {
+        a.addEventListener('click', (ev) => {
+          const href = a.getAttribute('href') || '';
+          if (!href.startsWith('#')) return;
+          ev.preventDefault();
+          history.pushState(null, '', href);
+          setActive(href);
+          scrollToHash(href, true);
+        });
+      });
+
+      window.addEventListener('hashchange', () => {
+        const hash = location.hash || '#intro';
+        setActive(hash);
+        scrollToHash(hash, false);
+      });
+
+      const initialHash = location.hash || '#intro';
+      setActive(initialHash);
+      requestAnimationFrame(() => scrollToHash(initialHash, false));
+    })();
+  </script>
+</body>
+</html>

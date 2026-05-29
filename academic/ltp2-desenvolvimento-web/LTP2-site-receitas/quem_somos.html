@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - Receitas Deliciosas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff7e6;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff8800;
+        }
+        .descricao {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 250px;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        .social-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .social-button:hover {
+            background-color: #ff8800;
+        }
+        .artur {
+            background-image: url('quem_somos/artur.jpeg'); /* Adicione a URL da foto do Artur */
+        }
+        .david {
+            background-image: url('quem_somos/david.jpeg'); /* Adicione a URL da foto do David */
+        }
+        .pedro {
+            background-image: url('quem_somos/pedro.jpeg'); /* Adicione a URL da foto do Pedro */
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff8800;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background-color: #e67e00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quem Somos</h1>
+        <p class="descricao">
+            Somos apaixonados por gastronomia e criamos este espaço para compartilhar as melhores receitas, 
+            dicas e segredos culinários. Nosso objetivo é transformar qualquer pessoa em um verdadeiro mestre da cozinha, 
+            trazendo pratos deliciosos e fáceis de preparar.
+        </p>
+        <div class="cards">
+            <div class="card artur">Artur
+                <a href="#" class="social-button">Redes Sociais</a>
+            </div>
+            <div class="card david">David
+                <a href="#" class="social-button">Redes Sociais</a>
+            </div>
+            <div class="card pedro">Pedro
+                <a href="#" class="social-button">Redes Sociais</a>
+            </div>
+        </div>
+        <p class="descricao">
+            Desde hambúrgueres artesanais suculentos até sobremesas irresistíveis, acreditamos que cozinhar 
+            é uma arte acessível a todos. Junte-se a nós nessa jornada gastronômica e descubra novas experiências na cozinha!
+        </p>
+        <a href="index.html" class="back-button">Voltar</a>
+    </div>
+</body>
+</html>

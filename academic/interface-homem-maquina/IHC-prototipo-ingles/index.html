@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 4 Kids - Interface Homem-Máquina</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e6e6e6; font-family: Arial, sans-serif; }
+
+    .header {
+      width: 92%; max-width: 650px; height: 140px;
+      background: #e79ab0; border-radius: 25px;
+      margin: 20px auto 16px; position: relative;
+    }
+    .hex {
+      width: 160px; height: 90px; background: #a9c7cf;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      z-index: 1;
+    }
+    .header h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: white; font-size: 28px; z-index: 2; margin: 0;
+      white-space: nowrap;
+    }
+
+    /* Container — mantém simplicidade original */
+    .container {
+      width: 92%; max-width: 650px; background: #a9c7cf;
+      border-radius: 25px; margin: 0 auto 40px;
+      padding: 28px 24px 30px;
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .label { color: #f08ca5; font-weight: bold; font-size: 16px; margin-bottom: 4px; }
+    .input-group { display: flex; align-items: center; margin-bottom: 18px; }
+    .star { font-size: 20px; margin-right: 8px; color: white; transition: color 0.2s; flex-shrink: 0; }
+    .star.active { color: #f08ca5; }
+    input {
+      width: 100%; height: 34px; background: #eaeaea;
+      border: none; padding: 4px 10px; font-size: 15px; flex: 1;
+      outline: none;
+    }
+
+    /* Campos do Formulário — Transição Suave */
+    .form-fields, .login-fields {
+      flex: 1;
+      transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease;
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 800px;
+    }
+    .form-fields.hidden, .login-fields.hidden {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+      max-height: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .forgot-password-wrap {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 18px;
+    }
+    .btn-forgot-password {
+      background: none;
+      border: none;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .btn-forgot-password:hover {
+      color: #f08ca5;
+    }
+
+    /* Área de Botões (Olhos) */
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+      transition: justify-content 0.8s cubic-bezier(0.4,0,0.2,1),
+                  gap 0.8s cubic-bezier(0.4,0,0.2,1),
+                  margin-top 0.8s cubic-bezier(0.4,0,0.2,1);
+      z-index: 10;
+    }
+    .buttons > div {
+      width: 48%; text-align: center;
+      transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-label {
+      color: white; font-size: 16px;
+      height: 24px; line-height: 24px; margin-bottom: 8px;
+      overflow: hidden;
+      transition: opacity 0.5s ease, height 0.5s ease, margin-bottom 0.4s ease;
+    }
+    .btn-label.hide-label {
+      opacity: 0; height: 0; margin-bottom: 0; pointer-events: none;
+    }
+
+    /* Olhos Centralizados (Modo Carinha) */
+    .buttons.eyes-centered {
+      justify-content: center;
+      gap: 28px;
+      margin-top: 50px;
+    }
+    .buttons.eyes-centered > div { width: 110px; }
+
+    /* Olhos e Pálpebras Simples do Paint */
+    .eye {
+      width: 100%; height: 80px; background: #e79ab0;
+      border-radius: 50%; display: flex;
+      justify-content: center; align-items: center;
+      position: relative;
+      cursor: pointer; 
+      overflow: hidden;
+      transition: transform 0.1s, width 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+    .eye:active { transform: scale(0.95); }
+
+    /* Pálpebra (mesmo rosa do olho) para fechar cobrindo a pupila branca */
+    .eyelid {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 0%;
+      background: #e79ab0;
+      z-index: 3;
+      border-radius: 50% 50% 0 0;
+      transition: height 0.1s ease-in-out;
+    }
+
+    /* Pupila Branca Oval */
+    .pupil {
+      width: 22px; height: 44px; background: white; border-radius: 50%;
+      z-index: 2;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* Piscar Automático Sincronizado */
+    @keyframes autoBlink {
+      0%, 96%, 100% { height: 0%; }
+      98% { height: 100%; }
+    }
+    .eye.auto-blink .eyelid {
+      animation: autoBlink 6s infinite;
+    }
+
+    /* Piscar de Ação (Wink) */
+    @keyframes winkAnim {
+      0%, 100% { height: 0%; }
+      40%, 60% { height: 100%; }
+    }
+    .eye.wink-active .eyelid {
+      animation: winkAnim 0.35s ease-in-out;
+    }
+
+    /* Efeito Olhar no Centro (Estrábico) */
+    .buttons.eyes-centered #leftEye .pupil {
+      transform: translateX(8px) translateY(1px);
+    }
+    .buttons.eyes-centered #rightEye .pupil {
+      transform: translateX(-8px) translateY(1px);
+    }
+
+    /* Área Inferior (Nariz e Boca) */
+    .bottom-area {
+      margin-top: 18px;
+      text-align: center;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Triângulo apontando para BAIXO */
+    .triangle {
+      width: 0; height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 16px solid white;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.8s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+    .triangle.nose-up {
+      opacity: 1;
+      transform: translateY(-8px);
+    }
+
+    /* Boca (Cadastrar ou Entrar) */
+    .btn-cadastrar-wrap {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.8s cubic-bezier(0.4,0,0.2,1);
+      pointer-events: none;
+    }
+    .btn-cadastrar-wrap.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    
+    .btn-cadastrar {
+      background: #e79ab0;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0 36px;
+      height: 80px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s;
+    }
+    .btn-cadastrar:active { transform: scale(0.95); }
+
+    /* ── RESPONSIVIDADE ── */
+    @media (max-width: 400px) {
+      .header { height: 110px; margin: 14px auto 12px; }
+      .header h1 { font-size: 22px; }
+      .hex { width: 130px; height: 72px; }
+
+      .container {
+        width: 94%;
+        padding: 22px 16px 24px;
+        min-height: 520px;
+        border-radius: 20px;
+      }
+
+      .label { font-size: 14px; }
+      .input-group { margin-bottom: 14px; }
+      .star { font-size: 17px; margin-right: 6px; }
+      input { height: 30px; font-size: 13px; }
+
+      .eye { height: 68px; }
+      .pupil { width: 18px; height: 36px; }
+
+      .buttons.eyes-centered > div { width: 90px; }
+      .btn-label { font-size: 14px; height: 20px; line-height: 20px; }
+
+      .btn-cadastrar { height: 68px; font-size: 17px; min-width: 150px; padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <div class="header">
+    <div class="hex"></div>
+    <h1>English 4 Kids</h1>
+  </div>
+
+  <!-- Container Principal -->
+  <form class="container" id="formulario" autocomplete="off" onsubmit="event.preventDefault();">
+
+    <!-- 1. Campos do Cadastro -->
+    <div class="form-fields" id="formFields">
+      <div class="label">Nome do Aluno</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="text" name="aluno" required>
+      </div>
+      <div class="label">Idade</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="number" name="idade">
+      </div>
+      <div class="label">Nome dos Pais</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="text" name="pais">
+      </div>
+      <div class="label">Curso</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="text" name="curso">
+      </div>
+      <div class="label">Nome do Professor (a)</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="text" name="professor">
+      </div>
+    </div>
+
+    <!-- 2. Campos do Login -->
+    <div class="login-fields hidden" id="loginFields">
+      <div class="label">Usuário</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="text" id="inputUsuario">
+      </div>
+      <div class="label">Senha</div>
+      <div class="input-group">
+        <div class="star">★</div>
+        <input type="password" id="inputSenha">
+      </div>
+      <div class="forgot-password-wrap">
+        <button type="button" class="btn-forgot-password" onclick="recuperarSenha()">Esqueci minha senha</button>
+      </div>
+    </div>
+
+    <!-- Controles dos Olhos (Botões Interativos) -->
+    <div class="buttons" id="botoesOlhos">
+      <div>
+        <div class="btn-label" id="labelCancelar">Cancelar</div>
+        <div class="eye auto-blink" id="leftEye" onclick="handleLeftEyeClick()">
+          <div class="eyelid"></div>
+          <div class="pupil" id="leftPupil"></div>
+        </div>
+      </div>
+      <div>
+        <div class="btn-label" id="labelSalvar">Salvar</div>
+        <div class="eye auto-blink" id="rightEye" onclick="handleRightEyeClick()">
+          <div class="eyelid"></div>
+          <div class="pupil" id="rightPupil"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nariz e Boca (Cadastrar / Entrar) -->
+    <div class="bottom-area">
+      <div class="triangle" id="nariz"></div>
+      <div class="btn-cadastrar-wrap" id="btnWrap">
+        <button type="button" class="btn-cadastrar" id="mouthBtn" onclick="handleMouthClick()">Cadastrar</button>
+      </div>
+    </div>
+
+  </form>
+
+  <script>
+    // Estados: 'REGISTER' (Cadastro), 'FACE_REGISTER' (Carinha p/ Cadastro), 'FACE_LOGIN' (Carinha p/ Login), 'LOGIN' (Form Login)
+    let currentState = 'REGISTER';
+    let blockInteraction = false;
+
+    // Sincronização lógica de estrelas
+    document.querySelectorAll(".input-group").forEach(function(g) {
+      const inp = g.querySelector("input");
+      const st  = g.querySelector(".star");
+      if (inp && st) {
+        inp.addEventListener("input", function() {
+          st.classList.toggle("active", inp.value.trim() !== "");
+        });
+      }
+    });
+
+    // Recuperar Senha Simples
+    function recuperarSenha() {
+      alert("Um link de recuperação de senha foi enviado para o e-mail dos seus pais! 📬");
+    }
+
+    // Executa uma piscada individual (Wink) antes de chamar a ação
+    function playWink(eyeId, callback) {
+      if (blockInteraction) return;
+      blockInteraction = true;
+
+      const eye = document.getElementById(eyeId);
+      eye.classList.remove("auto-blink");
+      eye.classList.add("wink-active");
+
+      setTimeout(function() {
+        eye.classList.remove("wink-active");
+        eye.classList.add("auto-blink");
+        blockInteraction = false;
+        if (callback) callback();
+      }, 350);
+    }
+
+    // Olho Esquerdo (Cancelar / Voltar)
+    function handleLeftEyeClick() {
+      if (blockInteraction) return;
+
+      playWink("leftEye", function() {
+        if (currentState === 'REGISTER') {
+          updateState('FACE_REGISTER');
+        } else if (currentState === 'LOGIN') {
+          updateState('FACE_LOGIN');
+        }
+      });
+    }
+
+    // Olho Direito (Salvar / Confirmar)
+    function handleRightEyeClick() {
+      if (blockInteraction) return;
+
+      playWink("rightEye", function() {
+        if (currentState === 'REGISTER') {
+          validarESalvarCadastro();
+        } else if (currentState === 'LOGIN') {
+          validarEConfirmarLogin();
+        }
+      });
+    }
+
+    // Boca da carinha (Cadastrar / Entrar)
+    function handleMouthClick() {
+      if (blockInteraction) return;
+
+      if (currentState === 'FACE_REGISTER') {
+        updateState('REGISTER');
+      } else if (currentState === 'FACE_LOGIN') {
+        updateState('LOGIN');
+      }
+    }
+
+    // Validação e Salvamento do Cadastro
+    function validarESalvarCadastro() {
+      const fields = document.getElementById("formFields");
+      const requiredInputs = fields.querySelectorAll("input[required], input");
+      
+      let isFormValid = true;
+      requiredInputs.forEach(inp => {
+        if (inp.name === 'aluno' && !inp.value.trim()) {
+          isFormValid = false;
+        }
+      });
+
+      if (isFormValid) {
+        alert("Dados salvos com sucesso! ✅");
+        document.getElementById("formulario").reset();
+        document.querySelectorAll(".star").forEach(s => s.classList.remove("active"));
+        updateState('FACE_LOGIN'); // Transiciona para a carinha no estado de Login (boca Entrar)
+      } else {
+        alert("Preencha o campo obrigatório Nome do Aluno!");
+      }
+    }
+
+    // Validação de Login
+    function validarEConfirmarLogin() {
+      const userVal = document.getElementById("inputUsuario").value.trim();
+      const passVal = document.getElementById("inputSenha").value.trim();
+
+      if (userVal !== "" && passVal !== "") {
+        alert("Login realizado com sucesso! Bem-vindo! 🚀");
+        document.getElementById("inputUsuario").value = "";
+        document.getElementById("inputSenha").value = "";
+        document.querySelectorAll("#loginFields .star").forEach(s => s.classList.remove("active"));
+        updateState('REGISTER'); // Volta para a tela inicial de Cadastro
+      } else {
+        alert("Preencha o Usuário e a Senha para fazer o Login!");
+      }
+    }
+
+    // Gerenciador central de Estados e Animações
+    function updateState(nextState) {
+      const fields = document.getElementById("formFields");
+      const loginFields = document.getElementById("loginFields");
+      const botoes = document.getElementById("botoesOlhos");
+      const lblC = document.getElementById("labelCancelar");
+      const lblS = document.getElementById("labelSalvar");
+      const btnWrap = document.getElementById("btnWrap");
+      const mouthBtn = document.getElementById("mouthBtn");
+      const nariz = document.getElementById("nariz");
+
+      blockInteraction = true;
+      setTimeout(() => { blockInteraction = false; }, 900);
+
+      currentState = nextState;
+
+      if (currentState === 'REGISTER') {
+        // Esconde boca e nariz
+        btnWrap.classList.remove("visible");
+        nariz.classList.remove("nose-up");
+        loginFields.classList.add("hidden");
+
+        // Afasta os olhos para as laterais
+        setTimeout(() => {
+          botoes.classList.remove("eyes-centered");
+        }, 150);
+
+        // Mostra labels originais e campos de Cadastro
+        setTimeout(() => {
+          lblC.textContent = "Cancelar";
+          lblS.textContent = "Salvar";
+          lblC.classList.remove("hide-label");
+          lblS.classList.remove("hide-label");
+          fields.classList.remove("hidden");
+        }, 650);
+
+      } else if (currentState === 'FACE_REGISTER' || currentState === 'FACE_LOGIN') {
+        // Esconde campos de formulário e labels dos botões
+        fields.classList.add("hidden");
+        loginFields.classList.add("hidden");
+        lblC.classList.add("hide-label");
+        lblS.classList.add("hide-label");
+
+        // Configura texto do botão-boca
+        mouthBtn.textContent = (currentState === 'FACE_REGISTER') ? "Cadastrar" : "Entrar";
+
+        // Centraliza os olhos
+        setTimeout(() => {
+          botoes.classList.add("eyes-centered");
+        }, 200);
+
+        // Nariz triangular (apontando p/ baixo) sobe e boca de botão aparece
+        setTimeout(() => {
+          nariz.classList.add("nose-up");
+          btnWrap.classList.add("visible");
+        }, 750);
+
+      } else if (currentState === 'LOGIN') {
+        // Esconde boca e nariz
+        btnWrap.classList.remove("visible");
+        nariz.classList.remove("nose-up");
+        fields.classList.add("hidden");
+
+        // Afasta os olhos para as laterais
+        setTimeout(() => {
+          botoes.classList.remove("eyes-centered");
+        }, 150);
+
+        // Mostra labels de Login e campos de Login
+        setTimeout(() => {
+          lblC.textContent = "Voltar";
+          lblS.textContent = "Confirmar";
+          lblC.classList.remove("hide-label");
+          lblS.classList.remove("hide-label");
+          loginFields.classList.remove("hidden");
+        }, 650);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas Deliciosas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><img src="img/logo.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="https://www.youtube.com/@Culin%C3%A1riaemCasa">Vídeos Tutoriais</a></li>
+                <li><a href="#receitas">Receitas</a></li>
+                <li><a href="quem_somos.html">Quem somos</a></li>
+            </ul>
+        </nav>
+        <div class="social">
+            <a href="#"><img src="img/face.png"></a>
+            <a href="#"><img src="img/insta.png"></a>
+            <a href="#"><img src="img/you.png"></a>
+        </div>
+        <div class="login"><a href="login.html"><button>Login</button></a></div>
+    </header>
+
+    <section class="carrossel">
+        <div class="fixed-text">
+            <h1>Descubra sabores e<br> explore receitas.</h1>
+            <p>Nosso site de receitas é o seu guia para uma culinária fácil, deliciosa e saudável.<br>
+                Com receitas variadas e dicas práticas, você terá todas as ferramentas necessárias<br>
+                para transformar suas refeições em momentos especiais. Explore novas culturas <br>
+                gastronômicas e descubra os benefícios de preparar pratos caseiros que agradam a todos.</p>
+        </div>
+        <div class="carrossel-inner">
+            <div class="slide" style="background-image: url('img/1.png');"></div>
+            <div class="slide" style="background-image: url('img/2.png');"></div>
+            <div class="slide" style="background-image: url('img/3.png');"></div>
+            <div class="slide" style="background-image: url('img/4.png');"></div>
+            <div class="slide" style="background-image: url('img/5.png');"></div>
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </section>
+    <section class="categorias">
+        <div class="categoria"><img src="img/carnes.png"></div>
+        <div class="categoria"><img src="img/massas.png"></div>
+        <div class="categoria"><img src="img/saladas.png"></div>
+        <div class="categoria"><img src="img/peixes.png"></div>
+        <div class="categoria"><img src="img/sobremesas.png"></div>
+        <div class="categoria"><img src="img/vegetarianas.png"></div>
+        <div class="categoria"><img src="img/lanches.png"></div>
+        <div class="categoria"><img src="img/bebidas.png"></div>
+    </section>
+
+    <section class="pesquisa">
+        <input type="text" id="inputName" class="form-control" placeholder="Pesquise uma receita...">
+        <button id="button">Buscar</button>
+    </section>
+    <div class="container">
+
+        <div id="msg">
+            <h3>We Don't have the food you gave us. Please order something else if you want .......</h3>
+        </div>
+
+
+        <div id="details">
+
+
+        </div>
+
+
+        <div id="items">
+
+
+        </div>
+        <h2>Top 4 Melhores Receitas</h2>
+        <section class="recipe-section">
+            <div class="recipe">
+                <div class="recipe-image" id="hamburger">
+                  
+                </div>
+                <div class="recipe-details">
+                    <h2>Hamburger</h2>
+                    <p class="description">Aprenda a criar o hambúrguer dos seus sonhos, com receitas exclusivas e perfeitas para um sabor ingredientes inigualáveis. Torne-se o mestre do hambúrguer e surpreenda-se a cada mordida!</p>
+                    <button class="saiba">Saiba Mais</button>
+                </div>
+            </div>
+            <div class="recipe">
+                <div class="recipe-image" id="salpicao">
+                    
+                </div>
+                <div class="recipe-details">
+                    <h2>Salpicão</h2>
+                    <p class="description">Aprenda a fazer um delicioso e maravilhoso salpicão de frango tradicional. Uma receita perfeita para festas, churrascos ou almoços em família. Veja dicas, variações e muito mais!</p>
+
+                    <button class="saiba">Saiba Mais</button>
+                </div>
+            </div>
+            <div class="recipe">
+                <div class="recipe-image" id="prestigio">
+                    
+                </div>
+                <div class="recipe-details" >
+                    <h2>Prestígio na Travessa</h2>
+                    <p class="description">Aprenda a fazer essa sobremesa irresistível! O Prestígio na Travessa combina o sabor suave do coco com a intensidade do chocolate, resultando em uma experiência gastronômica única e deliciosa..</p>
+
+                    <button class="saiba">Saiba Mais</button>
+                </div>
+            </div>
+            <div class="recipe">
+                <div class="recipe-image" id="chocolate">
+                    
+                </div>
+                <div class="recipe-details">
+                    <h2>Bolo de Chocolate</h2>
+                    <p class="description">Aprenda a fazer esse bolo de chocolate irresistível e magnífico! Uma combinação perfeita e maravilhosa de sabor rico e textura macia que derrete na boca. Com uma receita fácil e prática.</p>
+
+                    <button class="saiba">Saiba Mais</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Receitas Deliciosas. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

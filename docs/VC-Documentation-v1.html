@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armário Virtual - Documentação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 1. HEADER/HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <h1>Armário Virtual</h1>
+            <p class="hero-description">
+                Sistema completo para gerenciamento inteligente de guarda-roupa digital. 
+                Organize suas peças de roupa, crie combinações de looks, visualize estatísticas 
+                detalhadas de uso, receba sugestões baseadas no clima e planeje o que vestir 
+                com antecedência usando o calendário integrado. Uma solução moderna e modular 
+                construída com Node.js, Express e SQLite.
+            </p>
+            <div class="badges">
+                <span class="badge badge-green">
+                    <i class="fab fa-node-js"></i> Node.js 18+
+                </span>
+                <span class="badge badge-blue">
+                    <i class="fas fa-server"></i> Express 4.x
+                </span>
+                <span class="badge badge-purple">
+                    <i class="fas fa-database"></i> SQLite
+                </span>
+                <span class="badge badge-yellow">
+                    <i class="fas fa-file-alt"></i> MIT License
+                </span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#instalacao" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Começar
+                </a>
+                <a href="#funcionalidades" class="btn btn-secondary">
+                    <i class="fas fa-list"></i> Funcionalidades
+                </a>
+                <a href="#tecnologias" class="btn btn-secondary">
+                    <i class="fas fa-layer-group"></i> Tecnologias
+                </a>
+                <a href="#estrutura" class="btn btn-secondary">
+                    <i class="fas fa-folder-tree"></i> Estrutura
+                </a>
+                <a href="#api" class="btn btn-secondary">
+                    <i class="fas fa-plug"></i> API
+                </a>
+                <a href="#requisitos" class="btn btn-secondary">
+                    <i class="fas fa-check-double"></i> Requisitos
+                </a>
+                <a href="#casos-uso" class="btn btn-secondary">
+                    <i class="fas fa-project-diagram"></i> Casos de Uso
+                </a>
+                <a href="#screenshots" class="btn btn-secondary">
+                    <i class="fas fa-images"></i> Screenshots
+                </a>
+                <a href="#problemas" class="btn btn-secondary">
+                    <i class="fas fa-bug"></i> Problemas
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação fixa -->
+    <nav class="nav-fixed">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-tshirt"></i> Armário Virtual
+            </a>
+            <ul class="nav-links">
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#instalacao">Instalação</a></li>
+                <li><a href="#estrutura">Estrutura</a></li>
+                <li><a href="#api">API</a></li>
+                <li><a href="#temas">Temas</a></li>
+                <li><a href="#requisitos">Requisitos</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#problemas">Problemas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 2. FUNCIONALIDADES PRINCIPAIS -->
+        <section id="funcionalidades" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Funcionalidades</h2>
+                <p>Tudo que você precisa para organizar seu guarda-roupa</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Gerenciamento de Peças -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Gerenciamento de Peças</h3>
+                    <p class="feature-desc">Cadastre e organize todas as suas roupas com detalhes completos</p>
+                    <ul>
+                        <li>Upload de até 5 fotos por peça</li>
+                        <li>20+ categorias pré-definidas</li>
+                        <li>Paleta de cores expandida</li>
+                        <li>Tags personalizadas ilimitadas</li>
+                        <li>Status: Ativo, Lavanderia, Doado</li>
+                        <li>Custo por uso automático</li>
+                        <li>Marca, tamanho e observações</li>
+                        <li>Histórico de uso completo</li>
+                    </ul>
+                </div>
+
+                <!-- Gerenciamento de Looks -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Gerenciamento de Looks</h3>
+                    <p class="feature-desc">Crie combinações perfeitas e organize seus looks</p>
+                    <ul>
+                        <li>Arraste e solte peças</li>
+                        <li>Gerador de look aleatório</li>
+                        <li>Visualização 3 categorias</li>
+                        <li>Favoritar looks preferidos</li>
+                        <li>Histórico de uso detalhado</li>
+                        <li>Agenda no calendário</li>
+                        <li>Notas e avaliações</li>
+                        <li>Estatísticas de popularidade</li>
+                    </ul>
+                </div>
+
+                <!-- Busca e Filtros -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #14b8a6, #2dd4bf);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Busca e Filtros</h3>
+                    <p class="feature-desc">Encontre rapidamente qualquer peça ou look</p>
+                    <ul>
+                        <li>Busca instantânea (debounce)</li>
+                        <li>Filtro por categoria</li>
+                        <li>Filtro por cor principal</li>
+                        <li>Filtro por estação do ano</li>
+                        <li>Filtro por status</li>
+                        <li>Apenas favoritos</li>
+                        <li>Ordenação customizável</li>
+                        <li>Filtros combinados</li>
+                    </ul>
+                </div>
+
+                <!-- Clima e Sugestões -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Clima e Sugestões</h3>
+                    <p class="feature-desc">Receba sugestões baseadas no clima atual</p>
+                    <ul>
+                        <li>API Open-Meteo integrada</li>
+                        <li>Localização via Geocoding</li>
+                        <li>Sugestões por temperatura</li>
+                        <li>Consideração de estação</li>
+                        <li>Atualização automática</li>
+                        <li>Previsão de 7 dias</li>
+                        <li>Ícones animados</li>
+                        <li>Filtro por ocasião</li>
+                        <li>Recomendações inteligentes</li>
+                    </ul>
+                </div>
+
+                <!-- Calendário -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Calendário</h3>
+                    <p class="feature-desc">Planeje o que vestir com antecedência</p>
+                    <ul>
+                        <li>Visualização mensal completa</li>
+                        <li>Agendar looks para datas</li>
+                        <li>Notas e observações</li>
+                        <li>Marcação de eventos</li>
+                        <li>Navegação entre meses</li>
+                        <li>Destaque de hoje</li>
+                        <li>Contador de looks agendados</li>
+                        <li>Interface intuitiva</li>
+                    </ul>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Estatísticas</h3>
+                    <p class="feature-desc">Acompanhe métricas do seu guarda-roupa</p>
+                    <ul>
+                        <li>Dashboard interativo</li>
+                        <li>Total de peças e looks</li>
+                        <li>Valor total investido</li>
+                        <li>Peças mais usadas (top 10)</li>
+                        <li>Distribuição por categoria</li>
+                        <li>Distribuição por cor</li>
+                        <li>Custo por uso calculado</li>
+                        <li>Gráficos dinâmicos</li>
+                    </ul>
+                </div>
+
+                <!-- Lavanderia -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #06b6d4, #22d3ee);">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3>Lavanderia</h3>
+                    <ul>
+                        <li>Controle de peças sujas</li>
+                        <li>Registro de lavagens</li>
+                        <li>Instruções de cuidado</li>
+                        <li>Histórico completo</li>
+                        <li>Alertas de manutenção</li>
+                    </ul>
+                </div>
+
+                <!-- Inspiração -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Inspiração</h3>
+                    <ul>
+                        <li>Salvar referências</li>
+                        <li>Sistema de tendências</li>
+                        <li>Tags e categorias</li>
+                        <li>Favoritos externos</li>
+                        <li>Links e imagens</li>
+                    </ul>
+                </div>
+
+                <!-- Notas -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #84cc16, #a3e635);">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Notas e Feedback</h3>
+                    <ul>
+                        <li>Notas por peça/look</li>
+                        <li>Feedback de uso</li>
+                        <li>Avaliações</li>
+                        <li>Comentários</li>
+                        <li>Histórico pessoal</li>
+                    </ul>
+                </div>
+
+                <!-- Personalização -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #7f1d1d, #dc2626);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Personalização</h3>
+                    <ul>
+                        <li>Modo Escuro</li>
+                        <li>5 esquemas de cores</li>
+                        <li>Efeito glassmorphism</li>
+                        <li>Preferências salvas</li>
+                        <li>Interface responsiva</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TECNOLOGIAS -->
+        <section id="tecnologias" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> Tecnologias</h2>
+                <p>Stack moderna, modular e escalável com as melhores práticas</p>
+            </div>
+
+            <div class="tech-intro">
+                <p>
+                    O Armário Virtual foi construído com tecnologias modernas e confiáveis, seguindo princípios de 
+                    <strong>Clean Code</strong>, <strong>Modularização</strong> e <strong>Separação de Responsabilidades</strong>. 
+                    Cada arquivo possui menos de 150 linhas, facilitando manutenção e testes.
+                </p>
+            </div>
+
+            <div class="tech-grid">
+                <!-- Backend Card -->
+                <div class="tech-card">
+                    <div class="tech-category">Backend</div>
+                    
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fab fa-node-js" style="color: #339933;"></i>
+                            <div>
+                                <strong>Node.js 18+</strong>
+                                <span>JavaScript Runtime</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Runtime JavaScript server-side que executa toda a lógica do backend. Permite usar JavaScript tanto no frontend quanto no backend, facilitando o desenvolvimento full-stack.</p>
+                            <p><strong>Implementação:</strong> Servidor HTTP configurado no <code>server/index.js</code> que escuta na porta 3000. Gerencia requisições, rotas, middlewares e comunicação com o banco de dados SQLite.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-server" style="color: #000000;"></i>
+                            <div>
+                                <strong>Express 4.x</strong>
+                                <span>Framework Web</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Framework web minimalista para Node.js que simplifica a criação de APIs REST. Gerencia rotas, middlewares e respostas HTTP.</p>
+                            <p><strong>Implementação:</strong> Configurado para servir arquivos estáticos da pasta <code>public/</code>, processar JSON no body das requisições, e organizar rotas em <code>server/routes/</code> com controllers separados por funcionalidade (items, looks, categories, etc.).</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-database" style="color: #003B57;"></i>
+                            <div>
+                                <strong>SQLite</strong>
+                                <span>Banco de Dados</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Banco de dados relacional leve e sem servidor, perfeito para aplicações locais. Armazena todas as peças de roupa, looks, categorias, notas e estatísticas.</p>
+                            <p><strong>Implementação:</strong> Arquivo <code>wardrobe.db</code> em <code>data/</code> com tabelas relacionadas. Queries SQL organizadas em módulos (<code>server/database/items.js</code>, <code>looks.js</code>, etc.) seguindo o padrão Repository. Suporta transações e relacionamentos entre tabelas.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-upload" style="color: #f59e0b;"></i>
+                            <div>
+                                <strong>Multer</strong>
+                                <span>Upload de Arquivos</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Middleware para Node.js que processa uploads de arquivos multipart/form-data. Permite que usuários façam upload de até 5 fotos por peça de roupa.</p>
+                            <p><strong>Implementação:</strong> Configurado em <code>itemController.js</code> com <code>.array('images', 5)</code> para aceitar múltiplos arquivos. Salva imagens na pasta <code>uploads/</code> com nomes únicos gerados por timestamp. Valida tipos de arquivo (JPEG, PNG) e tamanho máximo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend Card -->
+                <div class="tech-card">
+                    <div class="tech-category">Frontend</div>
+                    
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fab fa-html5" style="color: #e34c26;"></i>
+                            <div>
+                                <strong>HTML5</strong>
+                                <span>Estrutura</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Linguagem de marcação semântica que estrutura toda a interface do usuário. Usa tags modernas como <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> para melhor acessibilidade.</p>
+                            <p><strong>Implementação:</strong> Arquivo principal <code>public/index.html</code> com estrutura modular: navegação, sections para cada funcionalidade (items, looks, calendar, statistics), modais para CRUD, e formulários com validação nativa. Atributos <code>data-*</code> para interação com JavaScript.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fab fa-css3-alt" style="color: #264de4;"></i>
+                            <div>
+                                <strong>CSS3 Modules</strong>
+                                <span>Estilização</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Estilização modular com 24 arquivos CSS separados por responsabilidade. Usa CSS Variables para temas, Flexbox e Grid para layouts responsivos, e transições para animações suaves.</p>
+                            <p><strong>Implementação:</strong> Arquivo principal <code>main.css</code> importa todos os módulos (<code>base.css</code>, <code>layout.css</code>, <code>modal.css</code>, etc.). Sistema de temas com <code>:root</code> e <code>[data-theme="dark"]</code>. Media queries em <code>responsive.css</code> para mobile, tablet e desktop.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fab fa-js" style="color: #f7df1e;"></i>
+                            <div>
+                                <strong>JavaScript ES6+</strong>
+                                <span>32 Módulos</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> 32 módulos ES6 com responsabilidade única. Usa async/await para requisições, destructuring para dados, arrow functions e imports/exports nativos. Padrões Observer e Module para organização.</p>
+                            <p><strong>Implementação:</strong> Entry point <code>app.js</code> inicializa módulos. <code>state.js</code> gerencia estado global, <code>api.js</code> centraliza requisições fetch, módulos CRUD (<code>items-crud.js</code>, <code>looks-crud.js</code>) seguem padrão consistente. Event listeners em <code>event-listeners.js</code>, manipulação DOM em <code>dom.js</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-icons" style="color: #339af0;"></i>
+                            <div>
+                                <strong>Font Awesome 6</strong>
+                                <span>Ícones</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> Biblioteca de ícones vetoriais que fornece interface visual consistente e profissional. Mais de 100 ícones diferentes usados na navegação, botões, cards e feedback visual.</p>
+                            <p><strong>Implementação:</strong> CDN carregado no HTML via link <code>&lt;link rel="stylesheet" href="cdnjs...font-awesome"&gt;</code>. Classes <code>fas</code>, <code>far</code>, <code>fab</code> aplicadas em elementos <code>&lt;i&gt;</code>. Ícones para categorias, ações (edit, delete, save), status e navegação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- APIs Card -->
+                <div class="tech-card">
+                    <div class="tech-category">APIs & Integrações</div>
+                    
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-cloud-sun" style="color: #0ea5e9;"></i>
+                            <div>
+                                <strong>Open-Meteo API</strong>
+                                <span>Previsão do Tempo</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> API gratuita de previsão do tempo que fornece temperatura e condições climáticas atuais. Usado para sugerir roupas adequadas baseadas no clima (inverno, meia-estação, verão).</p>
+                            <p><strong>Implementação:</strong> Serviço <code>weatherService.js</code> faz requisições HTTP para a API com latitude/longitude. Controller <code>weatherController.js</code> processa resposta e filtra peças por atributo "estação". Cache de 30 minutos para evitar requisições excessivas. Fallback para modo offline.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-item tech-item-expandable">
+                        <div class="tech-item-header">
+                            <i class="fas fa-cog" style="color: #8b5cf6;"></i>
+                            <div>
+                                <strong>LocalStorage API</strong>
+                                <span>Armazenamento Local</span>
+                            </div>
+                            <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="tech-item-content">
+                            <p><strong>Uso no Projeto:</strong> API nativa do browser para armazenamento local persistente. Salva preferências do usuário como tema (claro/escuro), cor do tema, e configurações de exibição.</p>
+                            <p><strong>Implementação:</strong> Módulo <code>dark-mode.js</code> salva/carrega tema com <code>localStorage.setItem/getItem('theme')</code>. Módulo <code>color-theme.js</code> persiste esquema de cores escolhido. Estado carregado no início da aplicação em <code>app.js</code> para aplicar preferências antes do render.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INSTALAÇÃO -->
+        <section id="instalacao" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-rocket"></i> Instalação</h2>
+                <p>Configure o projeto em poucos minutos e comece a usar</p>
+            </div>
+
+            <div class="install-requirements">
+                <h3><i class="fas fa-clipboard-check"></i> Requisitos</h3>
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <i class="fab fa-node-js"></i>
+                        <div>
+                            <strong>Node.js 18+</strong>
+                            <span>Runtime necessário</span>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fas fa-box"></i>
+                        <div>
+                            <strong>npm 9+</strong>
+                            <span>Gerenciador de pacotes</span>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fab fa-git-alt"></i>
+                        <div>
+                            <strong>Git</strong>
+                            <span>Controle de versão</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="install-steps">
+                <!-- Passo 1 -->
+                <div class="install-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Clone o repositório</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code>git clone https://github.com/seu-usuario/virtual-closet.git
+cd virtual-closet</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="install-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Instale as dependências</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code>npm install</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="install-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Inicie o servidor</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code>npm start</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Passo 4 -->
+                <div class="install-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Acesse no navegador</h3>
+                        <div class="access-box">
+                            <i class="fas fa-globe"></i>
+                            <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scripts disponíveis -->
+            <div class="scripts-box">
+                <h3><i class="fas fa-terminal"></i> Scripts Disponíveis</h3>
+                <div class="scripts-grid">
+                    <div class="script-item">
+                        <code>npm start</code>
+                        <span>Inicia o servidor em produção</span>
+                    </div>
+                    <div class="script-item">
+                        <code>npm run dev</code>
+                        <span>Modo desenvolvimento (com nodemon)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ESTRUTURA DO PROJETO -->
+        <section id="estrutura" class="section section-alt">
+            <div class="section-header">
+                <h2><i class="fas fa-folder-tree"></i> Estrutura do Projeto</h2>
+                <p>Arquitetura modular com separação de responsabilidades</p>
+            </div>
+
+            <div class="structure-container">
+                <div class="file-tree">
+                    <div class="tree-header">
+                        <i class="fas fa-folder-open"></i>
+                        <span>virtual-closet/</span>
+                    </div>
+                    
+                    <div class="tree-content">
+                        <!-- Raiz -->
+                        <div class="tree-item file">
+                            <i class="fas fa-file-alt"></i> package.json
+                            <span class="tree-desc">Dependências do projeto e scripts NPM.<br>Define Express, Multer, SQLite3, e Nodemon.</span>
+                        </div>
+                        <div class="tree-item file">
+                            <i class="fas fa-file-alt"></i> .gitignore
+                            <span class="tree-desc">Arquivos excluídos do versionamento.<br>Inclui node_modules, data/, uploads/, e .env.</span>
+                        </div>
+                        
+                        <!-- Server -->
+                        <div class="tree-item folder">
+                            <i class="fas fa-folder"></i> server/
+                            <span class="tree-desc">Backend Node.js com Express.<br>Contém API, controllers, routes e database.</span>
+                        </div>
+                        <div class="tree-children">
+                            <div class="tree-item file">
+                                <i class="fas fa-file-code"></i> index.js
+                                <span class="tree-desc">Configuração e inicialização do servidor Express.<br>Define middlewares, rotas e porta de execução.</span>
+                            </div>
+                            <div class="tree-item file">
+                                <i class="fas fa-file-code"></i> database.js
+                                <span class="tree-desc">Configuração inicial do banco de dados SQLite.<br>Cria tabelas e índices na primeira execução.</span>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> database/
+                                <span class="tree-desc">Módulos de acesso ao banco de dados.<br>Separa operações por entidade (items, looks, etc).</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> index.js
+                                    <span class="tree-desc">Exporta todos os módulos de database.<br>Ponto central de acesso ao banco de dados.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> config.js
+                                    <span class="tree-desc">Configuração da conexão SQLite.<br>Define caminho do arquivo e opções de conexão.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> items.js
+                                    <span class="tree-desc">Operações CRUD para itens de roupa.<br>Inclui queries para filtros, busca e estatísticas.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> looks.js
+                                    <span class="tree-desc">Gerenciamento de looks e agendamento.<br>Relaciona looks com itens e datas no calendário.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> categories.js
+                                    <span class="tree-desc">CRUD de categorias personalizadas.<br>Permite criar, editar e deletar categorias de itens.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> notes.js
+                                    <span class="tree-desc">Persistência de notas e observações.<br>Armazena anotações vinculadas a datas.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> inspiration.js
+                                    <span class="tree-desc">Gerenciamento de imagens de inspiração.<br>Salva referências visuais e ideias de looks.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> statistics.js
+                                    <span class="tree-desc">Cálculos de estatísticas do guarda-roupa.<br>Gera relatórios de uso, categorias e tendências.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> items/
+                                    <span class="tree-desc">Queries SQL específicas para itens.<br>Módulos auxiliares de persistência.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> looks/
+                                    <span class="tree-desc">Queries SQL específicas para looks.<br>Relacionamentos com itens e agendamento.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> controllers/
+                                <span class="tree-desc">Lógica de negócio da aplicação.<br>Processa requisições HTTP e coordena operações.</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> itemController.js
+                                    <span class="tree-desc">CRUD completo de itens de roupa.<br>Inclui upload de imagens com Multer.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> itemFilters.js
+                                    <span class="tree-desc">Sistema de filtragem avançada de itens.<br>Busca por categoria, cor, tag, e condições.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> lookController.js
+                                    <span class="tree-desc">Gerenciamento de looks completos.<br>Cria, edita, deleta e lista combinações de peças.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> lookScheduleController.js
+                                    <span class="tree-desc">Agendamento de looks no calendário.<br>Associa looks a datas específicas.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> categoryController.js
+                                    <span class="tree-desc">CRUD de categorias personalizadas.<br>Permite customizar organização do guarda-roupa.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> inspirationController.js
+                                    <span class="tree-desc">Gerencia quadro de inspirações.<br>Upload e organização de imagens de referência.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> notesController.js
+                                    <span class="tree-desc">Notas e anotações do calendário.<br>CRUD de observações vinculadas a datas.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> weatherController.js
+                                    <span class="tree-desc">Integração com API de clima.<br>Busca previsão para recomendar roupas adequadas.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> routes/
+                                <span class="tree-desc">Definição de rotas da API REST.<br>Mapeia endpoints HTTP para controllers.</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> itemRoutes.js
+                                    <span class="tree-desc">Rotas para operações com itens.<br>GET, POST, PUT, DELETE em /api/items.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> lookRoutes.js
+                                    <span class="tree-desc">Endpoints para gerenciamento de looks.<br>Inclui rotas de agendamento no calendário.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> categoryRoutes.js
+                                    <span class="tree-desc">Rotas CRUD de categorias personalizadas.<br>Permite criar e gerenciar novas categorias.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> inspirationRoutes.js
+                                    <span class="tree-desc">Endpoints para quadro de inspirações.<br>Upload e listagem de imagens de referência.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> notesRoutes.js
+                                    <span class="tree-desc">Rotas para sistema de notas.<br>CRUD de anotações do calendário.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> weatherRoutes.js
+                                    <span class="tree-desc">Endpoint para consulta de clima.<br>Proxy para API Open-Meteo.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> services/
+                                <span class="tree-desc">Serviços externos e integrações.<br>Camada de comunicação com APIs externas.</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> weatherService.js
+                                    <span class="tree-desc">Integração com Open-Meteo API.<br>Busca dados de clima e temperatura em tempo real.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> data/
+                                <span class="tree-desc">Pasta de backup do banco de dados.<br>Cópias de segurança do arquivo SQLite.</span>
+                            </div>
+                        </div>
+
+                        <!-- Public -->
+                        <div class="tree-item folder">
+                            <i class="fas fa-folder"></i> public/
+                            <span class="tree-desc">Frontend estático servido pelo Express.<br>Contém HTML, CSS, JavaScript e assets.</span>
+                        </div>
+                        <div class="tree-children">
+                            <div class="tree-item file">
+                                <i class="fas fa-file-code"></i> index.html
+                                <span class="tree-desc">Página principal da aplicação.<br>Estrutura HTML base da interface.</span>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> scripts/
+                                <span class="tree-desc">JavaScript modular da aplicação.<br>32 módulos separados por responsabilidade.</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> app.js
+                                    <span class="tree-desc">Ponto de entrada da aplicação frontend.<br>Inicializa módulos e configura evento listeners.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> api.js
+                                    <span class="tree-desc">Camada de comunicação com backend.<br>Funções fetch para todos os endpoints da API.</span>
+                                </div>
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> features.js
+                                    <span class="tree-desc">Coordenação de funcionalidades principais.<br>Integra módulos de itens, looks e calendário.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> api/
+                                    <span class="tree-desc">Módulos API separados por recurso.<br>Funções de requisição HTTP especializadas.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> features/
+                                    <span class="tree-desc">Implementações de funcionalidades complexas.<br>Módulos de recursos específicos da aplicação.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> modules/
+                                    <span class="tree-desc">32 módulos JavaScript ES6+ independentes.<br>Arquitetura modular com separação de responsabilidades.</span>
+                                </div>
+                                <div class="tree-children nested">
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> state.js
+                                        <span class="tree-desc">Gerenciamento centralizado do estado da aplicação.<br>Armazena itens, looks, categorias e configurações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> dom.js
+                                        <span class="tree-desc">Seletores e referências a elementos DOM.<br>Cache de elementos para performance.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> ui.js
+                                        <span class="tree-desc">Funções utilitárias de interface.<br>Modais, toasts, loading states e animações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> navigation.js
+                                        <span class="tree-desc">Sistema de navegação entre seções.<br>Controla mudança de tabs e histórico.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> event-listeners.js
+                                        <span class="tree-desc">Configuração global de event listeners.<br>Delegação de eventos e binds principais.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> items-crud.js
+                                        <span class="tree-desc">Operações CRUD de itens no frontend.<br>Cria, edita, deleta e sincroniza com API.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> items-ui.js
+                                        <span class="tree-desc">Renderização de itens na interface.<br>Gera cards, grid e visualizações de peças.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> items-modal.js
+                                        <span class="tree-desc">Modal de cadastro e edição de itens.<br>Formulário com upload de imagem e campos.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> items-filters.js
+                                        <span class="tree-desc">Sistema de filtros avançados de itens.<br>Busca por texto, categoria, cor, tag e combinações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> looks-crud.js
+                                        <span class="tree-desc">Operações CRUD de looks completos.<br>Gerencia combinações de múltiplas peças.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> looks-ui.js
+                                        <span class="tree-desc">Renderização visual de looks.<br>Exibe combinações com todas as peças associadas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> looks-modal.js
+                                        <span class="tree-desc">Modal de criação de looks.<br>Interface para selecionar e combinar itens.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> looks-schedule.js
+                                        <span class="tree-desc">Agendamento de looks no calendário.<br>Associa looks a datas específicas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> categories-core.js
+                                        <span class="tree-desc">Lógica core do sistema de categorias.<br>Validação e regras de negócio.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> categories-crud.js
+                                        <span class="tree-desc">CRUD de categorias personalizadas.<br>Cria, edita e deleta categorias customizadas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> calendar-export.js
+                                        <span class="tree-desc">Exportação de calendário para iCalendar.<br>Gera arquivo .ics com looks agendados.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> calendar-notes.js
+                                        <span class="tree-desc">Visualização de notas no calendário.<br>Exibe anotações nas datas correspondentes.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> notes-crud.js
+                                        <span class="tree-desc">Operações CRUD de notas e anotações.<br>Gerencia persistência de observações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> notes-ui.js
+                                        <span class="tree-desc">Renderização de notas na interface.<br>Exibe e formata anotações salvas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> notes-events.js
+                                        <span class="tree-desc">Event handlers do sistema de notas.<br>Gerencia interações do usuário com notas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> inspiration-crud.js
+                                        <span class="tree-desc">CRUD de imagens de inspiração.<br>Upload e gerenciamento de referências visuais.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> inspiration-ui.js
+                                        <span class="tree-desc">Quadro de inspirações visual.<br>Grid de imagens estilo Pinterest/Moodboard.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> inspiration-events.js
+                                        <span class="tree-desc">Event handlers do quadro de inspirações.<br>Drag & drop, zoom e reorganização.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> dark-mode.js
+                                        <span class="tree-desc">Sistema de tema escuro/claro.<br>Alterna cores e persiste preferência no localStorage.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> color-theme.js
+                                        <span class="tree-desc">Seleção de paletas de cores.<br>6 temas coloridos diferentes para personalização.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> laundry.js
+                                        <span class="tree-desc">Gerenciamento de itens na lavanderia.<br>Marca peças como "em lavagem" temporariamente.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> maintenance.js
+                                        <span class="tree-desc">Sistema de manutenção de roupas.<br>Rastreamento de reparos e cuidados necessários.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> export-data.js
+                                        <span class="tree-desc">Exportação de dados em JSON.<br>Backup completo de itens, looks e configurações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> import-data.js
+                                        <span class="tree-desc">Importação de dados de arquivo JSON.<br>Restaura backup e migra dados entre instâncias.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> share-look.js
+                                        <span class="tree-desc">Compartilhamento de looks via link.<br>Gera URL e imagem para redes sociais.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> trends.js
+                                        <span class="tree-desc">Análise de tendências de uso.<br>Estatísticas de peças mais/menos usadas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> feedback.js
+                                        <span class="tree-desc">Sistema de feedback visual.<br>Toast notifications e mensagens de sucesso/erro.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tree-item folder">
+                                <i class="fas fa-folder"></i> styles/
+                                <span class="tree-desc">CSS modular da aplicação.<br>24 módulos separados + main.css.</span>
+                            </div>
+                            <div class="tree-children nested">
+                                <div class="tree-item file">
+                                    <i class="fas fa-file-code"></i> main.css
+                                    <span class="tree-desc">Arquivo principal que importa todos os módulos.<br>Define ordem de carregamento dos estilos.</span>
+                                </div>
+                                <div class="tree-item folder">
+                                    <i class="fas fa-folder"></i> modules/
+                                    <span class="tree-desc">24 módulos CSS separados por componente.<br>Arquitetura modular para manutenção facilitada.</span>
+                                </div>
+                                <div class="tree-children nested">
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> base.css
+                                        <span class="tree-desc">Reset e estilos base globais.<br>Variáveis CSS, tipografia e normalização.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> layout.css
+                                        <span class="tree-desc">Estrutura principal da aplicação.<br>Grid, sidebar, header e seções principais.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> buttons.css
+                                        <span class="tree-desc">Estilos de botões e ações.<br>Variações primary, secondary, danger e icon.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> forms.css
+                                        <span class="tree-desc">Inputs, selects e elementos de formulário.<br>Validação visual e estados de focus.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> modal.css
+                                        <span class="tree-desc">Overlay e janelas modais.<br>Animações de abertura e backdrop.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> items.css
+                                        <span class="tree-desc">Cards e grid de itens de roupa.<br>Layout responsivo e hover effects.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> looks.css
+                                        <span class="tree-desc">Visualização de looks completos.<br>Combinações de múltiplas peças em grid.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> calendar.css
+                                        <span class="tree-desc">Interface de calendário mensal.<br>Dias, eventos e looks agendados.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> categories.css
+                                        <span class="tree-desc">Badges e filtros de categorias.<br>Tags coloridas e organização visual.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> filters.css
+                                        <span class="tree-desc">Barra de filtros avançados.<br>Dropdowns, checkbox groups e busca.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> statistics.css
+                                        <span class="tree-desc">Gráficos e cards de estatísticas.<br>Visualizações de dados e métricas.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> weather.css
+                                        <span class="tree-desc">Widget de previsão do tempo.<br>Ícones, temperatura e recomendações.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> notes.css
+                                        <span class="tree-desc">Notas e anotações no calendário.<br>Tooltips e exibição inline.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> inspiration.css
+                                        <span class="tree-desc">Quadro de inspirações estilo moodboard.<br>Grid masonry de imagens.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> laundry.css
+                                        <span class="tree-desc">Interface da seção de lavanderia.<br>Estados visuais de itens em lavagem.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> care.css
+                                        <span class="tree-desc">Símbolos e instruções de cuidado.<br>Ícones de lavagem e manutenção.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> maintenance.css
+                                        <span class="tree-desc">Interface de reparos e consertos.<br>Status e histórico de manutenção.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> selection.css
+                                        <span class="tree-desc">Estados de seleção de itens.<br>Multi-seleção e destaque visual.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> share.css
+                                        <span class="tree-desc">Modal e botões de compartilhamento.<br>Preview de looks para redes sociais.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> trends.css
+                                        <span class="tree-desc">Dashboard de tendências de uso.<br>Gráficos e rankings de peças.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> feedback.css
+                                        <span class="tree-desc">Toasts e notificações do sistema.<br>Mensagens de sucesso, erro e alerta.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> dark-mode.css
+                                        <span class="tree-desc">Variáveis e estilos do tema escuro.<br>Paleta de cores dark com contraste adequado.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> color-theme.css
+                                        <span class="tree-desc">6 temas de cores personalizados.<br>Paletas azul, roxo, verde, rosa, laranja e roxo.</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <i class="fas fa-file-code"></i> responsive.css
+                                        <span class="tree-desc">Media queries e adaptações mobile.<br>Breakpoints para tablet e smartphone.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data & Uploads -->
+                        <div class="tree-item folder">
+                            <i class="fas fa-folder"></i> data/
+                            <span class="tree-desc">Banco de dados SQLite da aplicação.<br>Arquivo closet.db com todas as tabelas.</span>
+                        </div>
+                        <div class="tree-item folder">
+                            <i class="fas fa-folder"></i> uploads/
+                            <span class="tree-desc">Armazenamento de imagens enviadas.<br>Fotos de itens e inspirações organizadas por tipo.</span>
+                        </div>
+                        
+                        <!-- Docs -->
+                        <div class="tree-item folder">
+                            <i class="fas fa-folder"></i> docs/
+                            <span class="tree-desc">Documentação completa do projeto.<br>GitHub Pages com HTML, CSS e screenshots.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="structure-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">32</span>
+                            <span class="stat-label">Módulos JS</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">Módulos CSS</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">&lt;150</span>
+                            <span class="stat-label">Linhas/arquivo</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">ES6</span>
+                            <span class="stat-label">Modules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. API ENDPOINTS -->
+        <section id="api" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-plug"></i> API Endpoints</h2>
+                <p>Interface REST para comunicação cliente-servidor</p>
+            </div>
+
+            <div class="api-container">
+                <!-- Items API -->
+                <div class="api-group">
+                    <div class="api-group-header">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Itens</h3>
+                    </div>
+                    <div class="api-table">
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/items</code>
+                            <span class="desc">Lista todos os itens</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/items/:id</code>
+                            <span class="desc">Busca item por ID</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method post">POST</span>
+                            <code>/api/items</code>
+                            <span class="desc">Cria novo item</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method put">PUT</span>
+                            <code>/api/items/:id</code>
+                            <span class="desc">Atualiza item</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method delete">DELETE</span>
+                            <code>/api/items/:id</code>
+                            <span class="desc">Remove item</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method patch">PATCH</span>
+                            <code>/api/items/:id/favorite</code>
+                            <span class="desc">Toggle favorito</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method patch">PATCH</span>
+                            <code>/api/items/:id/laundry</code>
+                            <span class="desc">Toggle lavanderia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Looks API -->
+                <div class="api-group">
+                    <div class="api-group-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Looks</h3>
+                    </div>
+                    <div class="api-table">
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/looks</code>
+                            <span class="desc">Lista todos os looks</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/looks/:id</code>
+                            <span class="desc">Busca look por ID</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method post">POST</span>
+                            <code>/api/looks</code>
+                            <span class="desc">Cria novo look</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method put">PUT</span>
+                            <code>/api/looks/:id</code>
+                            <span class="desc">Atualiza look</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method delete">DELETE</span>
+                            <code>/api/looks/:id</code>
+                            <span class="desc">Remove look</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method patch">PATCH</span>
+                            <code>/api/looks/:id/favorite</code>
+                            <span class="desc">Toggle favorito</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats API -->
+                <div class="api-group">
+                    <div class="api-group-header">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Estatísticas</h3>
+                    </div>
+                    <div class="api-table">
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/stats</code>
+                            <span class="desc">Dashboard stats</span>
+                        </div>
+                        <div class="api-row">
+                            <span class="method get">GET</span>
+                            <code>/api/stats/categories</code>
+                            <span class="desc">Stats por categoria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TEMAS DE CORES -->
+        <section id="temas" class="section section-alt">
+            <div class="section-header">
+                <h2><i class="fas fa-palette"></i> Temas de Cores</h2>
+                <p>5 esquemas de cores + modo escuro</p>
+            </div>
+
+            <div class="themes-container">
+                <!-- Índigo (Default) -->
+                <div class="theme-card">
+                    <div class="theme-preview" style="--preview-primary: #6366f1; --preview-bg: #ffffff;">
+                        <div class="preview-header"></div>
+                        <div class="preview-content">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <div class="theme-colors">
+                            <span class="color-dot" style="background: #6366f1;"></span>
+                            <span class="color-dot" style="background: #4f46e5;"></span>
+                            <span class="color-dot" style="background: #818cf8;"></span>
+                        </div>
+                        <h4>Índigo</h4>
+                        <span class="theme-badge">Padrão</span>
+                    </div>
+                </div>
+
+                <!-- Bordô -->
+                <div class="theme-card">
+                    <div class="theme-preview" style="--preview-primary: #be123c; --preview-bg: #ffffff;">
+                        <div class="preview-header"></div>
+                        <div class="preview-content">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <div class="theme-colors">
+                            <span class="color-dot" style="background: #be123c;"></span>
+                            <span class="color-dot" style="background: #9f1239;"></span>
+                            <span class="color-dot" style="background: #fb7185;"></span>
+                        </div>
+                        <h4>Bordô</h4>
+                    </div>
+                </div>
+
+                <!-- Verde Musgo -->
+                <div class="theme-card">
+                    <div class="theme-preview" style="--preview-primary: #166534; --preview-bg: #ffffff;">
+                        <div class="preview-header"></div>
+                        <div class="preview-content">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <div class="theme-colors">
+                            <span class="color-dot" style="background: #166534;"></span>
+                            <span class="color-dot" style="background: #15803d;"></span>
+                            <span class="color-dot" style="background: #4ade80;"></span>
+                        </div>
+                        <h4>Verde Musgo</h4>
+                    </div>
+                </div>
+
+                <!-- Rosa Bebê -->
+                <div class="theme-card">
+                    <div class="theme-preview" style="--preview-primary: #db2777; --preview-bg: #ffffff;">
+                        <div class="preview-header"></div>
+                        <div class="preview-content">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <div class="theme-colors">
+                            <span class="color-dot" style="background: #db2777;"></span>
+                            <span class="color-dot" style="background: #be185d;"></span>
+                            <span class="color-dot" style="background: #f472b6;"></span>
+                        </div>
+                        <h4>Rosa Bebê</h4>
+                    </div>
+                </div>
+
+                <!-- Laranja -->
+                <div class="theme-card">
+                    <div class="theme-preview" style="--preview-primary: #ea580c; --preview-bg: #ffffff;">
+                        <div class="preview-header"></div>
+                        <div class="preview-content">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                    <div class="theme-info">
+                        <div class="theme-colors">
+                            <span class="color-dot" style="background: #ea580c;"></span>
+                            <span class="color-dot" style="background: #c2410c;"></span>
+                            <span class="color-dot" style="background: #fb923c;"></span>
+                        </div>
+                        <h4>Laranja</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dark Mode -->
+            <div class="dark-mode-box">
+                <div class="dark-mode-preview">
+                    <div class="preview-light">
+                        <i class="fas fa-sun"></i>
+                        <span>Modo Claro</span>
+                    </div>
+                    <div class="toggle-icon">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <div class="preview-dark">
+                        <i class="fas fa-moon"></i>
+                        <span>Modo Escuro</span>
+                    </div>
+                </div>
+                <p>Alterne entre modo claro e escuro com um clique. Prefer\u00eancia salva automaticamente.</p>
+            </div>
+        </section>
+
+        <!-- 8. REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS -->
+        <section id="requisitos" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-check-double"></i> Requisitos do Sistema</h2>
+                <p>Especificações funcionais e não funcionais implementadas e planejadas</p>
+            </div>
+
+            <!-- Requisitos Funcionais Implementados -->
+            <div class="requirements-container">
+                <h3 class="req-category"><i class="fas fa-check-circle"></i> Requisitos Funcionais Implementados</h3>
+                
+                <div class="requirements-grid">
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF01</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Cadastro e Gerenciamento de Peças</h4>
+                        <p>O sistema deve permitir cadastrar peças de roupa com nome, categoria, cor, estação, ocasião e até 5 fotos.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: items-crud.js, itemController.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF02</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Criação de Looks</h4>
+                        <p>O sistema deve permitir criar combinações de looks usando peças cadastradas, com nome, descrição e agendamento opcional.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: looks-crud.js, lookController.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF03</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Filtros e Busca Avançada</h4>
+                        <p>O sistema deve permitir filtrar peças por categoria, cor, estação, ocasião e status, além de busca por texto.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: items-filters.js, itemFilters.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF04</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Calendário de Looks</h4>
+                        <p>O sistema deve exibir um calendário mensal onde o usuário pode agendar looks para datas específicas.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: looks-schedule.js, lookScheduleController.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF05</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Estatísticas de Uso</h4>
+                        <p>O sistema deve mostrar estatísticas sobre peças mais usadas, cores favoritas e análise de categorias.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: statistics.js (database)</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF06</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Sugestões Baseadas no Clima</h4>
+                        <p>O sistema deve sugerir roupas apropriadas baseadas na temperatura e condições climáticas atuais.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: weatherService.js, weatherController.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF07</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Sistema de Categorias Customizadas</h4>
+                        <p>O sistema deve permitir criar, editar e deletar categorias personalizadas além das 20+ pré-definidas.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: categories-crud.js, categoryController.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF08</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Controle de Lavanderia</h4>
+                        <p>O sistema deve permitir marcar peças como "em lavanderia" e notificar quando estiverem prontas.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: laundry.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF09</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Export e Import de Dados</h4>
+                        <p>O sistema deve permitir exportar todos os dados em JSON e importar backups anteriores.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: export-data.js, import-data.js</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card implemented">
+                        <div class="req-header">
+                            <span class="req-id">RF10</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Sistema de Notas e Inspirações</h4>
+                        <p>O sistema deve permitir criar notas sobre roupas e salvar inspirações de looks da internet.</p>
+                        <div class="req-details">
+                            <span class="req-module">Módulos: notes-crud.js, inspiration-crud.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requisitos Funcionais Futuros -->
+            <div class="requirements-container">
+                <h3 class="req-category"><i class="fas fa-clock"></i> Requisitos Funcionais Futuros</h3>
+                
+                <div class="requirements-grid">
+                    <div class="req-card future">
+                        <div class="req-header">
+                            <span class="req-id">RF11</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Recomendações por IA</h4>
+                        <p>Usar machine learning para sugerir combinações de looks baseadas em histórico de uso e preferências.</p>
+                        <div class="req-details">
+                            <span class="req-priority high">Alta Prioridade</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card future">
+                        <div class="req-header">
+                            <span class="req-id">RF12</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Compartilhamento Social</h4>
+                        <p>Permitir compartilhar looks em redes sociais e criar perfil público do guarda-roupa.</p>
+                        <div class="req-details">
+                            <span class="req-priority medium">Média Prioridade</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card future">
+                        <div class="req-header">
+                            <span class="req-id">RF13</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Análise de Custo por Uso</h4>
+                        <p>Calcular custo por uso de cada peça (preço de compra / número de usos) para análise financeira.</p>
+                        <div class="req-details">
+                            <span class="req-priority medium">Média Prioridade</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card future">
+                        <div class="req-header">
+                            <span class="req-id">RF14</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>App Mobile Nativo</h4>
+                        <p>Criar aplicativo mobile para iOS e Android com suporte a câmera e notificações push.</p>
+                        <div class="req-details">
+                            <span class="req-priority high">Alta Prioridade</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card future">
+                        <div class="req-header">
+                            <span class="req-id">RF15</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Integração com E-commerce</h4>
+                        <p>Sugerir compras baseadas em gaps no guarda-roupa e integrar com lojas online.</p>
+                        <div class="req-details">
+                            <span class="req-priority low">Baixa Prioridade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requisitos Não Funcionais -->
+            <div class="requirements-container">
+                <h3 class="req-category"><i class="fas fa-cog"></i> Requisitos Não Funcionais</h3>
+                
+                <div class="requirements-grid">
+                    <div class="req-card non-functional implemented">
+                        <div class="req-header">
+                            <span class="req-id">RNF01</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Modularização</h4>
+                        <p>Todo o código deve ser dividido em módulos ES6 com no máximo 150 linhas por arquivo.</p>
+                        <div class="req-details">
+                            <span class="req-metric">✓ 32 módulos JS, 24 módulos CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card non-functional implemented">
+                        <div class="req-header">
+                            <span class="req-id">RNF02</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>O sistema deve renderizar listas de até 100 itens em menos de 1 segundo.</p>
+                        <div class="req-details">
+                            <span class="req-metric">✓ Paginação implementada</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card non-functional implemented">
+                        <div class="req-header">
+                            <span class="req-id">RNF03</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Responsividade</h4>
+                        <p>A interface deve ser completamente responsiva, funcionando em desktop, tablet e mobile.</p>
+                        <div class="req-details">
+                            <span class="req-metric">✓ Media queries implementadas</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card non-functional implemented">
+                        <div class="req-header">
+                            <span class="req-id">RNF04</span>
+                            <span class="req-status done">
+                                <i class="fas fa-check"></i> Implementado
+                            </span>
+                        </div>
+                        <h4>Acessibilidade</h4>
+                        <p>O sistema deve seguir padrões WCAG 2.1 com suporte a teclado e leitores de tela.</p>
+                        <div class="req-details">
+                            <span class="req-metric">✓ Parcial - Em melhoria contínua</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card non-functional future">
+                        <div class="req-header">
+                            <span class="req-id">RNF05</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Testes Automatizados</h4>
+                        <p>Cobertura de testes unitários e integração de pelo menos 80% do código.</p>
+                        <div class="req-details">
+                            <span class="req-priority high">Alta Prioridade</span>
+                        </div>
+                    </div>
+
+                    <div class="req-card non-functional future">
+                        <div class="req-header">
+                            <span class="req-id">RNF06</span>
+                            <span class="req-status pending">
+                                <i class="fas fa-clock"></i> Planejado
+                            </span>
+                        </div>
+                        <h4>Segurança</h4>
+                        <p>Implementar autenticação, autorização e criptografia de dados sensíveis.</p>
+                        <div class="req-details">
+                            <span class="req-priority high">Alta Prioridade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo de Requisitos -->
+            <div class="requirements-summary">
+                <div class="summary-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="summary-content">
+                        <span class="summary-number">10</span>
+                        <span class="summary-label">Funcionais Implementados</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="summary-content">
+                        <span class="summary-number">5</span>
+                        <span class="summary-label">Funcionais Futuros</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-cog"></i>
+                    <div class="summary-content">
+                        <span class="summary-number">4</span>
+                        <span class="summary-label">Não Funcionais Implementados</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-tasks"></i>
+                    <div class="summary-content">
+                        <span class="summary-number">2</span>
+                        <span class="summary-label">Não Funcionais Planejados</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. DIAGRAMAS DE CASO DE USO -->
+        <section id="casos-uso" class="section section-alt">
+            <div class="section-header">
+                <h2><i class="fas fa-project-diagram"></i> Casos de Uso</h2>
+                <p>Diagramas visuais dos principais fluxos do sistema</p>
+            </div>
+
+            <!-- Caso de Uso 1: Cadastro de Peça -->
+            <div class="use-case-diagram">
+                <div class="use-case-header">
+                    <h3>UC01 - Cadastrar Peça de Roupa</h3>
+                    <span class="uc-type">CRUD Básico</span>
+                </div>
+                <div class="diagram-container">
+                    <div class="actor">
+                        <div class="actor-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Usuário</span>
+                    </div>
+                    <div class="use-case-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Acessa Seção de Itens</h4>
+                                <p>Clica em "Itens" na navegação</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Abre Modal de Cadastro</h4>
+                                <p>Clica no botão "+ Nova Peça"</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Preenche Formulário</h4>
+                                <p>Nome, categoria, cor, estação, ocasião</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Upload de Fotos</h4>
+                                <p>Até 5 imagens da peça</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Sistema Valida</h4>
+                                <p>Verifica campos obrigatórios</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step success">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>Peça Cadastrada</h4>
+                                <p>Salva no banco e exibe no grid</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-conditions">
+                    <div class="condition-block">
+                        <strong>Pré-condições:</strong>
+                        <ul>
+                            <li>Sistema iniciado e conectado ao banco</li>
+                            <li>Usuário na interface principal</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Pós-condições:</strong>
+                        <ul>
+                            <li>Peça salva no banco SQLite</li>
+                            <li>Imagens armazenadas em /uploads</li>
+                            <li>Grid atualizado automaticamente</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Fluxo Alternativo:</strong>
+                        <ul>
+                            <li>3a. Campos inválidos → Exibe erro e mantém modal aberto</li>
+                            <li>4a. Upload falha → Permite continuar sem fotos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caso de Uso 2: Criar Look -->
+            <div class="use-case-diagram">
+                <div class="use-case-header">
+                    <h3>UC02 - Criar Combinação de Look</h3>
+                    <span class="uc-type">Composição</span>
+                </div>
+                <div class="diagram-container">
+                    <div class="actor">
+                        <div class="actor-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Usuário</span>
+                    </div>
+                    <div class="use-case-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Acessa Seção Looks</h4>
+                                <p>Navega para "Looks"</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Abre Criador de Look</h4>
+                                <p>Clica em "+ Novo Look"</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Seleciona Peças</h4>
+                                <p>Arrasta itens para zonas (topo, baixo, calçado)</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Nomeia e Descreve</h4>
+                                <p>Adiciona nome e ocasião do look</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Agenda (Opcional)</h4>
+                                <p>Escolhe data no calendário</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step success">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>Look Salvo</h4>
+                                <p>Armazenado com referências às peças</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-conditions">
+                    <div class="condition-block">
+                        <strong>Pré-condições:</strong>
+                        <ul>
+                            <li>Pelo menos 1 peça cadastrada</li>
+                            <li>Usuário na seção de Looks</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Pós-condições:</strong>
+                        <ul>
+                            <li>Look salvo no banco com IDs das peças</li>
+                            <li>Se agendado, aparece no calendário</li>
+                            <li>Grid de looks atualizado</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Fluxo Alternativo:</strong>
+                        <ul>
+                            <li>3a. Nenhuma peça disponível → Exibe mensagem e botão "Cadastrar Peça"</li>
+                            <li>5a. Data já ocupada → Pergunta se quer substituir</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caso de Uso 3: Filtrar Peças -->
+            <div class="use-case-diagram">
+                <div class="use-case-header">
+                    <h3>UC03 - Filtrar e Buscar Peças</h3>
+                    <span class="uc-type">Consulta</span>
+                </div>
+                <div class="diagram-container">
+                    <div class="actor">
+                        <div class="actor-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Usuário</span>
+                    </div>
+                    <div class="use-case-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Na Seção de Itens</h4>
+                                <p>Visualiza grid completo</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Abre Painel de Filtros</h4>
+                                <p>Clica em ícone de filtro</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Seleciona Critérios</h4>
+                                <p>Categoria, cor, estação, ocasião, status</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Sistema Filtra</h4>
+                                <p>Aplica filtros em tempo real (debounce 300ms)</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step success">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>Resultados Exibidos</h4>
+                                <p>Grid atualizado com peças filtradas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-conditions">
+                    <div class="condition-block">
+                        <strong>Pré-condições:</strong>
+                        <ul>
+                            <li>Pelo menos 1 peça cadastrada</li>
+                            <li>Usuário na seção de Itens</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Pós-condições:</strong>
+                        <ul>
+                            <li>Grid exibe apenas peças que atendem critérios</li>
+                            <li>Contador atualizado com número de resultados</li>
+                            <li>Filtros podem ser limpos com 1 clique</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Fluxo Alternativo:</strong>
+                        <ul>
+                            <li>4a. Nenhum resultado → Exibe "Nenhuma peça encontrada"</li>
+                            <li>4b. Usuário digita busca → Combina filtros com busca textual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caso de Uso 4: Sugestão por Clima -->
+            <div class="use-case-diagram">
+                <div class="use-case-header">
+                    <h3>UC04 - Receber Sugestão Baseada no Clima</h3>
+                    <span class="uc-type">Integração Externa</span>
+                </div>
+                <div class="diagram-container">
+                    <div class="actor">
+                        <div class="actor-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span>Usuário</span>
+                    </div>
+                    <div class="use-case-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Acessa Dashboard</h4>
+                                <p>Visualiza widget de clima</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Sistema Consulta API</h4>
+                                <p>OpenWeatherMap com localização</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Analisa Temperatura</h4>
+                                <p>Converte Kelvin → Celsius</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Filtra Peças Adequadas</h4>
+                                <p>&lt;15°C: inverno | 15-25°C: meia-estação | &gt;25°C: verão</p>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">➜</div>
+                        <div class="flow-step success">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>Exibe Sugestões</h4>
+                                <p>Lista de peças apropriadas para o clima</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-conditions">
+                    <div class="condition-block">
+                        <strong>Pré-condições:</strong>
+                        <ul>
+                            <li>API key configurada</li>
+                            <li>Conexão com internet</li>
+                            <li>Peças cadastradas com atributo "estação"</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Pós-condições:</strong>
+                        <ul>
+                            <li>Temperatura atual exibida</li>
+                            <li>Sugestões filtradas por estação</li>
+                            <li>Ícone de clima correspondente</li>
+                        </ul>
+                    </div>
+                    <div class="condition-block">
+                        <strong>Fluxo Alternativo:</strong>
+                        <ul>
+                            <li>2a. API falha → Exibe "Clima indisponível" e últimos dados em cache</li>
+                            <li>4a. Nenhuma peça adequada → Sugere cadastrar novas peças</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo dos Casos de Uso -->
+            <div class="use-cases-summary">
+                <h3><i class="fas fa-list-check"></i> Resumo dos Casos de Uso</h3>
+                <div class="summary-grid">
+                    <div class="uc-summary-card">
+                        <div class="uc-id">UC01-UC03</div>
+                        <h4>CRUD Completo</h4>
+                        <p>Cadastrar, visualizar, editar e deletar peças e looks</p>
+                    </div>
+                    <div class="uc-summary-card">
+                        <div class="uc-id">UC04</div>
+                        <h4>Integração Externa</h4>
+                        <p>Sugestões baseadas em API de clima</p>
+                    </div>
+                    <div class="uc-summary-card">
+                        <div class="uc-id">UC05-UC07</div>
+                        <h4>Recursos Avançados</h4>
+                        <p>Calendário, estatísticas, export/import</p>
+                    </div>
+                    <div class="uc-summary-card">
+                        <div class="uc-id">UC08-UC10</div>
+                        <h4>Gestão</h4>
+                        <p>Lavanderia, categorias, notas e inspirações</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. SCREENSHOTS -->
+        <section id="screenshots" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-images"></i> Screenshots</h2>
+                <p>Veja a interface do Armário Virtual em ação</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <!-- Dashboard -->
+                <div class="screenshot-card">
+                    <div class="mockup-dashboard">
+                        <div class="mockup-header">
+                            <div class="mockup-logo">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Armário Virtual</span>
+                            </div>
+                            <div class="mockup-nav">
+                                <span class="active">Dashboard</span>
+                                <span>Itens</span>
+                                <span>Looks</span>
+                            </div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="stats-row">
+                                <div class="stat-mini">
+                                    <span>—</span>
+                                    <small>Peças</small>
+                                </div>
+                                <div class="stat-mini">
+                                    <span>—</span>
+                                    <small>Looks</small>
+                                </div>
+                                <div class="stat-mini">
+                                    <span>—</span>
+                                    <small>Favoritos</small>
+                                </div>
+                            </div>
+                            <div class="weather-widget">
+                                <i class="fas fa-sun"></i>
+                                <div>
+                                    <strong>24°C</strong>
+                                    <small>Ensolarado</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Dashboard Principal</h4>
+                        <p>Visão geral com estatísticas, clima e acesso rápido</p>
+                    </div>
+                </div>
+
+                <!-- Itens -->
+                <div class="screenshot-card">
+                    <div class="mockup-items">
+                        <div class="mockup-header">
+                            <span>Meus Itens</span>
+                            <button class="btn-mini">+ Adicionar</button>
+                        </div>
+                        <div class="items-grid">
+                            <div class="item-box" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);"></div>
+                            <div class="item-box" style="background: linear-gradient(135deg, #1f2937, #374151);"></div>
+                            <div class="item-box" style="background: linear-gradient(135deg, #ef4444, #f87171);"></div>
+                            <div class="item-box" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);"></div>
+                            <div class="item-box" style="background: linear-gradient(135deg, #10b981, #34d399);"></div>
+                            <div class="item-box" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Gerenciamento de Itens</h4>
+                        <p>Grid de peças com filtros e busca inteligente</p>
+                    </div>
+                </div>
+
+                <!-- Looks -->
+                <div class="screenshot-card">
+                    <div class="mockup-looks">
+                        <div class="mockup-header">
+                            <span>Criar Look</span>
+                            <button class="btn-mini">Salvar</button>
+                        </div>
+                        <div class="look-composition">
+                            <div class="look-zone">
+                                <small>Superior</small>
+                                <div class="look-item" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);"></div>
+                            </div>
+                            <div class="look-zone">
+                                <small>Inferior</small>
+                                <div class="look-item" style="background: linear-gradient(135deg, #1f2937, #374151);"></div>
+                            </div>
+                            <div class="look-zone">
+                                <small>Calçado</small>
+                                <div class="look-item" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Composição de Looks</h4>
+                        <p>Monte combinações arrastando peças</p>
+                    </div>
+                </div>
+
+                <!-- Calendário -->
+                <div class="screenshot-card">
+                    <div class="mockup-calendar">
+                        <div class="mockup-header">
+                            <span>Dezembro 2024</span>
+                            <div class="calendar-nav">
+                                <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day header">D</div>
+                            <div class="calendar-day header">S</div>
+                            <div class="calendar-day header">T</div>
+                            <div class="calendar-day header">Q</div>
+                            <div class="calendar-day header">Q</div>
+                            <div class="calendar-day header">S</div>
+                            <div class="calendar-day header">S</div>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day active">10</div>
+                            <div class="calendar-day with-look">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day with-look">13</div>
+                            <div class="calendar-day">14</div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Calendário de Looks</h4>
+                        <p>Planeje o que vestir em cada dia</p>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="screenshot-card">
+                    <div class="mockup-modal">
+                        <div class="modal-overlay">
+                            <div class="modal-box">
+                                <div class="modal-title">
+                                    <span>Adicionar Item</span>
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="modal-form">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <div class="input-field"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Categoria</label>
+                                        <div class="input-field"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cores</label>
+                                        <div class="color-picker">
+                                            <span class="color-dot" style="background: #3b82f6;"></span>
+                                            <span class="color-dot" style="background: #ef4444;"></span>
+                                            <span class="color-dot" style="background: #10b981;"></span>
+                                            <span class="color-dot" style="background: #f59e0b;"></span>
+                                        </div>
+                                    </div>
+                                    <button class="btn-modal">Salvar Item</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Adicionar Item</h4>
+                        <p>Formulário com upload de imagem e cores</p>
+                    </div>
+                </div>
+
+                <!-- Dark Mode -->
+                <div class="screenshot-card">
+                    <div class="mockup-dark">
+                        <div class="mockup-header dark">
+                            <div class="mockup-logo">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Armário Virtual</span>
+                            </div>
+                            <div class="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                        </div>
+                        <div class="mockup-content dark">
+                            <div class="stats-row">
+                                <div class="stat-mini dark">
+                                    <span>—</span>
+                                    <small>Peças</small>
+                                </div>
+                                <div class="stat-mini dark">
+                                    <span>—</span>
+                                    <small>Looks</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-info">
+                        <h4>Modo Escuro</h4>
+                        <p>Interface adaptada para uso noturno</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. PROBLEMAS DURANTE O DESENVOLVIMENTO -->
+        <section id="problemas" class="section section-alt">
+            <div class="section-header">
+                <h2><i class="fas fa-bug"></i> Problemas & Soluções</h2>
+                <p>Desafios encontrados durante o desenvolvimento e como foram resolvidos</p>
+            </div>
+
+            <div class="problems-container">
+                <!-- Problema 1: Navegação Quebrada -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon error">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Botões de Navegação Não Funcionavam</h3>
+                            <span class="problem-tag">Frontend</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Os botões da navegação principal (Itens, Looks, Calendário, etc.) não respondiam aos cliques. O JavaScript estava sendo carregado mas os event listeners não eram anexados.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>O arquivo <code>app.js</code> original era muito extenso, tornando difícil identificar onde os handlers eram registrados. Além disso, havia conflitos de escopo entre funções.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Refatoração completa do código em módulos ES6. Separação de responsabilidades em arquivos menores (&lt;150 linhas cada). Centralização dos event listeners em <code>navigation.js</code>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 2: Dependências Circulares -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon error">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Dependências Circulares nos Imports</h3>
+                            <span class="problem-tag">JavaScript</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Após a modularização, alguns módulos importavam uns aos outros criando ciclos. Isso causava erros de "Cannot access before initialization".</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>Alguns módulos importavam uns aos outros criando ciclos de dependência que o sistema não conseguia resolver.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Criação de um módulo <code>state.js</code> independente sem imports. Uso de injeção de dependência onde necessário. Reorganização da hierarquia de módulos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 3: Porta Ocupada -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon warning">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Porta 3000 Sempre Ocupada</h3>
+                            <span class="problem-tag">Server</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Ao reiniciar o servidor, frequentemente aparecia o erro "EADDRINUSE: address already in use :::3000". Processos Node.js órfãos ficavam rodando em background.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>Crashes do servidor ou fechamento abrupto do terminal deixavam processos Node.js ativos. O novo servidor não conseguia bindar na mesma porta.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Script de restart que mata processos existentes: <code>Get-Process node | Stop-Process -Force</code>. Graceful shutdown implementado no servidor com SIGTERM handler.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 4: Dark Mode -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon warning">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Dark Mode Não Aplicava em Todos Componentes</h3>
+                            <span class="problem-tag">CSS</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Ao ativar o dark mode, alguns elementos (modais, cards, inputs) continuavam com cores claras. A experiência visual ficava inconsistente.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>CSS estava usando cores hardcoded (#ffffff, #f5f5f5) em vez de variáveis CSS. O seletor <code>[data-theme="dark"]</code> não sobrescrevia essas cores.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Migração completa para CSS Variables. Definição de todas as cores em <code>:root</code> e <code>[data-theme="dark"]</code>. Criação de variáveis semânticas como <code>--surface</code>, <code>--text</code>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 5: MIME Type -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon error">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Módulos ES6 Não Carregavam</h3>
+                            <span class="problem-tag">Server</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Console mostrava erro: "Failed to load module script... MIME type must be a JavaScript MIME type". Os imports no browser não funcionavam.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>Express estava servindo arquivos .js com Content-Type incorreto ou faltando. Browsers modernos exigem <code>application/javascript</code> para módulos ES6.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Configuração correta do express.static com MIME types. Verificação que todos os imports usam extensão <code>.js</code>. Adição de <code>type="module"</code> no script tag.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 6: Arquivos Grandes -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon info">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Arquivos com Mais de 150 Linhas</h3>
+                            <span class="problem-tag">Refactoring</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Requisito do projeto: nenhum arquivo deveria ter mais de 150 linhas para manter a manutenibilidade. Vários arquivos excediam esse limite.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>Código legado com múltiplas responsabilidades por arquivo, excedendo o limite de 150 linhas estabelecido.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Divisão em 32 módulos JS e 24 módulos CSS. Cada módulo com responsabilidade única seguindo o limite de 150 linhas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problema 7: State Management -->
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-icon warning">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="problem-title">
+                            <h3>Estado Desincronizado Entre Módulos</h3>
+                            <span class="problem-tag">JavaScript</span>
+                        </div>
+                        <span class="problem-status resolved">
+                            <i class="fas fa-check"></i> Resolvido
+                        </span>
+                    </div>
+                    <div class="problem-body">
+                        <div class="problem-description">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                            <p>Após operações CRUD, a interface não atualizava automaticamente em todos os componentes afetados.</p>
+                        </div>
+                        <div class="problem-cause">
+                            <h4><i class="fas fa-search"></i> Causa</h4>
+                            <p>Cada módulo mantinha sua própria cópia do estado sem comunicação entre eles.</p>
+                        </div>
+                        <div class="problem-solution">
+                            <h4><i class="fas fa-lightbulb"></i> Solução</h4>
+                            <p>Criação de <code>state.js</code> centralizado com sistema de eventos customizados para notificar mudanças.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo -->
+            <div class="problems-summary">
+                <div class="summary-stat">
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Problemas Documentados</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Resolvidos</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Pendentes</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-tshirt"></i>
+                <span>Armário Virtual</span>
+            </div>
+            <div class="footer-links">
+                <a href="#funcionalidades">Funcionalidades</a>
+                <a href="#tecnologias">Tecnologias</a>
+                <a href="#instalacao">Instalação</a>
+                <a href="#estrutura">Estrutura</a>
+                <a href="#api">API</a>
+                <a href="#temas">Temas</a>
+                <a href="#requisitos">Requisitos</a>
+                <a href="#casos-uso">Casos de Uso</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#problemas">Problemas</a>
+            </div>
+            <div class="footer-copy">
+                <p>Desenvolvido com <span class="heart">❤️</span> para organizar seu guarda-roupa</p>
+                <p class="license">MIT © 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality for technologies section
+        document.addEventListener('DOMContentLoaded', function() {
+            const techItems = document.querySelectorAll('.tech-item-expandable');
+            
+            techItems.forEach(item => {
+                const header = item.querySelector('.tech-item-header');
+                
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
