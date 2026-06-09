@@ -1,3 +1,7 @@
+<div align="right">
+  🇧🇷 <b>Português</b> &nbsp;•&nbsp; <a href="./README_EN.md">🇺🇸 English</a>
+</div>
+
 <div align="center">
 <img src="./.github/assets/header-banner.svg" alt="Pedro Labre Banner" width="100%"/>
 </div>
@@ -227,9 +231,9 @@ Utilitários ágeis que desenvolvi para automatizar rotinas locais de infraestru
 |:---|:---|:---|:---:|
 | **update_mobile_env_ip.py** | Sincroniza automaticamente a configuração de rede do app mobile com o IP local da máquina de desenvolvimento | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/update_mobile_env_ip.py) |
 | **run-local.example.ps1** | Script modelo para configurar variáveis de ambiente e inicializar o servidor de banco de dados e backend localmente | PowerShell | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/run-local.example.ps1) |
-| **generate_reports.py** | Processa em lote imagens duplicadas locais, compilando estatísticas analíticas de economia de espaço | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/generate_reports.py) |
-| **export_hashes.py** | Calcula e exporta os hashes criptográficos de grandes bibliotecas de imagens para indexação ultra-veloz | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/export_hashes.py) |
-| **organizador_arquivos.py** | Organizador inteligente de arquivos locais que faz varredura e triagem para diretórios por extensão | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/organizador_arquivos.py) |
+| **generate_reports.py** | Processa em lote imagens duplicadas locais, compilando estatísticas analíticas de economia de espaço | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/generate_reports.py) |
+| **export_hashes.py** | Calcula e exporta os hashes criptográficos de grandes bibliotecas de imagens para indexação ultra-veloz | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/export_hashes.py) |
+| **organizador_arquivos.py** | Organizador inteligente de arquivos locais que faz varredura e triagem para diretórios por extensão | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/organizador_arquivos.py) |
 
 </div>
 </details>
