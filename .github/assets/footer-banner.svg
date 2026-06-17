@@ -1,20 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 100" width="100%" height="100" preserveAspectRatio="xMidYMid slice">
   <defs>
     <!-- Background Gradients -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0a0d14"/>
       <stop offset="100%" stop-color="#0f131f"/>
     </linearGradient>
+    <linearGradient id="bgGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
     
     <!-- Neon Gradients -->
-    <linearGradient id="neonPurpleCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="neonPurpleCyanDark" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#7B2FFF"/>
       <stop offset="100%" stop-color="#00D9FF"/>
     </linearGradient>
+    <linearGradient id="neonPurpleCyanLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6C35DE"/>
+      <stop offset="100%" stop-color="#00A3E0"/>
+    </linearGradient>
     
     <!-- Tech Grid Pattern -->
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <pattern id="gridDark" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.03"/>
+    </pattern>
+    <pattern id="gridLight" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0f172a" stroke-width="1" stroke-opacity="0.03"/>
     </pattern>
     
     <!-- Glow Filter -->
@@ -31,6 +42,15 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&amp;family=Fira+Code:wght@500&amp;display=swap');
     
+    /* Default Dark Mode Styles */
+    .footer-bg { fill: url(#bgGradDark); }
+    .footer-grid { fill: url(#gridDark); }
+    
+    .glow-border { stroke: url(#neonPurpleCyanDark); }
+    
+    .corner-blueprint-purple { stroke: #7B2FFF; opacity: 0.6; }
+    .corner-blueprint-cyan { stroke: #00D9FF; opacity: 0.6; }
+    
     .footer-text {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
@@ -40,7 +60,7 @@
     }
     
     .accent-text {
-      fill: url(#neonPurpleCyan);
+      fill: url(#neonPurpleCyanDark);
     }
     
     .prompt-text {
@@ -50,29 +70,45 @@
       opacity: 0.8;
     }
     
+    .cursor {
+      fill: #00D9FF;
+      animation: pulse 1.5s infinite;
+    }
+    
     @keyframes pulse {
       0%, 100% { opacity: 0.3; }
       50% { opacity: 0.9; }
     }
     
-    .cursor {
-      fill: #00D9FF;
-      animation: pulse 1.5s infinite;
+    /* Light Mode Overrides */
+    @media (prefers-color-scheme: light) {
+      .footer-bg { fill: url(#bgGradLight) !important; }
+      .footer-grid { fill: url(#gridLight) !important; }
+      
+      .glow-border { stroke: url(#neonPurpleCyanLight) !important; }
+      
+      .corner-blueprint-purple { stroke: #6C35DE !important; opacity: 0.8 !important; }
+      .corner-blueprint-cyan { stroke: #00A3E0 !important; opacity: 0.8 !important; }
+      
+      .footer-text { fill: #1e293b !important; }
+      .accent-text { fill: url(#neonPurpleCyanLight) !important; }
+      .prompt-text { fill: #475569 !important; }
+      .cursor { fill: #00A3E0 !important; }
     }
   </style>
 
   <!-- Background -->
-  <rect width="850" height="100" fill="url(#bgGrad)"/>
-  <rect width="850" height="100" fill="url(#grid)"/>
+  <rect width="850" height="100" class="footer-bg"/>
+  <rect width="850" height="100" class="footer-grid"/>
   
   <!-- Glowing border at the bottom -->
-  <line x1="0" y1="100" x2="850" y2="100" stroke="url(#neonPurpleCyan)" stroke-width="3" filter="url(#glowCyan)"/>
+  <line x1="0" y1="100" x2="850" y2="100" class="glow-border" stroke-width="3" filter="url(#glowCyan)"/>
   
   <!-- Corners -->
-  <path d="M 25 15 L 25 25 L 15 25" fill="none" stroke="#7B2FFF" stroke-width="1.5" opacity="0.6"/>
-  <path d="M 825 15 L 825 25 L 835 25" fill="none" stroke="#00D9FF" stroke-width="1.5" opacity="0.6"/>
-  <path d="M 25 85 L 25 75 L 15 75" fill="none" stroke="#00D9FF" stroke-width="1.5" opacity="0.6"/>
-  <path d="M 825 85 L 825 75 L 835 75" fill="none" stroke="#7B2FFF" stroke-width="1.5" opacity="0.6"/>
+  <path d="M 25 15 L 25 25 L 15 25" fill="none" class="corner-blueprint-purple" stroke-width="1.5"/>
+  <path d="M 825 15 L 825 25 L 835 25" fill="none" class="corner-blueprint-cyan" stroke-width="1.5"/>
+  <path d="M 25 85 L 25 75 L 15 75" fill="none" class="corner-blueprint-cyan" stroke-width="1.5"/>
+  <path d="M 825 85 L 825 75 L 835 75" fill="none" class="corner-blueprint-purple" stroke-width="1.5"/>
 
   <!-- Left Text -->
   <g transform="translate(50, 42)">

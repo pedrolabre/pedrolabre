@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 220" width="100%" height="220" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#0f131f"/>
+      <stop offset="100%" stop-color="#07090d"/>
+    </linearGradient>
+    
+    <!-- Neon Gradients -->
+    <linearGradient id="neonCyanPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="100%" stop-color="#7B2FFF"/>
+    </linearGradient>
+    
+    <linearGradient id="neonPurplePink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7B2FFF"/>
+      <stop offset="100%" stop-color="#FF007F"/>
+    </linearGradient>
+    
+    <!-- Tech Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04"/>
+    </pattern>
+    
+    <!-- Glow Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Styles for animations and fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Fira+Code:wght@500;700&amp;display=swap');
+    
+    .title-text {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      fill: url(#neonCyanPurple);
+      letter-spacing: -0.5px;
+    }
+    
+    .subtitle-text {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      fill: #e2e8f0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+    
+    .desc-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+      fill: #8b949e;
+      opacity: 0.85;
+    }
+    
+    .badge-text {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      fill: #00D9FF;
+      letter-spacing: 1px;
+    }
+    
+    /* Animations */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    
+    @keyframes slowRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes dashMove {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -40; }
+    }
+    
+    @keyframes floatTech {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    
+    .anim-pulse {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    
+    .anim-rotate {
+      transform-origin: 680px 110px;
+      animation: slowRotate 25s linear infinite;
+    }
+    
+    .anim-dash {
+      stroke-dasharray: 8, 12;
+      animation: dashMove 3s linear infinite;
+    }
+    
+    .anim-float {
+      animation: floatTech 5s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Background Rect -->
+  <rect width="850" height="220" fill="url(#bgGrad)"/>
+  
+  <!-- Tech Grid Overlay -->
+  <rect width="850" height="220" fill="url(#grid)"/>
+
+  <!-- Glow effect background circles -->
+  <circle cx="100" cy="180" r="120" fill="#7B2FFF" opacity="0.15" filter="url(#glowPurple)"/>
+  <circle cx="700" cy="70" r="140" fill="#00D9FF" opacity="0.12" filter="url(#glowCyan)"/>
+
+  <!-- Abstract Tech Line / Borders -->
+  <!-- Top glow line -->
+  <line x1="0" y1="0" x2="850" y2="0" stroke="url(#neonCyanPurple)" stroke-width="3" filter="url(#glowCyan)"/>
+  <!-- Decorative corner blueprints -->
+  <path d="M 25 35 L 25 20 L 40 20" fill="none" stroke="#7B2FFF" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 825 35 L 825 20 L 810 20" fill="none" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 25 185 L 25 200 L 40 200" fill="none" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 825 185 L 825 200 L 810 200" fill="none" stroke="#7B2FFF" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Asymmetrical Divider Line -->
+  <line x1="500" y1="40" x2="500" y2="180" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Left Side: Professional Identification -->
+  <g transform="translate(50, 0)">
+    <!-- Pill Badge: IFTO -->
+    <g transform="translate(0, 48)">
+      <circle cx="12" cy="11" r="3.5" fill="#7B2FFF" class="anim-pulse"/>
+      <rect width="52" height="22" rx="11" fill="#7B2FFF" fill-opacity="0.08" stroke="#7B2FFF" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="24" y="15" class="badge-text" fill="#7B2FFF">IFTO</text>
+    </g>
+    
+    <!-- Title: Pedro Labre -->
+    <text x="0" y="128" class="title-text" filter="url(#glowCyan)">Pedro Labre</text>
+    
+    <!-- Subtitle: course -->
+    <text x="0" y="158" class="subtitle-text">Sistemas de Informação</text>
+  </g>
+
+  <!-- Right Side: Beautiful Interactive Tech Art (Wireframe Sphere & Circles) -->
+  <g class="anim-float">
+    <!-- Abstract Sphere rings -->
+    <g class="anim-rotate">
+      <circle cx="680" cy="110" r="55" fill="none" stroke="url(#neonCyanPurple)" stroke-width="1" stroke-opacity="0.2"/>
+      <ellipse cx="680" cy="110" rx="55" ry="18" fill="none" stroke="#00D9FF" stroke-width="1.5" stroke-opacity="0.6" transform="rotate(30 680 110)"/>
+      <ellipse cx="680" cy="110" rx="55" ry="18" fill="none" stroke="#7B2FFF" stroke-width="1.5" stroke-opacity="0.6" transform="rotate(120 680 110)"/>
+      <ellipse cx="680" cy="110" rx="55" ry="18" fill="none" stroke="#FF007F" stroke-width="1" stroke-opacity="0.4" transform="rotate(75 680 110)"/>
+    </g>
+    
+    <!-- Outer dashed tech circle -->
+    <circle cx="680" cy="110" r="75" fill="none" stroke="#7B2FFF" stroke-width="1" stroke-opacity="0.3" class="anim-dash"/>
+    
+    <!-- Glowing core -->
+    <circle cx="680" cy="110" r="10" fill="#00D9FF" filter="url(#glowCyan)" opacity="0.8"/>
+    
+    <!-- Technical brackets/elements floating near the circle -->
+    <text x="575" y="70" font-family="'Fira Code', monospace" font-size="12" fill="#00D9FF" opacity="0.4">{ }</text>
+    <text x="770" y="160" font-family="'Fira Code', monospace" font-size="12" fill="#7B2FFF" opacity="0.4">&lt;/&gt;</text>
+    <text x="590" y="150" font-family="'Fira Code', monospace" font-size="10" fill="#8b949e" opacity="0.3">01101100</text>
+  </g>
+</svg>
