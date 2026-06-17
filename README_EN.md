@@ -84,8 +84,8 @@ I am an Information Systems undergraduate student at **IFTO** (5th Period). I wo
 
 <div align="center">
 
-<img height="175" src="https://github-readme-stats.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117"/>
-<img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8"/>
+<img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117"/>
+<img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true"/>
 
 </div>
 
