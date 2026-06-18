@@ -24,12 +24,11 @@
 
 ---
 
-## 💡 About Me & Development Approach
+## 👤 About Me
 
-I am an Information Systems undergraduate student at **IFTO** (5th Period). I work on the development of full-stack software solutions, spanning web, mobile, and desktop applications, as well as smart automations and integrated utilities. My technical vision is guided by:
+I am 31 years old, have administrative experience, and am fluent in English — a background I gathered before finding my path in software development. I studied advertising in Lisbon, but the pandemic cut that cycle short. Back in Brazil, I found myself without a clear direction until I discovered the Information Systems course at IFTO. I took the selection process, passed in second place, and finally felt I was in the right place.
 
-1. **Simplicity & Efficiency**: I prioritize building clean, modular solutions focused on delivering real value with high performance, avoiding unnecessary complexities.
-2. **Conscious Tooling**: I see modern technologies — including documentation, CLI tools, and Artificial Intelligence — as excellent productivity allies. I review and validate every snippet of code to ensure the logic meets the requirements in a stable and secure manner.
+Over time, I realized that I have a natural ability to identify problems and imagine how to solve them — most of my projects are born from real frustration. Now I am in the 5th period, building mobile and fullstack projects, and taking advantage of my undergraduate studies to explore as many areas as possible before deciding where to specialize.
 
 ---
 
@@ -285,19 +284,26 @@ I collect certifications, free courses, and participation in academic/technologi
 
 ---
 
-## 👨‍💻 About Me (Technical-Academic Profile)
+## 📋 Technical-Academic Profile
 
 ```typescript
 const dev = {
-  name:          "Pedro Roberto Ribeiro Bandeira Labre",
-  profile:       "Software Developer & Academic",
-  education:     "Undergraduate in Information Systems — IFTO",
-  location:      "Brazil 🇧🇷",
+  name:           "Pedro Roberto Ribeiro Bandeira Labre",
+  role:           "Software Developer (seeking internship)",
+  education:      "Information Systems — IFTO (5th semester)",
+  location:       "Brazil 🇧🇷",
 
-  foundations:   ["Academic Projects at IFTO", "FreeCodeCamp", "Codedex"],
-  methodology:   "Developing simple, modular, and functional solutions",
-  skills:        "Building local utilities, desktop dashboards, and browser extensions",
-  currentFocus:  "Mobile development (React Native/Expo) and task automation",
+  background:     "10+ years of professional office experience before transitioning to software",
+  languages:      ["Portuguese (native)", "English (fluent)"],
+
+  process:        [
+    "Break scope into phases before writing any code",
+    "Document implementation plans per feature block",
+    "Test and validate each phase independently",
+  ],
+
+  currentFocus:   "Mobile development (React Native / Expo) in TypeScript",
+  building:       "Things that actually solve problems I encounter",
 } as const;
 ```
 

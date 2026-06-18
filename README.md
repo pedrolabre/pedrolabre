@@ -24,12 +24,11 @@
 
 ---
 
-## 💡 Sobre Mim & Abordagem de Desenvolvimento
+## 👤 Sobre Mim
 
-Sou graduando em Sistemas de Informação no **IFTO** (5º Período). Atuo no desenvolvimento de soluções de software completas, abrangendo aplicações web, mobile e desktop, além de automações inteligentes e utilitários integrados. Minha visão técnica é pautada por:
+Tenho 31 anos, experiência administrativa e inglês fluente — bagagem que acumulei antes de encontrar meu caminho no desenvolvimento de software. Cursei publicidade em Lisboa, mas a pandemia encerrou esse ciclo antes do tempo. De volta ao Brasil, me vi sem direção clara até encontrar o curso de Sistemas de Informação no IFTO. Fiz a seleção, passei em segundo lugar e finalmente senti que estava no lugar certo.
 
-1. **Simplicidade & Eficiência**: Priorizo a construção de soluções limpas, modulares e focadas em entregar valor real com alta performance, evitando complexidades desnecessárias.
-2. **Uso Consciente de Ferramentas**: Enxergo as tecnologias modernas — incluindo documentações, ferramentas CLI e Inteligência Artificial — como excelentes aliadas de produtividade. Atuo revisando e validando cada trecho de código para garantir que a lógica atenda aos requisitos de forma estável e segura.
+Com o tempo, percebi que tenho facilidade natural para identificar problemas e imaginar como resolvê-los — a maioria dos meus projetos nasce de uma frustração real. Agora estou no 5º período, construindo projetos mobile e fullstack, e aproveitando a graduação para explorar o máximo de áreas possível antes de decidir onde me aprofundar.
 
 ---
 
@@ -283,19 +282,26 @@ Reúno certificações, cursos livres e participações em eventos acadêmicos/t
 
 ---
 
-## 👨‍💻 Sobre mim (Ficha Técnico-Acadêmica)
+## 📋 Ficha Técnico-Acadêmica
 
 ```typescript
 const dev = {
-  nome:          "Pedro Roberto Ribeiro Bandeira Labre",
-  perfil:        "Desenvolvedor de Software & Acadêmico",
-  formacao:      "Graduando em Sistemas de Informação — IFTO",
-  local:         "Brasil 🇧🇷",
+  nome:           "Pedro Roberto Ribeiro Bandeira Labre",
+  papel:          "Desenvolvedor de Software (em busca de estágio)",
+  formacao:       "Sistemas de Informação — IFTO (5º Período)",
+  local:          "Brasil 🇧🇷",
 
-  fundamentos:   ["Projetos Acadêmicos do IFTO", "FreeCodeCamp", "Codedex"],
-  metodologia:   "Desenvolvimento de soluções simples, modulares e funcionais",
-  habilidade:    "Construção de utilitários locais, dashboards desktop e extensões de navegador",
-  focoAtual:     "Desenvolvimento mobile (React Native/Expo) e automação de tarefas",
+  historico:      "10+ anos de experiência profissional antes da transição para software",
+  idiomas:        ["Português (nativo)", "Inglês (fluente)"],
+
+  processo:       [
+    "Dividir o escopo em fases antes de escrever qualquer código",
+    "Documentar planos de implementação por bloco de funcionalidade",
+    "Testar e validar cada fase de forma independente",
+  ],
+
+  focoAtual:      "Desenvolvimento mobile (React Native / Expo) em TypeScript",
+  construindo:    "Coisas que resolvem problemas que eu mesmo encontro",
 } as const;
 ```
 
