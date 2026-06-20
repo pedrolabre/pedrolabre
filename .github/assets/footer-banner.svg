@@ -112,7 +112,7 @@
 
   <!-- Left Text -->
   <g transform="translate(50, 42)">
-    <text class="footer-text">Vamos nos conectar! <tspan class="accent-text">• Let's build something pragmatically.</tspan></text>
+    <text class="footer-text">Vamos nos conectar! <tspan class="accent-text">• Vamos construir algo.</tspan></text>
   </g>
 
   <!-- Right Prompt -->
