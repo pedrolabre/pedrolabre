@@ -39,8 +39,9 @@ Cursos práticos, imersões e certificações focados em lógica de programaçã
 | **Jornada Python (Turma 1)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/2-python-dados-excel/jornada-python-hashtag-2026-t1.pdf) |
 | **Jornada Python (Turma 2)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/2-python-dados-excel/jornada-python-hashtag-2026-t2.pdf) |
 | **Semana do Excel** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/2-python-dados-excel/semana-excel-hashtag-2026.pdf) |
+| **Intensivo de Power BI e Inteligência Artificial** | 8h | Letícia Smirelli | 2026 | [visualizar](./academic/certificados/2-python-dados-excel/intensivo-powerbi-inteligencia-artificial.pdf) |
 | **Jornada Python (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/2-python-dados-excel/jornada-python-hashtag-2024.pdf) |
-| **Treinamento Maratona Excel** | 8h | Hashtag Treinamentos | 2024 | *indisponível* |
+| **Treinamento Maratona Excel** | 8h | Tetra Educação | 2024 | *indisponível* |
 
 ---
 

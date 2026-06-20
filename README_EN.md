@@ -280,13 +280,13 @@ Agile utilities I developed to automate local infrastructure routines, project s
 
 ## 📜 Certificates & Complementary Education
 
-I collect certifications, free courses, and participation in academic/technological events, totaling **31 records** organized by area of competence.
+I collect certifications, free courses, and participation in academic/technological events, totaling **32 records** organized by area of competence.
 
 <div align="center">
 
 | 🤖 1. AI, Machine Learning & Prompt | 🐍 2. Programming, Python & Data | 🛡️ 3. QA, Ops & Virtualization | 🏫 4. Extension & Events |
 |:---:|:---:|:---:|:---:|
-| **13 Certificates** | **7 Certificates** | **3 Certificates** | **8 Certificates** |
+| **13 Certificates** | **8 Certificates** | **3 Certificates** | **8 Certificates** |
 
 <br/>
 

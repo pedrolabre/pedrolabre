@@ -278,13 +278,13 @@ Utilitários ágeis que desenvolvi para automatizar rotinas locais de infraestru
 
 ## 📜 Certificados & Formação Complementar
 
-Reúno certificações, cursos livres e participações em eventos acadêmicos/tecnológicos, totalizando **31 registros** organizados por área de competência.
+Reúno certificações, cursos livres e participações em eventos acadêmicos/tecnológicos, totalizando **32 registros** organizados por área de competência.
 
 <div align="center">
 
 | 🤖 1. IA, Machine Learning & Prompt | 🐍 2. Programação, Python & Dados | 🛡️ 3. QA, Ops & Virtualização | 🏫 4. Extensão & Eventos |
 |:---:|:---:|:---:|:---:|
-| **13 Certificados** | **7 Certificados** | **3 Certificados** | **8 Certificados** |
+| **13 Certificados** | **8 Certificados** | **3 Certificados** | **8 Certificados** |
 
 <br/>
 
