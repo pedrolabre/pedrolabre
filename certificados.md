@@ -1,12 +1,27 @@
-# 📜 Certificados & Formação Complementar
+<div align="left" id="top">
+  <a href="./README.md">🏠 Voltar ao Início</a>
+</div>
 
-Este catálogo reúne todas as certificações, cursos de extensão, workshops técnicos e participações em eventos acadêmicos/tecnológicos realizados ao longo da minha jornada, organizados por área de competência.
+<div align="center">
+  <img src="./.github/assets/certificates-banner.svg" alt="Certificados & Formação Complementar" width="100%"/>
+</div>
 
-Todos os documentos originais estão disponíveis em PDF nos respectivos diretórios deste repositório para fins de verificação.
+## 📌 Índice de Áreas
+
+Use o índice abaixo para navegar diretamente para as seções de certificados organizadas por área de competência:
+
+* [**🤖 1. Inteligência Artificial, Machine Learning & Prompt**](#ia)
+  *Certificações em engenharia de prompt avançada, n8n, desenvolvimento de agentes de IA e aprendizado de máquina.*
+* [**🐍 2. Programação, Python, Dados & Excel**](#programacao)
+  *Cursos de lógica de programação estruturada, análise de dados e ferramentas de produtividade.*
+* [**🛡️ 3. Testes de Software, Virtualização & Segurança (QA/Ops)**](#testes)
+  *Garantia de qualidade (QA), testes automatizados, infraestrutura de virtualização e segurança.*
+* [**🏫 4. Eventos Acadêmicos, Extensão & Habilidades**](#eventos)
+  *Eventos regionais de tecnologia da informação, ideathons, e competências multidisciplinares.*
 
 ---
 
-## 🤖 1. Inteligência Artificial, Machine Learning & Engenharia de Prompt
+<h2 id="ia">🤖 1. Inteligência Artificial, Machine Learning & Engenharia de Prompt</h2>
 
 Certificações focadas no desenvolvimento de agentes inteligentes, automação com n8n, engenharia de prompts avançada e fundamentos de aprendizado de máquina.
 
@@ -25,10 +40,14 @@ Certificações focadas no desenvolvimento de agentes inteligentes, automação 
 | **Missão Programação com IA do Zero** | 8h | Rocketseat | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial-machine-learning/missao-programacao-ia-do-zero.pdf) |
 | **Simplifica Inteligência Artificial Express** | 4h | Simplifica IA | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial-machine-learning/simplifica-ia-express.pdf) |
 | **Jornada Inteligência Artificial (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/1-inteligencia-artificial-machine-learning/jornada-ia-hashtag-2024.pdf) |
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
 
 ---
 
-## 🐍 2. Programação, Python, Análise de Dados & Excel
+<h2 id="programacao">🐍 2. Programação, Python, Análise de Dados & Excel</h2>
 
 Cursos práticos, imersões e certificações focados em lógica de programação estruturada, análise de dados com Python e ferramentas analíticas de produtividade.
 
@@ -42,10 +61,14 @@ Cursos práticos, imersões e certificações focados em lógica de programaçã
 | **Intensivo de Power BI e Inteligência Artificial** | 8h | Letícia Smirelli | 2026 | [visualizar](./academic/certificados/2-python-dados-excel/intensivo-powerbi-inteligencia-artificial.pdf) |
 | **Jornada Python (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/2-python-dados-excel/jornada-python-hashtag-2024.pdf) |
 | **Treinamento Maratona Excel** | 8h | Tetra Educação | 2024 | *indisponível* |
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
 
 ---
 
-## 🛡️ 3. Testes de Software, Virtualização & Segurança (QA/Ops)
+<h2 id="testes">🛡️ 3. Testes de Software, Virtualização & Segurança (QA/Ops)</h2>
 
 Certificações focadas na qualidade de código, infraestrutura, virtualização de servidores e segurança da informação.
 
@@ -54,10 +77,14 @@ Certificações focadas na qualidade de código, infraestrutura, virtualização
 | **Curso Gratuito de Testes de Software** | 6h | Julio de Lima Consultoria | 2026 | [visualizar](./academic/certificados/3-testes-virtualizacao-seguranca/curso-testes-de-software.pdf) |
 | **Imersão de Virtualização de Servidores Multi-Plataforma** | 6h | Virtualização na Prática | 2026 | [visualizar](./academic/certificados/3-testes-virtualizacao-seguranca/imersao-virtualizacao-servidores.pdf) |
 | **Guia Fundamental de Offsec (Segurança Ofensiva)** | 4h | WB Educação / OffSec | 2026 | *indisponível* |
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
 
 ---
 
-## 🏫 4. Eventos Acadêmicos, Extensão & Habilidades Complementares
+<h2 id="eventos">🏫 4. Eventos Acadêmicos, Extensão & Habilidades Complementares</h2>
 
 Participações em encontros científicos regionais, maratonas de inovação (Ideathons) e cursos complementares em outras áreas (tradução, saúde digital, intercâmbios e desenvolvimento regional).
 
@@ -71,3 +98,8 @@ Participações em encontros científicos regionais, maratonas de inovação (Id
 | **Jornada Canadense: Relato de Intercâmbio Transcultural (Edital Interno)** | 4h | Instituto Federal do Tocantins (IFTO) | 2024 | *indisponível* |
 | **Revolucionando a Inteligência Financeira e o Cooperativismo** | 4h | Instituto Federal do Tocantins (IFTO) | 2024 | *indisponível* |
 | **De Bilíngue a Tradutor: Como Começar na Tradução** | 6h | Vida de Tradutor | 2026 | *indisponível* |
+
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
