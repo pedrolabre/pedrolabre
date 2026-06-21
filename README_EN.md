@@ -140,53 +140,15 @@ These are the structured projects, reports, specifications, and coursework devel
 
 </div>
 
-## Practical Utilities Lab (Personal Projects & Automations)
+## 🖥️ Personal Projects & Productivity Automations
 
-<details>
-<summary><h3 style="display: inline-block; margin: 0.4em 0;">🖥️ Local Tool, Extension & Dashboard Development</h3></summary>
-<br/>
-
-Local utilities, browser extensions, and tools created by my own initiative to optimize daily workflows. Private projects have a visual indicator and restricted code access:
+Personal utilities, browser extensions, offline dashboards, and micro-scripts developed to automate daily tasks and optimize local workflows.
 
 <div align="center">
 
-| 📁 Project | 📝 Description | 🛠️ Stack | 🔗 |
-|:---|:---|:---|:---:|
-| **price-simulator** | SPA for commercial price simulation with IPI, shipping, and margin calculation, multi-language support, and exporting | JavaScript • React | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/price-simulator) |
-| **photo_organizer** | Automated solution for chronological organization of large photo collections via metadata (EXIF) and duplicate detection | Python • EXIF | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/photo_organizer) |
-| **personal-finance-manager** | Local desktop dashboard for personal finance control using the MVVM architectural pattern | C# • WPF • SQLite | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-finance-manager) |
-| **personal-consumption-tracker** | Local desktop application for monitoring, graphical analysis, and tracking of personal consumption | C# • WPF • SQLite | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-consumption-tracker) |
-| **Armário Virtual** 🔒 | Offline personal clothes organizer with weather widget integration and Cost-per-Wear metrics | Node.js • SQLite | ![private](https://img.shields.io/badge/private-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/VC-Documentation-v1.html) |
-| **youtube-organizer** 🔒 | Single Page Application (SPA) for curation, categorization, and custom management of YouTube videos | JavaScript • React • Vite | ![private](https://img.shields.io/badge/private-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/YO_Documentation_v2.html) |
-| **tab-duplicate-detector** 🔒 | MV3 Chrome extension for smart detection and cleanup of duplicate tabs via regex normalization | JavaScript • Chrome API | ![private](https://img.shields.io/badge/private-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TDD-Documentation-v1.html) |
-| **tab-url-extractor** 🔒 | MV3 Chrome extension for batch extraction, filtering, and exporting of URLs from open tabs in one click | JavaScript • Chrome API | ![private](https://img.shields.io/badge/private-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TUE-Documentation-v1.html) |
-| **tab-domain-executor** 🔒 | MV3 Chrome extension for managing, grouping, and batch closing of tabs by domain | TypeScript • Webpack • Chrome API | ![private](https://img.shields.io/badge/private-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TDE-Documentation-v1.html) |
+[![Access Personal Projects](./.github/assets/projects-badge-en.svg)](./projects.md)
 
 </div>
-</details>
-
----
-
-## Productivity Scripts & Micro-Automations
-
-<details>
-<summary><h3 style="display: inline-block; margin: 0.4em 0;">⚡ Task Automation, Micro-Scripts & Local Utilities</h3></summary>
-<br/>
-
-Agile utilities I developed to automate local infrastructure routines, project synchronization, and local batch file processing:
-
-<div align="center">
-
-| 📁 Script | 📝 Description | 🛠️ Stack | 🔗 |
-|:---|:---|:---|:---:|
-| **update_mobile_env_ip.py** | Automatically synchronizes the mobile app's network configuration with the local IP of the development machine | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/update_mobile_env_ip.py) |
-| **run-local.example.ps1** | Model script to configure environment variables and initialize the database server and backend locally | PowerShell | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/run-local.example.ps1) |
-| **generate_reports.py** | Batch processes local duplicate images, compiling analytical space-saving statistics | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/generate_reports.py) |
-| **export_hashes.py** | Calculates and exports cryptographic hashes of large image libraries for ultra-fast indexing | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/export_hashes.py) |
-| **organizador_arquivos.py** | Smart local file organizer that scans and triages files into directories by extension | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/organizador_arquivos.py) |
-
-</div>
-</details>
 
 ---
 
@@ -202,7 +164,7 @@ I collect certifications, free courses, and participation in academic/technologi
 
 <br/>
 
-[![Access Certificates Catalog](./.github/assets/certificates-badge-en.svg)](./certificados.md)
+[![Access Certificates Catalog](./.github/assets/certificates-badge-en.svg)](./certificates.md)
 
 </div>
 

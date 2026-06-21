@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 220" width="100%" height="220" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#0f131f"/>
+      <stop offset="100%" stop-color="#07090d"/>
+    </linearGradient>
+    <linearGradient id="bgGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    
+    <!-- Neon Gradients -->
+    <linearGradient id="neonCyanPurpleDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="100%" stop-color="#7B2FFF"/>
+    </linearGradient>
+    <linearGradient id="neonCyanPurpleLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00A3E0"/>
+      <stop offset="100%" stop-color="#6C35DE"/>
+    </linearGradient>
+    
+    <linearGradient id="neonPurplePinkDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7B2FFF"/>
+      <stop offset="100%" stop-color="#FF007F"/>
+    </linearGradient>
+    <linearGradient id="neonPurplePinkLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6C35DE"/>
+      <stop offset="100%" stop-color="#DB2777"/>
+    </linearGradient>
+    
+    <!-- Tech Grid Pattern -->
+    <pattern id="gridDark" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04"/>
+    </pattern>
+    <pattern id="gridLight" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0f172a" stroke-width="1" stroke-opacity="0.04"/>
+    </pattern>
+    
+    <!-- Glow Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Fira+Code:wght@500;700&amp;display=swap');
+    
+    /* Default Dark Mode Styles */
+    .banner-bg { fill: url(#bgGradDark); }
+    .banner-grid { fill: url(#gridDark); }
+    .top-glow-line { stroke: url(#neonCyanPurpleDark); }
+    
+    .glow-circle-purple { fill: #7B2FFF; opacity: 0.12; }
+    .glow-circle-cyan { fill: #00D9FF; opacity: 0.1; }
+    
+    .corner-blueprint-purple { stroke: #7B2FFF; opacity: 0.7; }
+    .corner-blueprint-cyan { stroke: #00D9FF; opacity: 0.7; }
+    
+    .divider-line { stroke: #1f2937; }
+    
+    .badge-dot { fill: #7B2FFF; }
+    .badge-outline { fill: #7B2FFF; fill-opacity: 0.08; stroke: #7B2FFF; stroke-opacity: 0.4; }
+    .badge-text {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      fill: #7B2FFF;
+      letter-spacing: 1px;
+    }
+    
+    .title-text {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 38px;
+      fill: url(#neonCyanPurpleDark);
+      letter-spacing: -0.5px;
+    }
+    
+    .subtitle-text {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      fill: #e2e8f0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+    
+    /* Tech Art styles */
+    .tech-orbit-circle { stroke: #7B2FFF; stroke-opacity: 0.2; }
+    .tech-inner-circle { stroke: url(#neonCyanPurpleDark); stroke-opacity: 0.2; }
+    .tech-ellipse-cyan { stroke: #00D9FF; stroke-opacity: 0.4; }
+    .tech-ellipse-purple { stroke: #7B2FFF; stroke-opacity: 0.4; }
+    
+    /* Gear specific styles */
+    .gear-teeth { fill: none; stroke: url(#neonPurplePinkDark); }
+    .gear-rim { fill: #0f131f; stroke: url(#neonCyanPurpleDark); }
+    .gear-hub { fill: none; stroke: #FF007F; }
+    .gear-brackets { fill: none; stroke: #00D9FF; }
+    
+    .tech-code-cyan { fill: #00D9FF; opacity: 0.4; }
+    .tech-code-purple { fill: #7B2FFF; opacity: 0.4; }
+    .tech-code-pink { fill: #FF007F; opacity: 0.3; }
+    .tech-code-binary { fill: #8b949e; opacity: 0.3; }
+    
+    /* Animations */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    
+    @keyframes floatTech {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    
+    @keyframes slowRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .anim-pulse {
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    
+    .anim-float {
+      animation: floatTech 5s ease-in-out infinite;
+    }
+    
+    .anim-rotate {
+      transform-origin: 670px 110px;
+      animation: slowRotate 20s linear infinite;
+    }
+    
+    /* Light Mode Overrides */
+    @media (prefers-color-scheme: light) {
+      .banner-bg { fill: url(#bgGradLight) !important; }
+      .banner-grid { fill: url(#gridLight) !important; }
+      .top-glow-line { stroke: url(#neonCyanPurpleLight) !important; }
+      
+      .glow-circle-purple { fill: #6C35DE !important; opacity: 0.08 !important; }
+      .glow-circle-cyan { fill: #00A3E0 !important; opacity: 0.06 !important; }
+      
+      .corner-blueprint-purple { stroke: #6C35DE !important; opacity: 0.8 !important; }
+      .corner-blueprint-cyan { stroke: #00A3E0 !important; opacity: 0.8 !important; }
+      
+      .divider-line { stroke: #cbd5e1 !important; }
+      
+      .badge-dot { fill: #6C35DE !important; }
+      .badge-outline { fill: #6C35DE !important; fill-opacity: 0.05 !important; stroke: #6C35DE !important; stroke-opacity: 0.3 !important; }
+      .badge-text { fill: #6C35DE !important; }
+      
+      .title-text { fill: url(#neonCyanPurpleLight) !important; }
+      .subtitle-text { fill: #1e293b !important; }
+      
+      .tech-orbit-circle { stroke: #6C35DE !important; stroke-opacity: 0.3 !important; }
+      .tech-inner-circle { stroke: url(#neonCyanPurpleLight) !important; stroke-opacity: 0.3 !important; }
+      .tech-ellipse-cyan { stroke: #00A3E0 !important; stroke-opacity: 0.6 !important; }
+      .tech-ellipse-purple { stroke: #6C35DE !important; stroke-opacity: 0.6 !important; }
+      
+      /* Gear Light Mode */
+      .gear-teeth { stroke: url(#neonPurplePinkLight) !important; }
+      .gear-rim { fill: #f8fafc !important; stroke: url(#neonCyanPurpleLight) !important; }
+      .gear-hub { stroke: #DB2777 !important; }
+      .gear-brackets { stroke: #00A3E0 !important; }
+      
+      .tech-code-cyan { fill: #00A3E0 !important; opacity: 0.6 !important; }
+      .tech-code-purple { fill: #6C35DE !important; opacity: 0.6 !important; }
+      .tech-code-pink { fill: #DB2777 !important; opacity: 0.5 !important; }
+      .tech-code-binary { fill: #64748b !important; opacity: 0.5 !important; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="850" height="220" class="banner-bg"/>
+  <rect width="850" height="220" class="banner-grid"/>
+
+  <!-- Glow effect background circles -->
+  <circle cx="100" cy="180" r="120" class="glow-circle-purple" filter="url(#glowPurple)"/>
+  <circle cx="700" cy="70" r="140" class="glow-circle-cyan" filter="url(#glowCyan)"/>
+
+  <!-- Top glow line -->
+  <line x1="0" y1="0" x2="850" y2="0" class="top-glow-line" stroke-width="3" filter="url(#glowCyan)"/>
+  
+  <!-- Decorative corner blueprints -->
+  <path d="M 25 35 L 25 20 L 40 20" fill="none" class="corner-blueprint-purple" stroke-width="1.5"/>
+  <path d="M 825 35 L 825 20 L 810 20" fill="none" class="corner-blueprint-cyan" stroke-width="1.5"/>
+  <path d="M 25 185 L 25 200 L 40 200" fill="none" class="corner-blueprint-cyan" stroke-width="1.5"/>
+  <path d="M 825 185 L 825 200 L 810 200" fill="none" class="corner-blueprint-purple" stroke-width="1.5"/>
+
+  <!-- Asymmetrical Divider Line -->
+  <line x1="490" y1="40" x2="490" y2="180" class="divider-line" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Left Side: Identification -->
+  <g transform="translate(50, 0)">
+    <!-- Pill Badge: pedrolabre -->
+    <g transform="translate(0, 48)">
+      <circle cx="12" cy="11" r="3.5" class="badge-dot anim-pulse"/>
+      <rect width="98" height="22" rx="11" class="badge-outline" stroke-width="1"/>
+      <text x="24" y="15" class="badge-text">pedrolabre</text>
+    </g>
+    
+    <!-- Title: Projetos Pessoais -->
+    <text x="0" y="125" class="title-text" filter="url(#glowCyan)">Projetos Pessoais</text>
+    
+    <!-- Subtitle: Utilitários & Automações -->
+    <text x="0" y="158" class="subtitle-text">Utilitários &amp; Automações</text>
+  </g>
+
+  <!-- Right Side: Projects Tech Art -->
+  <g class="anim-float">
+    <!-- Outer decorative orbits -->
+    <circle cx="670" cy="110" r="75" fill="none" class="tech-orbit-circle" stroke-width="1" stroke-dasharray="4, 8"/>
+    
+    <!-- Rotating tech rings -->
+    <g class="anim-rotate">
+      <circle cx="670" cy="110" r="55" fill="none" class="tech-inner-circle" stroke-width="1"/>
+      <ellipse cx="670" cy="110" rx="65" ry="18" fill="none" class="tech-ellipse-cyan" stroke-width="1" transform="rotate(30 670 110)"/>
+      <ellipse cx="670" cy="110" rx="65" ry="18" fill="none" class="tech-ellipse-purple" stroke-width="1" transform="rotate(120 670 110)"/>
+    </g>
+
+    <!-- Gear + Code Brackets Design -->
+    <g>
+      <!-- Gear Teeth (Rotated Squares) -->
+      <rect x="642" y="82" width="56" height="56" rx="4" class="gear-teeth" stroke-width="2" fill="none"/>
+      <rect x="642" y="82" width="56" height="56" rx="4" class="gear-teeth" stroke-width="2" fill="none" transform="rotate(45 670 110)"/>
+
+      <!-- Gear Outer Rim -->
+      <circle cx="670" cy="110" r="28" class="gear-rim" stroke-width="2" filter="url(#glowCyan)"/>
+
+      <!-- Gear Inner Hub -->
+      <circle cx="670" cy="110" r="14" class="gear-hub" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+      <!-- Code Brackets inside the hub -->
+      <path d="M 663,105 L 658,110 L 663,115" class="gear-brackets" stroke-width="2" filter="url(#glowCyan)"/>
+      <path d="M 677,105 L 682,110 L 677,115" class="gear-brackets" stroke-width="2" filter="url(#glowCyan)"/>
+    </g>
+
+    <!-- Floating Technical Text Symbols -->
+    <text x="545" y="70" font-family="'Fira Code', monospace" font-size="12" class="tech-code-cyan">python</text>
+    <text x="760" y="160" font-family="'Fira Code', monospace" font-size="12" class="tech-code-purple">bash</text>
+    <text x="560" y="150" font-family="'Fira Code', monospace" font-size="11" class="tech-code-binary">sqlite</text>
+    <text x="750" y="75" font-family="'Fira Code', monospace" font-size="12" class="tech-code-pink">&lt;/&gt;</text>
+  </g>
+</svg>

@@ -138,53 +138,15 @@ Estes são os projetos estruturados, trabalhos, relatórios e especificações d
 
 </div>
 
-## Laboratório de Utilitários Práticos (Projetos Pessoais & Automações)
+## 🖥️ Projetos Pessoais & Automações de Produtividade
 
-<details>
-<summary><h3 style="display: inline-block; margin: 0.4em 0;">🖥️ Desenvolvimento de Ferramentas, Extensões & Dashboards Local</h3></summary>
-<br/>
-
-Utilitários locais, extensões de navegador e ferramentas criadas por iniciativa própria para otimizar fluxos de trabalho do cotidiano. Projetos privados possuem indicador visual e acesso restrito de código:
+Utilitários de uso pessoal, extensões de navegador, dashboards offline e micro-scripts desenvolvidos para automatizar tarefas cotidianas e otimizar fluxos de trabalho locais.
 
 <div align="center">
 
-| 📁 Projeto | 📝 Descrição | 🛠️ Stack | 🔗 |
-|:---|:---|:---|:---:|
-| **price-simulator** | SPA para simulação de preços comerciais com cálculo de IPI, frete e margem, suporte multi-idioma e exportação | JavaScript • React | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/price-simulator) |
-| **photo_organizer** | Solução automatizada para organização cronológica de grandes acervos de fotos via metadados (EXIF) e detecção de duplicatas | Python • EXIF | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/photo_organizer) |
-| **personal-finance-manager** | Dashboard desktop local para controle de finanças pessoais utilizando padrão arquitetural MVVM | C# • WPF • SQLite | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-finance-manager) |
-| **personal-consumption-tracker** | Aplicação desktop local para monitoramento, análise gráfica e rastreamento de consumo pessoal | C# • WPF • SQLite | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-consumption-tracker) |
-| **Armário Virtual** 🔒 | Organizador pessoal offline de roupas com integração de widget meteorológico e métricas de Cost-per-Wear | Node.js • SQLite | ![privado](https://img.shields.io/badge/privado-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/VC-Documentation-v1.html) |
-| **youtube-organizer** 🔒 | Single Page Application (SPA) para curadoria, categorização e gerenciamento personalizado de vídeos do YouTube | JavaScript • React • Vite | ![privado](https://img.shields.io/badge/privado-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/YO_Documentation_v2.html) |
-| **tab-duplicate-detector** 🔒 | Extensão Chrome MV3 para detecção e limpeza inteligente de abas duplicadas via normalização regex | JavaScript • Chrome API | ![privado](https://img.shields.io/badge/privado-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TDD-Documentation-v1.html) |
-| **tab-url-extractor** 🔒 | Extensão Chrome MV3 para extração, filtragem e exportação em lote de URLs de abas abertas em um clique | JavaScript • Chrome API | ![privado](https://img.shields.io/badge/privado-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TUE-Documentation-v1.html) |
-| **tab-domain-executor** 🔒 | Extensão Chrome MV3 para gerenciamento, agrupamento e fechamento em lote de abas por domínios | TypeScript • Webpack • Chrome API | ![privado](https://img.shields.io/badge/privado-0d1117?style=flat-square&logo=github&logoColor=FF5F56) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/TDE-Documentation-v1.html) |
+[![Acessar Projetos Pessoais](./.github/assets/projects-badge.svg)](./projetos.md)
 
 </div>
-</details>
-
----
-
-## Scripts & Micro-Automações de Produtividade
-
-<details>
-<summary><h3 style="display: inline-block; margin: 0.4em 0;">⚡ Automação de Tarefas, Micro-Scripts & Utilitários Locais</h3></summary>
-<br/>
-
-Utilitários ágeis que desenvolvi para automatizar rotinas locais de infraestrutura, sincronização de projetos e tratamentos locais de arquivos em lote:
-
-<div align="center">
-
-| 📁 Script | 📝 Descrição | 🛠️ Stack | 🔗 |
-|:---|:---|:---|:---:|
-| **update_mobile_env_ip.py** | Sincroniza automaticamente a configuração de rede do app mobile com o IP local da máquina de desenvolvimento | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/update_mobile_env_ip.py) |
-| **run-local.example.ps1** | Script modelo para configurar variáveis de ambiente e inicializar o servidor de banco de dados e backend localmente | PowerShell | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/run-local.example.ps1) |
-| **generate_reports.py** | Processa em lote imagens duplicadas locais, compilando estatísticas analíticas de economia de espaço | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/generate_reports.py) |
-| **export_hashes.py** | Calcula e exporta os hashes criptográficos de grandes bibliotecas de imagens para indexação ultra-veloz | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/export_hashes.py) |
-| **organizador_arquivos.py** | Organizador inteligente de arquivos locais que faz varredura e triagem para diretórios por extensão | Python | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/organizador_arquivos.py) |
-
-</div>
-</details>
 
 ---
 

@@ -1,3 +1,7 @@
+<div align="right">
+  🇧🇷 <b>Português</b> &nbsp;•&nbsp; <a href="./certificates.md">🇺🇸 English</a>
+</div>
+
 <div align="left" id="top">
   <a href="./README.md">🏠 Voltar ao Início</a>
 </div>
