@@ -32,7 +32,33 @@ Over time, I realized that I have a natural ability to identify problems and ima
 
 ---
 
+## 📋 Technical-Academic Profile
+
+```typescript
+const dev = {
+  name:           "Pedro Roberto Ribeiro Bandeira Labre",
+  role:           "Software Developer (seeking internship)",
+  education:      "Information Systems — IFTO (5th semester)",
+  location:       "Brazil 🇧🇷",
+
+  background:     "10+ years of professional office experience before transitioning to software",
+  languages:      ["Portuguese (native)", "English (fluent)"],
+
+  process:        [
+    "Break scope into phases before writing any code",
+    "Document implementation plans per feature block",
+    "Test and validate each phase independently",
+  ],
+
+  currentFocus:   "Mobile development (React Native / Expo) in TypeScript",
+  building:       "Things that actually solve problems I encounter",
+} as const;
+```
+
+---
+
 ## Technologies Used in Projects
+
 
 <div align="center">
 
@@ -96,24 +122,14 @@ Over time, I realized that I have a natural ability to identify problems and ima
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&v=2"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=default&hide_border=true&count_private=true&title_color=00A3E0&icon_color=6C35DE&text_color=475569&bg_color=ffffff&v=2"/>
-  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&v=2" alt="Pedro Labre's GitHub Stats"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=default&hide_border=true&count_private=true&title_color=00A3E0&icon_color=6C35DE&text_color=475569&bg_color=ffffff&v=4"/>
+  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&v=4" alt="Pedro Labre's GitHub Stats"/>
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&v=2"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=default&hide_border=true&title_color=00A3E0&text_color=475569&bg_color=ffffff&langs_count=8&count_private=true&v=2"/>
-  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&v=2" alt="Most Used Languages"/>
-</picture>
-
-</div>
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&v=2"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=default&hide_border=true&ring=6C35DE&fire=FF5F56&currStreakLabel=00A3E0&sideLabels=00A3E0&background=ffffff&stroke=00A3E0&dates=475569&v=2"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&v=2" alt="Streak Stats"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=default&hide_border=true&title_color=00A3E0&text_color=475569&bg_color=ffffff&langs_count=8&count_private=true&v=4"/>
+  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&v=4" alt="Most Used Languages"/>
 </picture>
 
 </div>
@@ -121,9 +137,19 @@ Over time, I realized that I have a natural ability to identify problems and ima
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&v=2"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=default&hide_border=true&bg_color=ffffff&color=00A3E0&line=6C35DE&point=ffffff&area=true&v=2"/>
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&v=2" alt="Activity Graph"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=default&hide_border=true&ring=6C35DE&fire=FF5F56&currStreakLabel=00A3E0&sideLabels=00A3E0&background=ffffff&stroke=00A3E0&dates=475569&v=4"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&v=4" alt="Streak Stats"/>
+</picture>
+
+</div>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=default&hide_border=true&bg_color=ffffff&color=00A3E0&line=6C35DE&point=ffffff&area=true&v=4"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&v=4" alt="Activity Graph"/>
 </picture>
 
 </div>
@@ -170,30 +196,6 @@ I collect certifications, free courses, and participation in academic/technologi
 
 ---
 
-## 📋 Technical-Academic Profile
-
-```typescript
-const dev = {
-  name:           "Pedro Roberto Ribeiro Bandeira Labre",
-  role:           "Software Developer (seeking internship)",
-  education:      "Information Systems — IFTO (5th semester)",
-  location:       "Brazil 🇧🇷",
-
-  background:     "10+ years of professional office experience before transitioning to software",
-  languages:      ["Portuguese (native)", "English (fluent)"],
-
-  process:        [
-    "Break scope into phases before writing any code",
-    "Document implementation plans per feature block",
-    "Test and validate each phase independently",
-  ],
-
-  currentFocus:   "Mobile development (React Native / Expo) in TypeScript",
-  building:       "Things that actually solve problems I encounter",
-} as const;
-```
-
----
 
 ## 🐍 Contributions
 

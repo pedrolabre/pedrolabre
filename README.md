@@ -32,7 +32,33 @@ Com o tempo, percebi que tenho facilidade natural para identificar problemas e i
 
 ---
 
+## 📋 Ficha Técnico-Acadêmica
+
+```typescript
+const dev = {
+  nome:           "Pedro Roberto Ribeiro Bandeira Labre",
+  papel:          "Desenvolvedor de Software (em busca de estágio)",
+  formacao:       "Sistemas de Informação — IFTO (5º Período)",
+  local:          "Brasil 🇧🇷",
+
+  historico:      "10+ anos de experiência profissional antes da transição para software",
+  idiomas:        ["Português (nativo)", "Inglês (fluente)"],
+
+  processo:       [
+    "Dividir o escopo em fases antes de escrever qualquer código",
+    "Documentar planos de implementação por bloco de funcionalidade",
+    "Testar e validar cada fase de forma independente",
+  ],
+
+  focoAtual:      "Desenvolvimento mobile (React Native / Expo) em TypeScript",
+  construindo:    "Coisas que resolvem problemas que eu mesmo encontro",
+} as const;
+```
+
+---
+
 ## Tecnologias Utilizadas em Projetos
+
 
 <div align="center">
 
@@ -96,24 +122,14 @@ Com o tempo, percebi que tenho facilidade natural para identificar problemas e i
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&locale=pt-br&v=3"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=default&hide_border=true&count_private=true&title_color=00A3E0&icon_color=6C35DE&text_color=475569&bg_color=ffffff&locale=pt-br&v=3"/>
-  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&locale=pt-br&v=3" alt="Pedro Labre's GitHub Stats"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&locale=pt-br&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=default&hide_border=true&count_private=true&title_color=00A3E0&icon_color=6C35DE&text_color=475569&bg_color=ffffff&locale=pt-br&v=4"/>
+  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api?username=pedrolabre&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&title_color=00D9FF&icon_color=7B2FFF&text_color=c9d1d9&bg_color=0d1117&locale=pt-br&v=4" alt="Pedro Labre's GitHub Stats"/>
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&locale=pt-br&v=3"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=default&hide_border=true&title_color=00A3E0&text_color=475569&bg_color=ffffff&langs_count=8&count_private=true&locale=pt-br&v=3"/>
-  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&locale=pt-br&v=3" alt="Most Used Languages"/>
-</picture>
-
-</div>
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&locale=pt-br&v=3"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=default&hide_border=true&ring=6C35DE&fire=FF5F56&currStreakLabel=00A3E0&sideLabels=00A3E0&background=ffffff&stroke=00A3E0&dates=475569&locale=pt-br&v=3"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&locale=pt-br&v=3" alt="Streak Stats"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&locale=pt-br&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=default&hide_border=true&title_color=00A3E0&text_color=475569&bg_color=ffffff&langs_count=8&count_private=true&locale=pt-br&v=4"/>
+  <img height="175" src="https://github-readme-stats-pied-mu.vercel.app/api/top-langs/?username=pedrolabre&layout=compact&theme=tokyonight&hide_border=true&title_color=00D9FF&text_color=c9d1d9&bg_color=0d1117&langs_count=8&count_private=true&locale=pt-br&v=4" alt="Most Used Languages"/>
 </picture>
 
 </div>
@@ -121,9 +137,19 @@ Com o tempo, percebi que tenho facilidade natural para identificar problemas e i
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=3"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=default&hide_border=true&bg_color=ffffff&color=00A3E0&line=6C35DE&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=3"/>
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=3" alt="Activity Graph"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&locale=pt-br&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=default&hide_border=true&ring=6C35DE&fire=FF5F56&currStreakLabel=00A3E0&sideLabels=00A3E0&background=ffffff&stroke=00A3E0&dates=475569&locale=pt-br&v=4"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=pedrolabre&theme=tokyonight&hide_border=true&ring=7B2FFF&fire=FF6B6B&currStreakLabel=00D9FF&sideLabels=00D9FF&background=0d1117&stroke=00D9FF&dates=8b949e&locale=pt-br&v=4" alt="Streak Stats"/>
+</picture>
+
+</div>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=4"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=default&hide_border=true&bg_color=ffffff&color=00A3E0&line=6C35DE&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=4"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=pedrolabre&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00D9FF&line=7B2FFF&point=ffffff&area=true&custom_title=Gr%C3%A1fico%20de%20Contribui%C3%A7%C3%B5es%20de%20Pedro%20Labre&locale=pt-br&v=4" alt="Activity Graph"/>
 </picture>
 
 </div>
@@ -165,31 +191,6 @@ Reúno certificações, cursos livres e participações em eventos acadêmicos/t
 [![Acessar Catálogo de Certificados](./.github/assets/certificates-badge.svg)](./certificados.md)
 
 </div>
-
----
-
-## 📋 Ficha Técnico-Acadêmica
-
-```typescript
-const dev = {
-  nome:           "Pedro Roberto Ribeiro Bandeira Labre",
-  papel:          "Desenvolvedor de Software (em busca de estágio)",
-  formacao:       "Sistemas de Informação — IFTO (5º Período)",
-  local:          "Brasil 🇧🇷",
-
-  historico:      "10+ anos de experiência profissional antes da transição para software",
-  idiomas:        ["Português (nativo)", "Inglês (fluente)"],
-
-  processo:       [
-    "Dividir o escopo em fases antes de escrever qualquer código",
-    "Documentar planos de implementação por bloco de funcionalidade",
-    "Testar e validar cada fase de forma independente",
-  ],
-
-  focoAtual:      "Desenvolvimento mobile (React Native / Expo) em TypeScript",
-  construindo:    "Coisas que resolvem problemas que eu mesmo encontro",
-} as const;
-```
 
 ---
 
