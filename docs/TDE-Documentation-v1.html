@@ -244,12 +244,219 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--gray-500); }
+  
+    /* Mobile Responsiveness Improvements */
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px 8px;
+      margin-right: 8px;
+    }
+    #sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 199;
+      backdrop-filter: blur(2px);
+    }
+    #sidebar-overlay.active {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+      .topbar-title span {
+        display: none !important;
+      }
+      .topbar-badge {
+        display: none !important;
+      }
+      .menu-btn {
+        display: block;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        bottom: 0;
+        z-index: 1000;
+        height: 100vh;
+        transition: left 0.3s ease;
+      }
+      .sidebar.open {
+        left: 0;
+      }
+      .main {
+        margin-left: 0 !important;
+        padding: 24px 16px 60px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .layout {
+        display: block !important;
+      }
+      /* Grid collapse */
+      .problem-grid, .pillars, .modules-grid, .feat-grid, .oos-grid, .rnf-grid, .ucf-meta, .arch-body-grid, .ts-config-grid, .thr-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      /* Constrain card widths */
+      .card, .req-card, .dev-card, .step-card, .mini-card, .stat-card, .structure-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Ensure text wraps nicely */
+      p, li, span, h1, h2, h3, h4, div, .muted {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+      /* Table and element responsive scroll */
+      .table-wrap, pre, .dev-tree, .file-tree {
+        display: block;
+        width: 100%;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .req-table {
+        min-width: 600px;
+      }
+      .arch-table {
+        min-width: 650px;
+      }
+      .scripts-table {
+        min-width: 750px;
+      }
+      /* SVG min-width cleanup */
+      svg, img {
+        max-width: 100% !important;
+        min-width: unset !important;
+        height: auto !important;
+      }
+    }
+  </style>
+  <style>
+    /* Bulletproof Mobile Layout Overflow Fixes */
+    @media (max-width: 768px) {
+      /* 1. Prevent body/html scrollbar and constrain main container */
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+        position: relative !important;
+      }
+
+      /* 2. Force grid columns to collapse to a single flexible track that can shrink */
+      .grid, .two-col, .flow-grid, .req-grid, .uc-grid, .steps, .info-row, .arch-layer-grid, 
+      .uc-meta, .arch-meta, .arch-body-grid, .ts-config-grid, .ts-row, .tech-grid, .thr-grid, 
+      .dev-cards, .feat-grid, .oos-grid, .rnf-grid, .problem-grid, .pillars, .modules-grid, .dev-cards-grid,
+      .card-grid, .card-grid-3, [style*="grid-template-columns"], [style*="display: grid"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* 3. Ensure all grid/flex items can shrink (override min-width: auto) */
+      .app > *, .layout > *, .sidebar, #sidebar,
+      .card, .flow-step, .req-card, .uc-card, .step, .info, .arch-layer, .feat-group, .rnf-card,
+      .dev-card, .step-card, .mini-card, .stat-card, .structure-card, .hero, .section-panel, .accent-note,
+      .step-content, .step-body, .install-step, .install-steps, .code-block {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        float: none !important;
+      }
+
+      /* 4. Explicitly reset margins and padding on mobile content wrappers to prevent layout shifting */
+      .main, #main, .content, .content-inner {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .body-wrap, .layout {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .header, .topbar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 5. Collapse installation steps vertically to maximize horizontal space for code on mobile */
+      .install-step {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+      }
+      .install-step::after {
+        display: none !important;
+      }
+
+      /* 6. Force line break for long unbroken texts / code in ordinary elements */
+      p, li, span, h1, h2, h3, h4, h5, h6, div, td, th, .muted, strong, a {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+
+      /* 7. Enable horizontal scroll inside code blocks, trees and tables without stretching parents */
+      .table-wrap, pre, .dev-tree, .file-tree, .code-block pre {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      /* 8. Specifically constrain code block contents and text fields */
+      .req-code, code {
+        white-space: pre-wrap !important;
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        max-width: 100% !important;
+      }
+
+      /* 9. Clean up SVG/images so they don't stretch */
+      svg, img {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <!-- ═══ TOP BAR ═══════════════════════════════════════════════════════════ -->
-<header class="topbar">
+<header class="topbar"><button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">&#9776;</button>
   <!-- TDE inline SVG icon -->
   <svg class="topbar-icon" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
     <rect width="128" height="128" rx="16" fill="rgba(255,255,255,.15)"/>
@@ -864,56 +1071,64 @@ npm run build</pre>
 
       <div class="req-section mt-lg">
         <div class="req-section-title blue">RF-01 a RF-06 — Análise de Abas</div>
-        <table class="req-table">
-          <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
-          <tbody>
-            <tr><td>RF-01</td><td>O sistema deve ler todas as abas abertas em todas as janelas via <code>chrome.tabs.query({})</code> somente quando solicitado pelo usuário.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-02</td><td>O sistema deve normalizar a URL de cada aba via <code>normalizeUrl()</code> (<code>url-normalizer.ts</code>) extraindo o domínio base (ex: <code>youtube.com</code>), retornando <code>null</code> para URLs inválidas.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-03</td><td>O sistema deve agrupar as abas por domínio via <code>groupByDomain()</code>, retornando <code>DomainGroup[]</code> com <code>tabCount</code>, <code>windowCount</code> e <code>windowIds</code>. Os campos <code>minTabId</code> e <code>maxTabId</code> são calculados no dispatcher a partir dos IDs das abas para suportar ordenação por recência (RF-05).</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-04</td><td>O sistema deve exibir os domínios como cards ordenáveis com busca por texto.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-05</td><td>O sistema deve suportar ordenação por: mais abas, menos abas, A→Z, Z→A, mais recente, mais antigo.</td><td><span class="badge med">Média</span></td></tr>
-            <tr><td>RF-06</td><td>O sistema deve ignorar abas sem domínio válido. URLs com prefixo <code>chrome://</code>, <code>about:</code> ou <code>chrome-extension://</code> retornam <code>null</code> do normalizador e são excluídas do agrupamento.</td><td><span class="badge high">Alta</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="req-table">
+            <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
+            <tbody>
+              <tr><td>RF-01</td><td>O sistema deve ler todas as abas abertas em todas as janelas via <code>chrome.tabs.query({})</code> somente quando solicitado pelo usuário.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-02</td><td>O sistema deve normalizar a URL de cada aba via <code>normalizeUrl()</code> (<code>url-normalizer.ts</code>) extraindo o domínio base (ex: <code>youtube.com</code>), retornando <code>null</code> para URLs inválidas.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-03</td><td>O sistema deve agrupar as abas por domínio via <code>groupByDomain()</code>, retornando <code>DomainGroup[]</code> com <code>tabCount</code>, <code>windowCount</code> e <code>windowIds</code>. Os campos <code>minTabId</code> e <code>maxTabId</code> são calculados no dispatcher a partir dos IDs das abas para suportar ordenação por recência (RF-05).</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-04</td><td>O sistema deve exibir os domínios como cards ordenáveis com busca por texto.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-05</td><td>O sistema deve suportar ordenação por: mais abas, menos abas, A→Z, Z→A, mais recente, mais antigo.</td><td><span class="badge med">Média</span></td></tr>
+              <tr><td>RF-06</td><td>O sistema deve ignorar abas sem domínio válido. URLs com prefixo <code>chrome://</code>, <code>about:</code> ou <code>chrome-extension://</code> retornam <code>null</code> do normalizador e são excluídas do agrupamento.</td><td><span class="badge high">Alta</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="req-section mt-md">
         <div class="req-section-title purple">RF-07 a RF-10 — Seleção de Escopo</div>
-        <table class="req-table">
-          <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
-          <tbody>
-            <tr><td>RF-07</td><td>Após selecionar um domínio, o sistema deve oferecer duas opções: "Todas as janelas" ou "Escolher janelas".</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-08</td><td>Se "Todas as janelas" (<code>TabScope = 'all'</code>), o sistema deve avançar diretamente para a listagem via <code>filterTabsByScope(tabs, domain, 'all')</code> sem etapa adicional.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-09</td><td>Se "Escolher janelas" (<code>TabScope = 'windows'</code>), o sistema deve exibir cards gerados por <code>groupByWindow()</code> retornando <code>WindowGroup[]</code>, com seleção múltipla por checkbox (campo <code>selected</code>).</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-10</td><td>O botão "Continuar" deve exibir o total de abas que serão afetadas e estar desabilitado se nenhuma janela for selecionada.</td><td><span class="badge high">Alta</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="req-table">
+            <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
+            <tbody>
+              <tr><td>RF-07</td><td>Após selecionar um domínio, o sistema deve oferecer duas opções: "Todas as janelas" ou "Escolher janelas".</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-08</td><td>Se "Todas as janelas" (<code>TabScope = 'all'</code>), o sistema deve avançar diretamente para a listagem via <code>filterTabsByScope(tabs, domain, 'all')</code> sem etapa adicional.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-09</td><td>Se "Escolher janelas" (<code>TabScope = 'windows'</code>), o sistema deve exibir cards gerados por <code>groupByWindow()</code> retornando <code>WindowGroup[]</code>, com seleção múltipla por checkbox (campo <code>selected</code>).</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-10</td><td>O botão "Continuar" deve exibir o total de abas que serão afetadas e estar desabilitado se nenhuma janela for selecionada.</td><td><span class="badge high">Alta</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="req-section mt-md">
         <div class="req-section-title red">RF-11 a RF-14 — Fechamento de Abas</div>
-        <table class="req-table">
-          <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
-          <tbody>
-            <tr><td>RF-11</td><td>O sistema deve listar as abas do escopo definido com título, URL completa e favicon.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-12</td><td>O sistema deve permitir fechar uma aba individualmente via <code>closeSingleTab(tabId)</code> → <code>chrome.tabs.remove(tabId)</code>. Esta ação não chama <code>storeRecoveryLog</code> e é irreversível.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-13</td><td>O sistema deve fechar todas as abas do escopo em lote via <code>closeBulkTabs(tabIds)</code> → <code>chrome.tabs.remove([...ids])</code>, seguido de <code>storeRecoveryLog(tabs)</code> em memória.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-14</td><td>Após o fechamento, o sistema deve exibir feedback visual confirmando a ação e informando a disponibilidade de recuperação.</td><td><span class="badge high">Alta</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="req-table">
+            <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
+            <tbody>
+              <tr><td>RF-11</td><td>O sistema deve listar as abas do escopo definido com título, URL completa e favicon.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-12</td><td>O sistema deve permitir fechar uma aba individualmente via <code>closeSingleTab(tabId)</code> → <code>chrome.tabs.remove(tabId)</code>. Esta ação não chama <code>storeRecoveryLog</code> e é irreversível.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-13</td><td>O sistema deve fechar todas as abas do escopo em lote via <code>closeBulkTabs(tabIds)</code> → <code>chrome.tabs.remove([...ids])</code>, seguido de <code>storeRecoveryLog(tabs)</code> em memória.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-14</td><td>Após o fechamento, o sistema deve exibir feedback visual confirmando a ação e informando a disponibilidade de recuperação.</td><td><span class="badge high">Alta</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="req-section mt-md">
         <div class="req-section-title green">RF-15 a RF-18 — Recuperação</div>
-        <table class="req-table">
-          <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
-          <tbody>
-            <tr><td>RF-15</td><td>O sistema deve armazenar em memória um <code>RecoveryLog</code> com <code>tabs: TabMinimal[]</code> (url + windowId), <code>timestamp</code> e <code>ttl</code> das abas fechadas em lote.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-16</td><td>O log de recuperação deve expirar automaticamente após <code>RECOVERY_TTL_MS</code> (15 × 60 × 1000 ms) via <code>setTimeout</code> em <code>recovery-manager.ts</code>.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-17</td><td>Na tela inicial, se houver log válido, deve ser exibido botão "Recuperar" com tempo restante.</td><td><span class="badge high">Alta</span></td></tr>
-            <tr><td>RF-18</td><td>Ao recuperar, o sistema deve recriar todas as abas via <code>restoreTabs(tabs)</code> → <code>chrome.tabs.create()</code> nas janelas originais e apagar o log via <code>clearRecoveryLog()</code> imediatamente.</td><td><span class="badge high">Alta</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="req-table">
+            <thead><tr><th>ID</th><th>Descrição</th><th>Prioridade</th></tr></thead>
+            <tbody>
+              <tr><td>RF-15</td><td>O sistema deve armazenar em memória um <code>RecoveryLog</code> com <code>tabs: TabMinimal[]</code> (url + windowId), <code>timestamp</code> e <code>ttl</code> das abas fechadas em lote.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-16</td><td>O log de recuperação deve expirar automaticamente após <code>RECOVERY_TTL_MS</code> (15 × 60 × 1000 ms) via <code>setTimeout</code> em <code>recovery-manager.ts</code>.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-17</td><td>Na tela inicial, se houver log válido, deve ser exibido botão "Recuperar" com tempo restante.</td><td><span class="badge high">Alta</span></td></tr>
+              <tr><td>RF-18</td><td>Ao recuperar, o sistema deve recriar todas as abas via <code>restoreTabs(tabs)</code> → <code>chrome.tabs.create()</code> nas janelas originais e apagar o log via <code>clearRecoveryLog()</code> imediatamente.</td><td><span class="badge high">Alta</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <style>
@@ -1943,55 +2158,57 @@ npm run build</pre>
       <!-- ── Module responsibility table ─────────────────────────── -->
       <div class="card mt-lg">
         <div class="card-label">Responsabilidade por Módulo</div>
-        <table class="arch-table mt-sm">
-          <thead>
-            <tr><th>Módulo</th><th>Arquivo</th><th>Responsabilidade</th><th>Chrome API</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="mod-badge" style="background:#e8f0fe;color:var(--blue)">UI Layer</span></td>
-              <td><code>popup.ts</code></td>
-              <td>Renderiza fluxo, captura eventos, envia mensagens</td>
-              <td><span class="no-badge">Não</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:#f3f0ff;color:#7c3aed">Dispatcher</span></td>
-              <td><code>message-dispatcher.ts</code></td>
-              <td>Roteamento, validação e orquestração de mensagens</td>
-              <td><span class="no-badge">Não diretamente</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:#e8f0fe;color:var(--blue)">Tab Reader</span></td>
-              <td><code>tab-reader.ts</code></td>
-              <td>Leitura de abas e janelas — abstração da API</td>
-              <td><span class="yes-badge">Sim</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:#e0f7fa;color:#0097a7">Normalizer</span></td>
-              <td><code>url-normalizer.ts</code></td>
-              <td>Extrai domínio base de URLs (<code>string | null</code>)</td>
-              <td><span class="no-badge">Não</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:#f3f0ff;color:#7c3aed">Grouper</span></td>
-              <td><code>tab-grouper.ts</code></td>
-              <td>Agrupa abas em <code>DomainGroup[]</code> e <code>WindowGroup[]</code></td>
-              <td><span class="no-badge">Não</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:var(--red-faint);color:var(--red)">Executor</span></td>
-              <td><code>action-executor.ts</code></td>
-              <td>Fecha e restaura abas via <code>chrome.tabs</code></td>
-              <td><span class="yes-badge">Sim</span></td>
-            </tr>
-            <tr>
-              <td><span class="mod-badge" style="background:#e6f4ea;color:#34a853">Recovery</span></td>
-              <td><code>recovery-manager.ts</code></td>
-              <td>Log temporário em memória (TTL 15 min)</td>
-              <td><span class="no-badge">Não</span></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="arch-table mt-sm">
+            <thead>
+              <tr><th>Módulo</th><th>Arquivo</th><th>Responsabilidade</th><th>Chrome API</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="mod-badge" style="background:#e8f0fe;color:var(--blue)">UI Layer</span></td>
+                <td><code>popup.ts</code></td>
+                <td>Renderiza fluxo, captura eventos, envia mensagens</td>
+                <td><span class="no-badge">Não</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:#f3f0ff;color:#7c3aed">Dispatcher</span></td>
+                <td><code>message-dispatcher.ts</code></td>
+                <td>Roteamento, validação e orquestração de mensagens</td>
+                <td><span class="no-badge">Não diretamente</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:#e8f0fe;color:var(--blue)">Tab Reader</span></td>
+                <td><code>tab-reader.ts</code></td>
+                <td>Leitura de abas e janelas — abstração da API</td>
+                <td><span class="yes-badge">Sim</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:#e0f7fa;color:#0097a7">Normalizer</span></td>
+                <td><code>url-normalizer.ts</code></td>
+                <td>Extrai domínio base de URLs (<code>string | null</code>)</td>
+                <td><span class="no-badge">Não</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:#f3f0ff;color:#7c3aed">Grouper</span></td>
+                <td><code>tab-grouper.ts</code></td>
+                <td>Agrupa abas em <code>DomainGroup[]</code> e <code>WindowGroup[]</code></td>
+                <td><span class="no-badge">Não</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:var(--red-faint);color:var(--red)">Executor</span></td>
+                <td><code>action-executor.ts</code></td>
+                <td>Fecha e restaura abas via <code>chrome.tabs</code></td>
+                <td><span class="yes-badge">Sim</span></td>
+              </tr>
+              <tr>
+                <td><span class="mod-badge" style="background:#e6f4ea;color:#34a853">Recovery</span></td>
+                <td><code>recovery-manager.ts</code></td>
+                <td>Log temporário em memória (TTL 15 min)</td>
+                <td><span class="no-badge">Não</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <style>
@@ -2242,22 +2459,24 @@ npm run build</pre>
       <!-- Scripts -->
       <div class="card mt-md">
         <div class="card-label">Scripts disponíveis</div>
-        <table class="scripts-table mt-sm">
-          <thead><tr><th>Comando</th><th>Descrição</th></tr></thead>
-          <tbody>
-            <tr><td><code>npm run dev</code></td><td>Build em modo desenvolvimento com <strong>watch</strong> — recompila ao salvar</td></tr>
-            <tr><td><code>npm run build</code></td><td>Build de produção em <code>dist/</code> (minificado)</td></tr>
-            <tr><td><code>npm test</code></td><td>Executa todos os testes (unit + integration)</td></tr>
-            <tr><td><code>npm run test:watch</code></td><td>Testes em modo watch</td></tr>
-            <tr><td><code>npm run test:coverage</code></td><td>Testes com relatório de cobertura</td></tr>
-            <tr><td><code>npm run test:integration</code></td><td>Executa apenas os testes de integração</td></tr>
-            <tr><td><code>npm run lint</code></td><td>Verifica erros de lint no TypeScript</td></tr>
-            <tr><td><code>npm run lint:fix</code></td><td>Corrige automaticamente erros de lint</td></tr>
-            <tr><td><code>npm run format</code></td><td>Formata o código com Prettier</td></tr>
-            <tr><td><code>npm run format:check</code></td><td>Verifica formatação sem modificar os arquivos</td></tr>
-            <tr><td><code>npm run clean</code></td><td>Remove <code>dist/</code> e <code>coverage/</code></td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="scripts-table mt-sm">
+            <thead><tr><th>Comando</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td><code>npm run dev</code></td><td>Build em modo desenvolvimento com <strong>watch</strong> — recompila ao salvar</td></tr>
+              <tr><td><code>npm run build</code></td><td>Build de produção em <code>dist/</code> (minificado)</td></tr>
+              <tr><td><code>npm test</code></td><td>Executa todos os testes (unit + integration)</td></tr>
+              <tr><td><code>npm run test:watch</code></td><td>Testes em modo watch</td></tr>
+              <tr><td><code>npm run test:coverage</code></td><td>Testes com relatório de cobertura</td></tr>
+              <tr><td><code>npm run test:integration</code></td><td>Executa apenas os testes de integração</td></tr>
+              <tr><td><code>npm run lint</code></td><td>Verifica erros de lint no TypeScript</td></tr>
+              <tr><td><code>npm run lint:fix</code></td><td>Corrige automaticamente erros de lint</td></tr>
+              <tr><td><code>npm run format</code></td><td>Formata o código com Prettier</td></tr>
+              <tr><td><code>npm run format:check</code></td><td>Verifica formatação sem modificar os arquivos</td></tr>
+              <tr><td><code>npm run clean</code></td><td>Remove <code>dist/</code> e <code>coverage/</code></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Workflow -->
@@ -2315,20 +2534,22 @@ npm run build</pre>
       <!-- Tests card -->
       <div class="card mt-md">
         <div class="card-label">Suites de Testes</div>
-        <table class="scripts-table mt-sm">
-          <thead><tr><th>Suite</th><th>Tipo</th><th>O que cobre</th><th style="text-align:center">Testes</th></tr></thead>
-          <tbody>
-            <tr><td><code>normalizer.test.ts</code></td><td>Unit</td><td><code>normalizeUrl</code>, <code>extractDomain</code> — URLs válidas, <code>www.</code>, <code>chrome://</code></td><td style="text-align:center">4</td></tr>
-            <tr><td><code>tab-reader.test.ts</code></td><td>Unit</td><td><code>getAllTabs</code>, <code>getAllWindows</code>, <code>getTabsByWindowId</code> — mock de <code>chrome.tabs</code> e <code>chrome.windows</code></td><td style="text-align:center">6</td></tr>
-            <tr><td><code>grouper.test.ts</code></td><td>Unit</td><td><code>groupByDomain</code>, <code>groupByWindow</code>, <code>filterTabsByScope</code> — agrupamento, ordenação, filtragem por escopo</td><td style="text-align:center">14</td></tr>
-            <tr><td><code>executor.test.ts</code></td><td>Unit</td><td><code>closeSingleTab</code>, <code>closeBulkTabs</code>, <code>restoreTabs</code> — sucesso, falha e sucesso parcial</td><td style="text-align:center">10</td></tr>
-            <tr><td><code>recovery.test.ts</code></td><td>Unit</td><td><code>storeRecoveryLog</code>, <code>getRecoveryLog</code>, <code>hasRecoverableAction</code>, <code>clearRecoveryLog</code> — TTL com fake timers</td><td style="text-align:center">12</td></tr>
-            <tr><td><code>dispatcher.test.ts</code></td><td>Integration</td><td>Todos os 7 <code>MessageType</code> via <code>handle()</code> — validação de payload, roteamento e respostas compostas</td><td style="text-align:center">16</td></tr>
-          </tbody>
-          <tfoot>
-            <tr style="background:var(--gray-100)"><td colspan="3" style="font-weight:700;color:var(--gray-900)">Total</td><td style="text-align:center;font-weight:700;color:var(--blue)">62</td></tr>
-          </tfoot>
-        </table>
+        <div class="table-wrap">
+          <table class="scripts-table mt-sm">
+            <thead><tr><th>Suite</th><th>Tipo</th><th>O que cobre</th><th style="text-align:center">Testes</th></tr></thead>
+            <tbody>
+              <tr><td><code>normalizer.test.ts</code></td><td>Unit</td><td><code>normalizeUrl</code>, <code>extractDomain</code> — URLs válidas, <code>www.</code>, <code>chrome://</code></td><td style="text-align:center">4</td></tr>
+              <tr><td><code>tab-reader.test.ts</code></td><td>Unit</td><td><code>getAllTabs</code>, <code>getAllWindows</code>, <code>getTabsByWindowId</code> — mock de <code>chrome.tabs</code> e <code>chrome.windows</code></td><td style="text-align:center">6</td></tr>
+              <tr><td><code>grouper.test.ts</code></td><td>Unit</td><td><code>groupByDomain</code>, <code>groupByWindow</code>, <code>filterTabsByScope</code> — agrupamento, ordenação, filtragem por escopo</td><td style="text-align:center">14</td></tr>
+              <tr><td><code>executor.test.ts</code></td><td>Unit</td><td><code>closeSingleTab</code>, <code>closeBulkTabs</code>, <code>restoreTabs</code> — sucesso, falha e sucesso parcial</td><td style="text-align:center">10</td></tr>
+              <tr><td><code>recovery.test.ts</code></td><td>Unit</td><td><code>storeRecoveryLog</code>, <code>getRecoveryLog</code>, <code>hasRecoverableAction</code>, <code>clearRecoveryLog</code> — TTL com fake timers</td><td style="text-align:center">12</td></tr>
+              <tr><td><code>dispatcher.test.ts</code></td><td>Integration</td><td>Todos os 7 <code>MessageType</code> via <code>handle()</code> — validação de payload, roteamento e respostas compostas</td><td style="text-align:center">16</td></tr>
+            </tbody>
+            <tfoot>
+              <tr style="background:var(--gray-100)"><td colspan="3" style="font-weight:700;color:var(--gray-900)">Total</td><td style="text-align:center;font-weight:700;color:var(--blue)">62</td></tr>
+            </tfoot>
+          </table>
+        </div>
 
         <div class="test-thresholds mt-sm">
           <div class="thr-label">Thresholds mínimos de cobertura (<code>npm run test:coverage</code>)</div>
@@ -2423,5 +2644,19 @@ npm run build</pre>
   sections.forEach(s => observer.observe(s));
 </script>
 
+
+<script>
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebar-overlay').classList.toggle('active');
+  }
+  // Close sidebar when clicking links
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('active');
+    });
+  });
+</script>
 </body>
 </html>

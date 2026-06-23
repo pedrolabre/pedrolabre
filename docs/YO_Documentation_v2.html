@@ -977,16 +977,221 @@
 
     /* ── Focus styles ── */
     :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+  
+    /* Mobile Responsiveness Improvements */
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px 8px;
+      margin-right: 8px;
+    }
+    #sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      backdrop-filter: blur(2px);
+    }
+    #sidebar-overlay.active {
+      display: block;
+    }
+    .grid-4-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 900px) {
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+      .header-title {
+        white-space: normal !important;
+        font-size: 0.95rem !important;
+      }
+      .header-subtitle {
+        display: none !important;
+      }
+      .header-badge {
+        display: none !important;
+      }
+      .menu-btn {
+        display: block !important;
+      }
+      .sidebar {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: -260px !important;
+        bottom: 0 !important;
+        width: 260px !important;
+        z-index: 1000 !important;
+        height: 100vh !important;
+        transition: left 0.3s ease !important;
+        box-shadow: var(--shadow-lg) !important;
+      }
+      .sidebar.open {
+        left: 0 !important;
+      }
+      .grid-4-cols, .grid-2, .grid-3, .arch-layers-split, .rf-grid, .rnf-grid {
+        grid-template-columns: 1fr !important;
+      }
+      /* Constrain card widths */
+      .card, .req-card, .dev-card, .step-card, .mini-card, .stat-card, .structure-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Ensure text wraps nicely */
+      p, li, span, h1, h2, h3, h4, div, .muted {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+      .table-wrap, .doc-table-wrap, pre, .dev-tree, .file-tree {
+        display: block;
+        width: 100%;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .doc-table {
+        min-width: 650px;
+      }
+    }
+  </style>
+  <style>
+    /* Bulletproof Mobile Layout Overflow Fixes */
+    @media (max-width: 768px) {
+      /* 1. Prevent body/html scrollbar and constrain main container */
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+        position: relative !important;
+      }
+
+      /* 2. Force grid columns to collapse to a single flexible track that can shrink */
+      .grid, .two-col, .flow-grid, .req-grid, .uc-grid, .steps, .info-row, .arch-layer-grid, 
+      .uc-meta, .arch-meta, .arch-body-grid, .ts-config-grid, .ts-row, .tech-grid, .thr-grid, 
+      .dev-cards, .feat-grid, .oos-grid, .rnf-grid, .problem-grid, .pillars, .modules-grid, .dev-cards-grid,
+      .card-grid, .card-grid-3, .grid-2, .grid-3, .grid-4-cols, .arch-layers-split, .rf-grid, 
+      .arch-stats-grid, .tech-cols, .flow-steps, .flow-meta, .usecase-row,
+      [style*="grid-template-columns"], [style*="display: grid"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* 3. Ensure all grid/flex items can shrink (override min-width: auto) */
+      .app > *, .layout > *,
+      .card, .flow-step, .req-card, .uc-card, .step, .info, .arch-layer, .feat-group, .rnf-card,
+      .dev-card, .step-card, .mini-card, .stat-card, .structure-card, .hero, .section-panel, .accent-note,
+      .step-content, .step-body, .install-step, .install-steps, .code-block,
+      .rf-card, .flow-card, .arch-layer-card, .feature-card, .prob-card, .usecase-card, .tech-col, .tech-principle-box {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        float: none !important;
+      }
+
+      /* 4. Explicitly reset margins and padding on mobile content wrappers to prevent layout shifting */
+      .main, #main, .content, .content-inner {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .body-wrap, .layout {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .header, .topbar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 5. Collapse installation steps vertically to maximize horizontal space for code on mobile */
+      .install-step {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+      }
+      .install-step::after {
+        display: none !important;
+      }
+
+      /* 6. Force line break for long unbroken texts / code in ordinary elements */
+      p, li, span, h1, h2, h3, h4, h5, h6, div, td, th, .muted, strong, a {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+
+      /* 7. Enable horizontal scroll inside code blocks, trees and tables without stretching parents */
+      .table-wrap, pre, .dev-tree, .file-tree, .code-block pre, .arch-struct-body {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      /* 8. Specifically constrain code block contents and text fields */
+      .req-code, code {
+        white-space: pre-wrap !important;
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        max-width: 100% !important;
+      }
+
+      /* 9. Clean up SVG/images so they don't stretch */
+      svg, img {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+      }
+
+      /* 10. Make sure the file tree rows don't get excessively squished and allow horizontal scroll */
+      .arch-struct-body .arch-file-row {
+        min-width: 600px !important;
+      }
+    }
   </style>
 </head>
 
 <body>
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <div class="layout">
 
   <!-- ══════════════════════════════════════════
        HEADER
        ══════════════════════════════════════════ -->
-  <header class="header">
+  <header class="header"><button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">&#9776;</button>
     <div class="header-logo">
       <div class="header-logo-icon">
         <!-- Novo logo personalizado SVG (Play Diamante) -->
@@ -4974,7 +5179,7 @@ src/App.jsx</div>
             Suíte completa: <strong>672 testes</strong> em <strong>58 arquivos</strong> organizados em <strong>174 suítes</strong> — todos passando.
           </div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;">
+        <div class="grid-4-cols">
           <div class="card" style="text-align: center; padding: 20px 16px;">
             <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">85.4%</div>
             <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Statements</div>
@@ -5669,6 +5874,20 @@ src/App.jsx</div>
 
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
+</script>
+
+<script>
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebar-overlay').classList.toggle('active');
+  }
+  // Close sidebar when clicking links
+  document.querySelectorAll('.sidebar-link').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('active');
+    });
+  });
 </script>
 </body>
 </html>

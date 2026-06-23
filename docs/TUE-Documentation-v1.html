@@ -1089,7 +1089,7 @@
 
     @media (max-width: 980px) {
       .app {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) !important;
         grid-template-rows: var(--topbar-height) auto 1fr;
         grid-template-areas:
           "topbar"
@@ -1102,6 +1102,185 @@
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--color-border);
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+    }
+  
+    /* Mobile Responsiveness Improvements */
+    @media (max-width: 768px) {
+      html, body, .app, .content, .content-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      html, body, .app {
+        overflow-x: hidden !important;
+      }
+      .brand-title span {
+        display: none !important;
+      }
+      .sidebar-inner {
+        padding: 12px;
+      }
+      .sidebar .callout {
+        display: none !important;
+      }
+      .sidebar nav.nav {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .sidebar nav.nav::-webkit-scrollbar {
+        display: none;
+      }
+      .sidebar nav.nav a {
+        padding: 6px 12px !important;
+        border-radius: var(--radius-sm) !important;
+        background: var(--color-surface) !important;
+        border: 1px solid var(--color-border) !important;
+        font-size: 13px !important;
+      }
+      .badges {
+        flex-wrap: wrap !important;
+      }
+      .grid, .two-col, .flow-grid, .req-grid, .uc-grid, .steps, .info-row, .arch-layer-grid, .uc-meta, .arch-meta, .arch-body-grid, .ts-config-grid, .ts-row, .tech-grid, .thr-grid, .dev-cards {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      .col-6, .col-4, .col-8, .col-12, .flow-step, .req-card, .uc-card, .step, .info, .arch-layer {
+        grid-column: auto !important;
+      }
+      /* Constrain card widths */
+      .hero, .section-panel, .card, .req-card, .dev-card, .step-card, .mini-card, .stat-card, .structure-card, .flow-step, .step, .info, .arch-layer, .uc-card, .table-wrap,
+      .grid, .two-col, .flow-grid, .req-grid, .uc-grid, .steps, .info-row, .arch-layer-grid, .uc-meta, .arch-meta, .arch-body-grid, .ts-config-grid, .ts-row, .tech-grid, .thr-grid, .dev-cards {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Ensure text wraps nicely */
+      p, li, span, h1, h2, h3, h4, div, .muted {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+      .table-wrap, pre, .dev-tree, .file-tree {
+        display: block;
+        width: 100%;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  </style>
+  <style>
+    /* Bulletproof Mobile Layout Overflow Fixes */
+    @media (max-width: 768px) {
+      /* 1. Prevent body/html scrollbar and constrain main container */
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+        position: relative !important;
+      }
+
+      /* 2. Force grid columns to collapse to a single flexible track that can shrink */
+      .grid, .two-col, .flow-grid, .req-grid, .uc-grid, .steps, .info-row, .arch-layer-grid, 
+      .uc-meta, .arch-meta, .arch-body-grid, .ts-config-grid, .ts-row, .tech-grid, .thr-grid, 
+      .dev-cards, .feat-grid, .oos-grid, .rnf-grid, .problem-grid, .pillars, .modules-grid, .dev-cards-grid,
+      .card-grid, .card-grid-3, [style*="grid-template-columns"], [style*="display: grid"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* 3. Ensure all grid/flex items can shrink (override min-width: auto) */
+      .app > *, .layout > *, .sidebar, #sidebar,
+      .card, .flow-step, .req-card, .uc-card, .step, .info, .arch-layer, .feat-group, .rnf-card,
+      .dev-card, .step-card, .mini-card, .stat-card, .structure-card, .hero, .section-panel, .accent-note,
+      .step-content, .step-body, .install-step, .install-steps, .code-block {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        float: none !important;
+      }
+
+      /* 4. Explicitly reset margins and padding on mobile content wrappers to prevent layout shifting */
+      .main, #main, .content, .content-inner {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .body-wrap, .layout {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .header, .topbar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 5. Collapse installation steps vertically to maximize horizontal space for code on mobile */
+      .install-step {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+      }
+      .install-step::after {
+        display: none !important;
+      }
+
+      /* 6. Force line break for long unbroken texts / code in ordinary elements */
+      p, li, span, h1, h2, h3, h4, h5, h6, div, td, th, .muted, strong, a {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+
+      /* 7. Enable horizontal scroll inside code blocks, trees and tables without stretching parents */
+      .table-wrap, pre, .dev-tree, .file-tree, .code-block pre {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      /* 8. Specifically constrain code block contents and text fields */
+      .req-code, code {
+        white-space: pre-wrap !important;
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        max-width: 100% !important;
+      }
+
+      /* 9. Clean up SVG/images so they don't stretch */
+      svg, img {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
       }
     }
   </style>
