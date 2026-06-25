@@ -230,7 +230,7 @@ I collect certifications, free courses, and participation in academic/technologi
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/Connect_with_me!-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-labre-2a987b386) <!-- REPLACE WITH YOUR LINKEDIN LINK -->
+[![LinkedIn](https://img.shields.io/badge/Connect_with_me!-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-labre-2a987b386)
 
 <img src="./.github/assets/footer-banner-en.svg" alt="Pedro Labre Footer" width="100%"/>
 
