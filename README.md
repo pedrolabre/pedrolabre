@@ -50,7 +50,7 @@ const dev = {
     "Testar e validar cada fase de forma independente",
   ],
 
-  focoAtual:      "Desenvolvimento mobile (React Native / Expo) em TypeScript",
+  focoAtual:      "Desenvolvimento web focado em Single Page Applications (SPA) com Svelte / React",
   construindo:    "Coisas que resolvem problemas que eu mesmo encontro",
 } as const;
 ```
@@ -90,6 +90,7 @@ const dev = {
 
 ### ── 💻 Desenvolvimento Web & Mobile ──
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Svelte](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)

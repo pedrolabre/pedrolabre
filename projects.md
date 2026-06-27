@@ -29,6 +29,7 @@ Local utilities, browser extensions, and tools created on my own initiative to o
 
 | 📁 Project | 📝 Description | 🛠️ Stack | 🔗 |
 |:---|:---|:---|:---:|
+| **legislative-activity-explorer** | Conversational SPA for public query and simplified analysis of bills and votings in the Brazilian National Congress | TypeScript • SvelteKit | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/legislative-activity-explorer) |
 | **price-simulator** | SPA for commercial price simulation with IPI, shipping, and margin calculation, multi-language support, and export | JavaScript • React | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/price-simulator) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/PS-Documentation-v1.html) |
 | **photo_organizer** | Automated solution for chronological organization of large photo collections via metadata (EXIF) and duplicate detection | Python • EXIF | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/photo_organizer) |
 | **personal-finance-manager** | Local desktop dashboard for personal finance control using the MVVM architectural pattern | C# • WPF • SQLite | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-finance-manager) |
