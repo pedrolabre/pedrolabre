@@ -57,7 +57,7 @@ const dev = {
 
 ---
 
-## 🚀 Projeto Publicado
+## 🚀 Projetos Publicados
 
 <table>
   <tr>
@@ -69,6 +69,18 @@ const dev = {
       <small>Simulador de preços com cálculo de imposto, frete, margem e exportação de relatórios.</small><br/>
       <a href="https://price-simulator-psi.vercel.app" target="_blank">
         <img src="https://img.shields.io/badge/Deploy%20na%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy na Vercel" height="20">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" width="80">
+      <img src="https://raw.githubusercontent.com/pedrolabre/legislative-activity-explorer/refs/heads/main/static/brand/legislative-activity-explorer-logo.svg" alt="O que o parlamentar fez Logo" width="60" height="60">
+    </td>
+    <td>
+      <strong>O que o parlamentar fez</strong><br/>
+      <small>Consulta pública para explorar parlamentares, proposições e votações com dados oficiais do Congresso Nacional.</small><br/>
+      <a href="https://oqueoparlamentarfez.pages.dev/" target="_blank">
+        <img src="https://img.shields.io/badge/Deploy%20no%20Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflarepages&logoColor=white" alt="Deploy no Cloudflare Pages" height="20">
       </a>
     </td>
   </tr>

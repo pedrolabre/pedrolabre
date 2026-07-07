@@ -57,7 +57,7 @@ const dev = {
 
 ---
 
-## 🚀 Published Project
+## 🚀 Published Projects
 
 <table>
   <tr>
@@ -69,6 +69,18 @@ const dev = {
       <small>Price simulator with tax, shipping, margin calculation, and report export.</small><br/>
       <a href="https://price-simulator-psi.vercel.app" target="_blank">
         <img src="https://img.shields.io/badge/Deploy%20on%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy on Vercel" height="20">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" width="80">
+      <img src="https://raw.githubusercontent.com/pedrolabre/legislative-activity-explorer/refs/heads/main/static/brand/legislative-activity-explorer-logo.svg" alt="O que o parlamentar fez Logo" width="60" height="60">
+    </td>
+    <td>
+      <strong>O que o parlamentar fez</strong><br/>
+      <small>Public query tool to explore parliamentarians, bills, and votings with official data from the Brazilian National Congress.</small><br/>
+      <a href="https://oqueoparlamentarfez.pages.dev/" target="_blank">
+        <img src="https://img.shields.io/badge/Deploy%20on%20Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflarepages&logoColor=white" alt="Deploy on Cloudflare Pages" height="20">
       </a>
     </td>
   </tr>
