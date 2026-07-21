@@ -12,24 +12,25 @@
 
 ## 📌 Índice de Projetos
 
-Use o índice abaixo para navegar diretamente para as seções de projetos pessoais e automações:
+Use o índice abaixo para navegar diretamente para as seções de projetos e scripts:
 
 * [**🖥️ Laboratório de Utilitários Práticos**](#utilitarios)
-  *Utilitários de uso pessoal, extensões de navegador e dashboards locais.*
+  *Aplicações Web (SPAs), softwares desktop e extensões de navegador focados em gestão de informações e utilidades cotidianas.*
 * [**⚡ Scripts &amp; Micro-Automações de Produtividade**](#scripts)
   *Micro-scripts locais para otimização de rotinas de desenvolvimento e arquivos.*
 
 ---
 
-<h2 id="utilitarios">🖥️ Laboratório de Utilitários Práticos (Projetos Pessoais &amp; Automações)</h2>
+<h2 id="utilitarios">🖥️ Laboratório de Utilitários Práticos (Projetos Pessoais)</h2>
 
-Utilitários locais, extensões de navegador e ferramentas criadas por iniciativa própria para otimizar fluxos de trabalho do cotidiano. Projetos privados possuem indicador visual e acesso restrito de código:
+Coleção de Aplicações Web (SPAs), softwares desktop e extensões de navegador desenvolvidos para resolver problemas específicos, gerenciar dados pessoais e otimizar a produtividade diária. Projetos privados possuem indicador visual e acesso restrito de código:
 
 <div align="center">
 
 | 📁 Projeto | 📝 Descrição | 🛠️ Stack | 🔗 |
 |:---|:---|:---|:---:|
 | **legislative-activity-explorer** | SPA conversacional para consulta pública e análise simplificada de proposições e votações do Congresso Nacional | TypeScript • SvelteKit | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/legislative-activity-explorer) |
+| **reading-progress-engine** | SPA para gestão de progresso e histórico de leitura com persistência estruturada em JSON | JavaScript • React • Vite | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/reading-progress-engine) &nbsp; [![deploy](https://img.shields.io/badge/deploy-0d1117?style=flat-square&logo=githubpages&logoColor=00D9FF)](https://pedrolabre.github.io/reading-progress-engine/) |
 | **price-simulator** | SPA para simulação de preços comerciais com cálculo de IPI, frete e margem, suporte multi-idioma e exportação | JavaScript • React | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/price-simulator) &nbsp; [![docs](https://img.shields.io/badge/docs-0d1117?style=flat-square&logo=html5&logoColor=00D9FF)](./docs/PS-Documentation-v1.html) |
 | **photo_organizer** | Solução automatizada para organização cronológica de grandes acervos de fotos via metadados (EXIF) e detecção de duplicatas | Python • EXIF | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/photo_organizer) |
 | **personal-finance-manager** | Dashboard desktop local para controle de finanças pessoais utilizando padrão arquitetural MVVM | C# • WPF • SQLite | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/personal-finance-manager) |
