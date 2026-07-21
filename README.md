@@ -9,7 +9,7 @@
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=750&lines=Sistemas+de+Informa%C3%A7%C3%A3o+(5%C2%BA+Per%C3%ADodo)+-+IFTO;Desenvolvedor+de+Software+%7C+Web%2C+Mobile+%26+Desktop;Foco+em+resolu%C3%A7%C3%A3o+de+problemas%2C+Engenharia+de+Software+e+QA)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=750&lines=Sistemas+de+Informa%C3%A7%C3%A3o+(6%C2%BA+Per%C3%ADodo)+-+IFTO;Desenvolvedor+de+Software+%7C+Web%2C+Mobile+%26+Desktop;Foco+em+resolu%C3%A7%C3%A3o+de+problemas%2C+Engenharia+de+Software+e+QA)
 
 </div>
 
@@ -28,7 +28,7 @@
 
 Tenho 31 anos, experiência administrativa e inglês fluente — bagagem que acumulei antes de encontrar meu caminho no desenvolvimento de software. Cursei publicidade em Lisboa, mas a pandemia encerrou esse ciclo antes do tempo. De volta ao Brasil, me vi sem direção clara até encontrar o curso de Sistemas de Informação no IFTO. Fiz a seleção, passei em segundo lugar e finalmente senti que estava no lugar certo.
 
-Com o tempo, percebi que tenho facilidade natural para identificar problemas e imaginar como resolvê-los — a maioria dos meus projetos nasce de uma frustração real. Agora estou no 5º período, construindo projetos mobile e fullstack, e aproveitando a graduação para explorar o máximo de áreas possível antes de decidir onde me aprofundar.
+Com o tempo, percebi que tenho facilidade natural para identificar problemas e imaginar como resolvê-los — a maioria dos meus projetos nasce de uma frustração real. Agora estou no 6º período, construindo projetos focados no propósito e na utilidade prática, independentemente da stack, e aproveitando a graduação para explorar o máximo de áreas possível antes de decidir onde me aprofundar.
 
 ---
 
@@ -38,7 +38,7 @@ Com o tempo, percebi que tenho facilidade natural para identificar problemas e i
 const dev = {
   nome:           "Pedro Roberto Ribeiro Bandeira Labre",
   papel:          "Desenvolvedor de Software (em busca de estágio)",
-  formacao:       "Sistemas de Informação — IFTO (5º Período)",
+  formacao:       "Sistemas de Informação — IFTO (6º Período)",
   local:          "Brasil 🇧🇷",
 
   historico:      "10+ anos de experiência profissional antes da transição para software",

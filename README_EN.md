@@ -9,7 +9,7 @@
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=750&lines=Information+Systems+(5th+Period)+-+IFTO;Software+Developer+%7C+Web%2C+Mobile+%26+Desktop;Focus+on+problem+solving%2C+Software+Engineering+and+QA)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=750&lines=Information+Systems+(6th+Period)+-+IFTO;Software+Developer+%7C+Web%2C+Mobile+%26+Desktop;Focus+on+problem+solving%2C+Software+Engineering+and+QA)
 
 </div>
 
@@ -28,7 +28,7 @@
 
 I am 31 years old, have administrative experience, and am fluent in English — a background I gathered before finding my path in software development. I studied advertising in Lisbon, but the pandemic cut that cycle short. Back in Brazil, I found myself without a clear direction until I discovered the Information Systems course at IFTO. I took the selection process, passed in second place, and finally felt I was in the right place.
 
-Over time, I realized that I have a natural ability to identify problems and imagine how to solve them — most of my projects are born from real frustration. Now I am in the 5th period, building mobile and fullstack projects, and taking advantage of my undergraduate studies to explore as many areas as possible before deciding where to specialize.
+Over time, I realized that I have a natural ability to identify problems and imagine how to solve them — most of my projects are born from real frustration. Now I am in the 6th period, building projects focused on purpose and practical utility, regardless of the stack, and taking advantage of my undergraduate studies to explore as many areas as possible before deciding where to specialize.
 
 ---
 
@@ -38,7 +38,7 @@ Over time, I realized that I have a natural ability to identify problems and ima
 const dev = {
   name:           "Pedro Roberto Ribeiro Bandeira Labre",
   role:           "Software Developer (seeking internship)",
-  education:      "Information Systems — IFTO (5th semester)",
+  education:      "Information Systems — IFTO (6th semester)",
   location:       "Brazil 🇧🇷",
 
   background:     "10+ years of professional office experience before transitioning to software",
