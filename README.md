@@ -15,7 +15,7 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-labre-2a987b386)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrolabre/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pedrolabre)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/pedrolabre/)
 ![Profile Views](https://komarev.com/ghpvc/?username=pedrolabre&color=00D9FF&style=for-the-badge&label=ACESSOS)
@@ -242,7 +242,7 @@ Reúno certificações, cursos livres e participações em eventos acadêmicos/t
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/Vamos_nos_conectar!-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-labre-2a987b386)
+[![LinkedIn](https://img.shields.io/badge/Vamos_nos_conectar!-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrolabre/)
 
 <img src="./.github/assets/footer-banner.svg" alt="Pedro Labre Footer" width="100%"/>
 
