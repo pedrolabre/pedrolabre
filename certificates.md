@@ -76,6 +76,7 @@ Certifications focused on programming, front-end, back-end, and system design.
 | 🎓 Course / Certification | ⏱️ Hours | 🏫 Institution / Issuer | 📅 Year | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
 | **Programming Logic and Data Structures in C (Digital Literacy)** | 40h | SENAI TO | 2026 | *unavailable* |
+| **Python Foundations** | 8h | PNAAT / MCTI | 2026 | [view](./academic/certificados/3-desenvolvimento-arquitetura/fundamentos-python-pnaat.pdf) |
 | **Front-End with AI Bootcamp** | 2h | Alura | 2026 | [view](./academic/certificados/3-desenvolvimento-arquitetura/imersao-front-end-ia-alura.pdf) |
 | **Web Architecture with AI Bootcamp** | 4h | Alura | 2026 | [view](./academic/certificados/3-desenvolvimento-arquitetura/imersao-arquitetura-web-ia-alura.pdf) |
 | **System Design with Practical Applied AI** | 2h | Dev+Eficiente (Workshop) | 2026 | [view](./academic/certificados/3-desenvolvimento-arquitetura/system-design-ia-dev-eficiente.pdf) |

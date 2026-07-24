@@ -76,6 +76,7 @@ Certificações focadas em programação, front-end, back-end e design de sistem
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
 | **Lógica de Programação e Estruturas de Dados em C (Letramento Digital)** | 40h | SENAI TO | 2026 | *indisponível* |
+| **Fundamentos em Python** | 8h | PNAAT / MCTI | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/fundamentos-python-pnaat.pdf) |
 | **Imersão Front-End com IA** | 2h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-front-end-ia-alura.pdf) |
 | **Imersão Arquitetura Web com IA** | 4h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-arquitetura-web-ia-alura.pdf) |
 | **System Design com IA Aplicada na Prática** | 2h | Dev+Eficiente (Workshop) | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/system-design-ia-dev-eficiente.pdf) |
