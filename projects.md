@@ -59,6 +59,7 @@ Agile utilities developed to automate local infrastructure routines, project syn
 
 | 📁 Script | 📝 Description | 🛠️ Stack | 🔗 |
 |:---|:---|:---|:---:|
+| **suspend-windows.py** | Triggers Windows sleep mode directly through a script without permanently changing the system's power settings | Python • Windows API | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/suspend-windows.py) |
 | **update_mobile_env_ip.py** | Automatically synchronizes the mobile app's network configuration with the local IP of the development machine | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/update_mobile_env_ip.py) |
 | **run-local.example.ps1** | Model script to configure environment variables and initialize the database server and backend locally | PowerShell | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/automacao-desenvolvimento/run-local.example.ps1) |
 | **generate_reports.py** | Batch processes local duplicate images, compiling analytical space-saving statistics | Python | [![view](https://img.shields.io/badge/view-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/scripts/utilitarios-arquivos/generate_reports.py) |
