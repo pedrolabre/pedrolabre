@@ -37,11 +37,11 @@ Com o tempo, percebi que tenho facilidade natural para identificar problemas e i
 ```typescript
 const dev = {
   nome:           "Pedro Roberto Ribeiro Bandeira Labre",
-  papel:          "Desenvolvedor de Software (em busca de estágio)",
+  papel:          "Desenvolvedor de Software",
   formacao:       "Sistemas de Informação — IFTO (6º Período)",
   local:          "Brasil 🇧🇷",
 
-  historico:      "10+ anos de experiência profissional antes da transição para software",
+  historico:      "10+ anos de experiência profissional antes da transição para desenvolvimento",
   idiomas:        ["Português (nativo)", "Inglês (fluente)"],
 
   processo:       [
@@ -50,8 +50,8 @@ const dev = {
     "Testar e validar cada fase de forma independente",
   ],
 
-  focoAtual:      "Desenvolvimento web focado em Single Page Applications (SPA) com Svelte / React",
-  construindo:    "Coisas que resolvem problemas que eu mesmo encontro",
+  focoAtual:      "Desenvolvimento web focado em Single Page Applications (SPA)",
+  construindo:    "Soluções úteis baseadas em necessidades reais",
 } as const;
 ```
 
@@ -68,6 +68,30 @@ const dev = {
       <strong>Price Simulator</strong><br/>
       <small>Simulador de preços com cálculo de imposto, frete, margem e exportação de relatórios.</small><br/>
       <a href="https://price-simulator-psi.vercel.app" target="_blank">
+        <img src="https://img.shields.io/badge/Deploy%20na%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy na Vercel" height="20">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" width="80">
+      <img src="https://raw.githubusercontent.com/pedrolabre/logo-qr-code-generator/refs/heads/main/public/favicon.svg" alt="Logo QR Code Generator Icon" width="60" height="60">
+    </td>
+    <td>
+      <strong>Logo QR Code Generator</strong><br/>
+      <small>QR Codes com branding, SVG seguro, preview em tempo real e exportação em alta qualidade.</small><br/>
+      <a href="https://logo-qr-code-generator-tool.vercel.app/" target="_blank">
+        <img src="https://img.shields.io/badge/Deploy%20na%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy na Vercel" height="20">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" width="80">
+      <img src="https://raw.githubusercontent.com/pedrolabre/subscription-lifecycle-supervisor/refs/heads/main/public/assets/logos/logo.svg" alt="Subscription Lifecycle Supervisor Icon" width="60" height="60">
+    </td>
+    <td>
+      <strong>Subscription Lifecycle Supervisor</strong><br/>
+      <small>Painel local-first para assinaturas, ciclos de cobrança e trials.</small><br/>
+      <a href="https://subscription-lifecycle-supervisor.vercel.app/" target="_blank">
         <img src="https://img.shields.io/badge/Deploy%20na%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy na Vercel" height="20">
       </a>
     </td>
