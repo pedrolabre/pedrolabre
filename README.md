@@ -239,13 +239,13 @@ Utilitários de uso pessoal, extensões de navegador, dashboards offline e micro
 
 ## 📜 Certificados & Formação Complementar
 
-Reúno certificações, cursos livres e participações em eventos acadêmicos/tecnológicos, totalizando **36 registros** organizados por área de competência.
+Reúno certificações, cursos livres e participações em eventos acadêmicos/tecnológicos, totalizando **48 registros** organizados por área de competência.
 
 <div align="center">
 
-| 🤖 1. IA & ML | ⚙️ 2. Automação | 💻 3. Dev & Web | 📊 4. Dados & BI | 🛡️ 5. QA & Sec | 🏫 6. Eventos |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| **9 Certificados** | **3 Certificados** | **5 Certificados** | **8 Certificados** | **3 Certificados** | **8 Certificados** |
+| 🤖 1. IA & ML | ⚙️ 2. Automação | 💻 3. Dev & Web | 📊 4. Dados & BI | 🛡️ 5. QA & Sec | 🎨 6. Design | 🏫 7. Eventos |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **11 Certificados** | **3 Certificados** | **6 Certificados** | **13 Certificados** | **5 Certificados** | **1 Certificado** | **9 Certificados** |
 
 <br/>
 

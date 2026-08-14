@@ -24,7 +24,9 @@ Use o índice abaixo para navegar diretamente para as seções de certificados o
   *Lógica com Python, análise de dados, planilhas e Power BI.*
 * [**🛡️ 5. Infraestrutura, Qualidade (QA) & Segurança**](#infra)
   *Testes de software, redes, virtualização e segurança ofensiva.*
-* [**🏫 6. Eventos Acadêmicos, Extensão & Habilidades**](#eventos)
+* [**🎨 6. Design, UI/UX & Prototipação**](#design)
+  *Design de interfaces, experiência do usuário e ferramentas de prototipagem.*
+* [**🏫 7. Eventos Acadêmicos, Extensão & Habilidades**](#eventos)
   *Eventos regionais de tecnologia da informação, ideathons, e competências multidisciplinares.*
 
 ---
@@ -35,15 +37,17 @@ Certificações focadas em IA generativa, Machine Learning e Gestão de Produtos
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
+| **Google AI Professional Certificate** | 13h | Google / Coursera | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/google-ai-essentials/google-ai-essentials.pdf) |
 | **Engenharia de Prompt para Engenheiros de Software** | 8h | Universidade de São Paulo (USP) - Difusão | 2026 | *indisponível* |
+| **Imersão IA for Devs** | 8h | Full Cycle | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/imersao-ia-for-devs-fullcycle.pdf) |
 | **Introdução ao Machine Learning com Python** | 8h | Universidade de São Paulo (USP) - Difusão | 2026 | *indisponível* |
+| **Jornada Inteligência Artificial (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/1-inteligencia-artificial/jornada-ia-hashtag-2024.pdf) |
 | **Jornada Inteligência Artificial (Turma 1)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/jornada-ia-hashtag-2026-t1.pdf) |
 | **Jornada Inteligência Artificial (Turma 2)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/jornada-ia-hashtag-2026-t2.pdf) |
 | **Missão Programação com IA do Zero** | 8h | Rocketseat | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/missao-programacao-ia-do-zero.pdf) |
-| **Simplifica Inteligência Artificial Express** | 4h | Simplifica IA | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/simplifica-ia-express.pdf) |
 | **AI Product Owner 8K+** | 4h | Canal Valor | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/ai-product-owner-8k.pdf) |
+| **Simplifica Inteligência Artificial Express** | 4h | Simplifica IA | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/simplifica-ia-express.pdf) |
 | **AI Product Week** | 2h | PM3 | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/ai-product-week.pdf) |
-| **Jornada Inteligência Artificial (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/1-inteligencia-artificial/jornada-ia-hashtag-2024.pdf) |
 
 <br/>
 <div align="right">
@@ -58,9 +62,9 @@ Certificações focadas na construção de automações e fluxos de agentes inte
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
-| **Carreira IA: Do Zero ao Primeiro Agente com n8n** | 5h | Rocketseat | 2026 | [visualizar](./academic/certificados/2-automacao-agentes/agentes-ia-n8n-rocketseat.pdf) |
 | **Imersão Agentes de IA (Turma 1)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/2-automacao-agentes/imersao-agentes-ia-hashtag-t1.pdf) |
 | **Imersão Agentes de IA (Turma 2)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/2-automacao-agentes/imersao-agentes-ia-hashtag-t2.pdf) |
+| **Carreira IA: Do Zero ao Primeiro Agente com n8n** | 5h | Rocketseat | 2026 | [visualizar](./academic/certificados/2-automacao-agentes/agentes-ia-n8n-rocketseat.pdf) |
 
 <br/>
 <div align="right">
@@ -77,8 +81,9 @@ Certificações focadas em programação, front-end, back-end e design de sistem
 |:---|:---:|:---|:---:|:---:|
 | **Lógica de Programação e Estruturas de Dados em C (Letramento Digital)** | 40h | SENAI TO | 2026 | *indisponível* |
 | **Fundamentos em Python** | 8h | PNAAT / MCTI | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/fundamentos-python-pnaat.pdf) |
-| **Imersão Front-End com IA** | 2h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-front-end-ia-alura.pdf) |
+| **Python** | 8h | Santander Open Academy | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/python-santander.pdf) |
 | **Imersão Arquitetura Web com IA** | 4h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-arquitetura-web-ia-alura.pdf) |
+| **Imersão Front-End com IA** | 2h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-front-end-ia-alura.pdf) |
 | **System Design com IA Aplicada na Prática** | 2h | Dev+Eficiente (Workshop) | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/system-design-ia-dev-eficiente.pdf) |
 
 <br/>
@@ -94,14 +99,19 @@ Certificações e imersões focadas em dados, programação com Python e intelig
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
+| **Google Data Analytics - Foundations: Data, Data, Everywhere (1/9)** | 12h | Google / Coursera | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/google-data-analytics/foundations-data-everywhere.pdf) |
 | **Imersão Profissional Jornada de Dados** | 10h | Luciano Vasconcelos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-profissional-jornada-dados.pdf) |
-| **Imersão Dados com Python II** | 4h | Alura | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-dados-python-ii-alura.pdf) |
+| **Imersão Excel Automate** | 8h | Tetra Educação | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-excel-automate.pdf) |
+| **Intensivo de Power BI e Inteligência Artificial** | 8h | Letícia Smirelli | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/intensivo-powerbi-inteligencia-artificial.pdf) |
+| **Jornada Python (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/4-dados-python-bi/jornada-python-hashtag-2024.pdf) |
 | **Jornada Python (Turma 1)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/jornada-python-hashtag-2026-t1.pdf) |
 | **Jornada Python (Turma 2)** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/jornada-python-hashtag-2026-t2.pdf) |
 | **Semana do Excel** | 8h | Hashtag Treinamentos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/semana-excel-hashtag-2026.pdf) |
-| **Intensivo de Power BI e Inteligência Artificial** | 8h | Letícia Smirelli | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/intensivo-powerbi-inteligencia-artificial.pdf) |
-| **Jornada Python (Edição 2024)** | 8h | Hashtag Treinamentos | 2024 | [visualizar](./academic/certificados/4-dados-python-bi/jornada-python-hashtag-2024.pdf) |
+| **Tomada de decisões com Power BI** | 8h | Santander X | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/powerbi-santanderx.pdf) |
 | **Treinamento Maratona Excel** | 8h | Tetra Educação | 2024 | [visualizar](./academic/certificados/4-dados-python-bi/treinamento-maratona-excel.pdf) |
+| **Imersão Dados com Python II** | 4h | Alura | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-dados-python-ii-alura.pdf) |
+| **Minicurso de Power BI** | 3h | Xperiun | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/minicurso-powerbi-xperium.pdf) |
+| **Workshop Databricks + IA** | 2h | Luciano Vasconcelos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/workshop-databricks-ia.pdf) |
 
 <br/>
 <div align="right">
@@ -116,9 +126,11 @@ Certificações focadas na qualidade de código, infraestrutura, virtualização
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
+| **Segurança em Cloud-computing** | 10h | FIA Online | 2026 | [visualizar](./academic/certificados/5-infraestrutura-qa-seguranca/seguranca-cloud-fia.pdf) |
 | **Curso Gratuito de Testes de Software** | 6h | Julio de Lima Consultoria | 2026 | [visualizar](./academic/certificados/5-infraestrutura-qa-seguranca/curso-testes-de-software.pdf) |
 | **Imersão de Virtualização de Servidores Multi-Plataforma** | 6h | Virtualização na Prática | 2026 | [visualizar](./academic/certificados/5-infraestrutura-qa-seguranca/imersao-virtualizacao-servidores.pdf) |
 | **Guia Fundamental de Offsec (Segurança Ofensiva)** | 4h | WB Educação / OffSec | 2026 | [visualizar](./academic/certificados/5-infraestrutura-qa-seguranca/guia-fundamental-offsec.pdf) |
+| **QA: A porta de entrada mais acessível** | 4h | EBAC | 2026 | [visualizar](./academic/certificados/5-infraestrutura-qa-seguranca/qa-porta-entrada.pdf) |
 
 <br/>
 <div align="right">
@@ -127,20 +139,36 @@ Certificações focadas na qualidade de código, infraestrutura, virtualização
 
 ---
 
-<h2 id="eventos">🏫 6. Eventos Acadêmicos, Extensão & Habilidades Complementares</h2>
+<h2 id="design">🎨 6. Design, UI/UX & Prototipação</h2>
+
+Certificações focadas em design de interfaces, experiência do usuário e ferramentas de prototipagem visual.
+
+| 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
+|:---|:---:|:---|:---:|:---:|
+| **Figma + IA Workshop** | 4h | EBAC | 2026 | [visualizar](./academic/certificados/6-design-ui-ux/figma-ia-workshop-ebac.pdf) |
+
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
+
+---
+
+<h2 id="eventos">🏫 7. Eventos Acadêmicos, Extensão & Habilidades Complementares</h2>
 
 Participações em encontros científicos regionais, maratonas de inovação (Ideathons) e cursos complementares em outras áreas (tradução, saúde digital, intercâmbios e desenvolvimento regional).
 
 | 🎓 Curso / Certificação / Evento | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---|:---|:---:|:---:|
-| **8º ETIVA - Encontro de Tecnologia da Informação do Vale do Araguaia** | 20h | Instituto Federal do Tocantins (IFTO) | 2025 | *indisponível* |
-| **Seminário de Inovação Fapto/Ideathon - Pitch** | 3h | SEBRAE | 2025 | *indisponível* |
-| **Semana Integrada IFTO Campus Paraíso** | 20h | Instituto Federal do Tocantins (IFTO) | 2025 | *indisponível* |
 | **Introdução à Saúde Digital** | 45h | FIOCRUZ | 2025 | *indisponível* |
+| **Campus Party Goiás 5 (CPGoiás5)** | 33h | Instituto Campus Party | 2025 | [visualizar](./academic/certificados/7-eventos-academicos/cpgoias5.pdf) |
 | **7º ETIVA - Encontro de Tecnologia da Informação do Vale do Araguaia** | 26h | Instituto Federal do Tocantins (IFTO) | 2024 | *indisponível* |
+| **8º ETIVA - Encontro de Tecnologia da Informação do Vale do Araguaia** | 20h | Instituto Federal do Tocantins (IFTO) | 2025 | *indisponível* |
+| **Semana Integrada IFTO Campus Paraíso** | 20h | Instituto Federal do Tocantins (IFTO) | 2025 | *indisponível* |
+| **De Bilíngue a Tradutor: Como Começar na Tradução** | 6h | Vida de Tradutor | 2026 | *indisponível* |
 | **Jornada Canadense: Relato de Intercâmbio Transcultural (Edital Interno)** | 4h | Instituto Federal do Tocantins (IFTO) | 2024 | *indisponível* |
 | **Revolucionando a Inteligência Financeira e o Cooperativismo** | 4h | Instituto Federal do Tocantins (IFTO) | 2024 | *indisponível* |
-| **De Bilíngue a Tradutor: Como Começar na Tradução** | 6h | Vida de Tradutor | 2026 | *indisponível* |
+| **Seminário de Inovação Fapto/Ideathon - Pitch** | 3h | SEBRAE | 2025 | *indisponível* |
 
 <br/>
 <div align="right">
