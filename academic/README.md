@@ -2,7 +2,7 @@
   🇧🇷 <b>Português</b> &nbsp;•&nbsp; <a href="./README_EN.md">🇺🇸 English</a>
 </div>
 
-<div align="left">
+<div align="left" id="top">
   <a href="../README.md">🏠 Voltar ao Início</a>
 </div>
 
@@ -12,24 +12,28 @@
   <img src="../.github/assets/academic-banner.svg" alt="Projetos Acadêmicos Banner" width="100%"/>
 </div>
 
-
-
 ## 📌 Índice de Competências
 
 Use o índice abaixo para navegar diretamente para os tópicos específicos e explorar os projetos e documentos relacionados:
 
-* [**💻 Programação & Desenvolvimento de Sistemas**](#programacao)
+* [**💻 1. Programação & Desenvolvimento de Sistemas**](#programacao)
   *Projetos práticos de desenvolvimento de software, orientados a objetos, concorrência e sistemas operacionais.*
-* [**📄 Especificações, Documentação & Engenharia de Testes**](#documentacao)
-  *Relatórios técnicos, análises de engenharia de software e planos de QA de testes.*
-* [**🧠 Teoria da Computação & Algoritmos Formais**](#teoria)
-  *Modelagem computacional e configurações formais de autômatos e Máquinas de Turing.*
-* [**🎨 Design de Interfaces & Usabilidade (IHC)**](#design)
+* [**📄 2. Relatórios Técnicos, Especificações & Engenharia de Software**](#documentacao)
+  *Relatórios analíticos, especificações de requisitos, planos de QA de testes e estudos de governança.*
+* [**📊 3. Apresentações Técnicas & Slides de Projetos**](#apresentacoes)
+  *Apresentações em slides, defesas de propostas e demonstrações de MVPs.*
+* [**🌐 4. Simulações de Redes & Laboratórios Práticos**](#redes)
+  *Topologias de rede, roteamento dinâmico no Cisco Packet Tracer e análises de tráfego com Wireshark.*
+* [**🗄️ 5. Modelagem, Gestão de Dados & Esquemas**](#dados)
+  *Scripts relacionais SQL (DDL/DML) e modelagens de dados em JSON e XML.*
+* [**🧠 6. Inteligência Artificial & Teoria da Computação**](#ia-teoria)
+  *Algoritmos de busca (BFS), modelos de estados e Máquinas de Turing formais.*
+* [**🎨 7. Design de Interfaces & Usabilidade (IHC)**](#design)
   *Prototipagem de alta fidelidade, IHC, usabilidade e design focado no usuário.*
 
 ---
 
-<h2 id="programacao">💻 Programação & Desenvolvimento de Sistemas</h2>
+<h2 id="programacao">💻 1. Programação & Desenvolvimento de Sistemas</h2>
 
 Estes são os projetos estruturados que desenvolvi para disciplinas da minha graduação em Sistemas de Informação no **IFTO**, onde apliquei formalmente paradigmas de desenvolvimento, conceitos de concorrência, sistemas operacionais e POO:
 
@@ -59,9 +63,9 @@ Estes são os projetos estruturados que desenvolvi para disciplinas da minha gra
 
 ---
 
-<h2 id="documentacao">📄 Especificações, Documentação & Engenharia de Testes</h2>
+<h2 id="documentacao">📄 2. Relatórios Técnicos, Especificações & Engenharia de Software</h2>
 
-Relatórios técnicos, especificações de requisitos, planos de testes de QA e estudos de caso de engenharia de software desenvolvidos na graduação:
+Relatórios técnicos, especificações formais de requisitos, planos de testes de QA e estudos de caso de engenharia de software desenvolvidos na graduação:
 
 <div align="center">
 
@@ -79,17 +83,12 @@ Relatórios técnicos, especificações de requisitos, planos de testes de QA e 
 | **especificacao-todan-3** | Documento contendo a arquitetura lógica e o estado de desenvolvimento do MVP durante a primeira versão apresentada (Terceira Entrega) do T.O.D.A.N | Requisitos • LTP4 / Mobile | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Documento%20de%20Especificacao%20-%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29%20-%20Terceira%20Entrega.pdf) |
 | **especificacao-todan-4** | Documento contendo a revisão completa de escopo e a definição dos requisitos futuros planejados para a versão final (Quarta Entrega) do T.O.D.A.N | Requisitos • LTP4 / Mobile | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Documento%20de%20Especificacao%20-%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29%20-%20Quarta%20Entrega.pdf) |
 | **especificacao-todan-final** | Documento definitivo de encerramento contendo a documentação completa e consolidada da última versão do app (Entrega Final) do T.O.D.A.N | Requisitos • LTP4 / Mobile | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Documento%20de%20Especificacao%20-%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29%20-%20Entrega%20Final.pdf) |
-| **slides-todan-mvp-1** | Slide da primeira apresentação de concepção e escopo do MVP do aplicativo mobile T.O.D.A.N | Apresentação • Mobile | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Slide%20da%20primeira%20Apresentac%CC%A7a%CC%83o%20do%20MVP%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29.pdf) |
-| **slides-todan-mvp-final** | Slide da apresentação final com a demonstração e resultados do MVP do aplicativo mobile T.O.D.A.N | Apresentação • Mobile | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Slide%20da%20Apresentac%CC%A7a%CC%83o%20final%20do%20MVP%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29.pdf) |
 | **Consultoria-IFTOverso.pdf** | Estudo de caso e planejamento estratégico de infraestrutura para o ecossistema acadêmico IFTOverso | Engenharia de Software | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/engenharia-software-2/Consultoria-IFTOverso.pdf) |
-| **es1-atividades-bimestre-2** | Compilação de trabalhos práticos e modelagens UML desenvolvidos no segundo bimestre de Engenharia de Software I | Modelagem UML • ESI | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/engenharia-software-1/es1-atividade-1-bimestre-2.pdf) |
+| **es1-levantamento-requisitos** | Levantamento de requisitos, entrevistas com usuários, definição de personas e benchmarking de mercado para plataforma de catálogo literário | Engenharia de Requisitos • ESI | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/engenharia-software-1/es1-atividade-1-bimestre-2.pdf) |
+| **es1-especificacao-requisitos** | Especificação formal de requisitos funcionais (RF) e requisitos não funcionais (RNF - WCAG, performance e APIs) em Engenharia de Software I | Engenharia de Requisitos • ESI | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/engenharia-software-1/es1-atividade-2-bimestre-2.pdf) |
 | **projeto-gestao-infra-ti-escola** | Projeto de plano estratégico de governança, infraestrutura de rede e gestão de serviços de TI (ITIL/COBIT) para instituição de ensino | Plano de Governança • Gestão de TI | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/gestao-infraestrutura-ti/projeto-gestao-infra-ti-escola.pdf) |
 | **lei-de-benford-analise** | Estudo teórico e histórico sobre a Lei de Benford, abordando seu processo de descoberta, conceitos matemáticos e aplicações práticas em auditoria | Estudo Teórico • Fundamentos de SI | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/fundamentos-sistemas-informacao/lei-de-benford-analise.pdf) |
-| **cadastro_alunos-sql** | Script SQL estruturado de banco de dados relacional para controle acadêmico na disciplina de Banco de Dados II | SQL • DDL / DML | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/banco-dados-2/cadastro_alunos.sql) |
 | **Plano-de-Negocio-Figma** | Plano de Negócios (PN) estruturando a viabilidade de mercado, escolhas tecnológicas e estratégias de marketing digital para um e-commerce de TI | Plano de Negócios • Comércio Eletrônico | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/comercio-eletronico/Plano%20de%20Neg%C3%B3cio%20com%20o%20Figma.pdf) |
-| **Slide-Plano-de-Negocio-Figma** | Apresentação em slides do Plano de Negócios de e-commerce de TI desenvolvida para a disciplina de Comércio Eletrônico | Apresentação • Comércio Eletrônico | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/comercio-eletronico/Slide%20-%20Plano%20de%20Neg%C3%B3cio%20com%20a%20Figma.pdf) |
-| **Protocolos-Comunicacao-Remota** | Apresentação em slides sobre Protocolos de Comunicação Remota (Telnet, SSH, SCP) abordando levantamento teórico e experimentos de teste com Wireshark | Apresentação • Redes de Computadores III | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/redes-computadores-3/Protocolos%20de%20Comunica%C3%A7%C3%A3o%20Remota.pdf) |
-| **redes-computadores-2** | Laboratórios e atividades práticas de simulação de redes (roteamento estático, RIP, OSPF, redes wireless e switches multicamada) no Cisco Packet Tracer | Simulação • Redes de Computadores II | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](./redes-computadores-2) |
 
 </div>
 
@@ -100,14 +99,77 @@ Relatórios técnicos, especificações de requisitos, planos de testes de QA e 
 
 ---
 
-<h2 id="teoria">🧠 Teoria da Computação & Algoritmos Formais</h2>
+<h2 id="apresentacoes">📊 3. Apresentações Técnicas & Slides de Projetos</h2>
 
-Modelagem matemática e lógica teórica de autômatos desenvolvidas na disciplina de **Aspectos Teóricos da Computação**:
+Apresentações em slides, defesas de propostas técnicas e demonstrações de projetos desenvolvidos na graduação:
+
+<div align="center">
+
+| 📁 Apresentação | 📝 Descrição | 🛠️ Contexto | 🔗 |
+|:---|:---|:---|:---:|
+| **slides-todan-mvp-1** | Slide da primeira apresentação de concepção e escopo do MVP do aplicativo mobile T.O.D.A.N | Apresentação • Mobile / LTP4 | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Slide%20da%20primeira%20Apresentac%CC%A7a%CC%83o%20do%20MVP%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29.pdf) |
+| **slides-todan-mvp-final** | Slide da apresentação final com a demonstração e resultados do MVP do aplicativo mobile T.O.D.A.N | Apresentação • Mobile / LTP4 | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/ltp4-aplicativo-android/Slide%20da%20Apresentac%CC%A7a%CC%83o%20final%20do%20MVP%20T.O.D.A.N%20%28Truth%20or%20Dare%20Async%20Network%29.pdf) |
+| **Slide-Plano-de-Negocio-Figma** | Apresentação em slides do Plano de Negócios de e-commerce de TI desenvolvida para a disciplina de Comércio Eletrônico | Apresentação • Comércio Eletrônico | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/comercio-eletronico/Slide%20-%20Plano%20de%20Neg%C3%B3cio%20com%20a%20Figma.pdf) |
+| **Protocolos-Comunicacao-Remota** | Apresentação em slides sobre Protocolos de Comunicação Remota (Telnet, SSH, SCP) abordando levantamento teórico e experimentos de teste com Wireshark | Apresentação • Redes de Computadores III | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/redes-computadores-3/Protocolos%20de%20Comunica%C3%A7%C3%A3o%20Remota.pdf) |
+
+</div>
+
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
+
+---
+
+<h2 id="redes">🌐 4. Simulações de Redes & Laboratórios Práticos</h2>
+
+Laboratórios práticos de infraestrutura, topologias e análise de tráfego de redes desenvolvidos nas disciplinas de **Redes de Computadores**:
+
+<div align="center">
+
+| 📁 Laboratório | 📝 Descrição | 🛠️ Stack | 🔗 |
+|:---|:---|:---|:---:|
+| **redes-computadores-2** | Laboratórios e atividades práticas de simulação de redes (roteamento estático, RIP, OSPF, redes wireless e switches multicamada) no Cisco Packet Tracer | Simulação • Cisco Packet Tracer | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/redes-computadores-2/README.md) |
+| **redes-computadores-3** | Laboratórios práticos de captura e inspeção de pacotes com Wireshark analisando tráfego real de protocolos remotos (Telnet, SSH e SCP) | Análise de Tráfego • Wireshark | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/tree/main/academic/redes-computadores-3) |
+
+</div>
+
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
+
+---
+
+<h2 id="dados">🗄️ 5. Modelagem, Gestão de Dados & Esquemas</h2>
+
+Modelagem e estruturação de dados relacionais e semiestruturados desenvolvidos nas disciplinas de **Banco de Dados II** e **Gestão da Informação**:
+
+<div align="center">
+
+| 📁 Projeto / Arquivo | 📝 Descrição | 🛠️ Stack | 🔗 |
+|:---|:---|:---|:---:|
+| **cadastro_alunos-sql** | Script SQL estruturado de banco de dados relacional para controle acadêmico na disciplina de Banco de Dados II | SQL • DDL / DML | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/banco-dados-2/cadastro_alunos.sql) |
+| **modelagem-pacientes** | Modelagem de dados de um sistema de cadastro de pacientes utilizando esquemas estruturados em JSON e XML na disciplina de Gestão da Informação | JSON • XML • Gestão da Informação | [![ver JSON](https://img.shields.io/badge/ver_JSON-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/gestao-informacao/pacientes.json) [![ver XML](https://img.shields.io/badge/ver_XML-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/gestao-informacao/pacientes.xml) |
+
+</div>
+
+<br/>
+<div align="right">
+  <a href="#top">🔺 Voltar ao Topo</a>
+</div>
+
+---
+
+<h2 id="ia-teoria">🧠 6. Inteligência Artificial & Teoria da Computação</h2>
+
+Algoritmos formais, máquinas de estados e buscas inteligentes desenvolvidos nas disciplinas de **Inteligência Artificial** e **Aspectos Teóricos da Computação**:
 
 <div align="center">
 
 | 📁 Projeto | 📝 Descrição | 🛠️ Stack | 🔗 |
 |:---|:---|:---|:---:|
+| **8-puzzle-bfs** | Implementação e resolução do clássico problema do 8-Puzzle (quebra-cabeça de 8 peças) utilizando o algoritmo de busca em largura (BFS) em Python | Python • Inteligência Artificial | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/inteligencia-artificial/8-puzzle%2BBFS-em-Python.py) |
 | **anbn.yaml** | Configuração formal e tabela de transições de estados para simulação de uma Máquina de Turing que valida a linguagem livre de contexto $a^n b^n$ | YAML • Teoria da Computação | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/aspectos-teoricos-computacao/anbn.yaml) |
 
 </div>
@@ -119,15 +181,14 @@ Modelagem matemática e lógica teórica de autômatos desenvolvidas na discipli
 
 ---
 
-<h2 id="design">🎨 Design de Interfaces & Usabilidade (IHC)</h2>
+<h2 id="design">🎨 7. Design de Interfaces & Usabilidade (IHC)</h2>
 
-Telas interativas e protótipos de interfaces de usuário funcionais desenvolvidos para a disciplina de **Interface Homem-Máquina** aplicando princípios avançados de contraste, usabilidade e micro-animações:
+Mockups e estudos visuais de interfaces desenvolvidos para a disciplina de **Interface Homem-Máquina** aplicando princípios de contraste, usabilidade e arquitetura visual:
 
 <div align="center">
 
 | 📁 Interface | 📝 Descrição | 🛠️ Stack | 🔗 |
 |:---|:---|:---|:---:|
-| **IHC-prototipo-ingles** | Protótipo interativo responsivo (inglês infantil) com animação de pálpebras cartoon, piscadas, olhar estrábico, winks antes de ações e formulário de login integrado | HTML5 • CSS3 • JS | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/tree/main/academic/interface-homem-maquina/IHC-prototipo-ingles) |
 | **IHC-tela-cadastro-ingles.png** | Mockup de layout da tela de cadastro de inglês para crianças aplicando rigorosamente o contraste de cores 60-30-10 | IHC • UI/UX Design | [![ver](https://img.shields.io/badge/ver-0d1117?style=flat-square&logo=github&logoColor=00D9FF)](https://github.com/pedrolabre/pedrolabre/blob/main/academic/interface-homem-maquina/IHC-tela-cadastro-ingles.png) |
 
 </div>

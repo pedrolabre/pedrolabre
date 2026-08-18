@@ -1,0 +1,17 @@
+{
+  "pacientes": [
+    {
+      "nome": "Carlos Eduardo",
+      "genero": "Masculino",
+      "idade": 26,
+      "dataNascimento": "01/11/1999",
+      "endereco": {
+        "rua": "Av. Paulista",
+        "numero": 1111,
+        "bairro": "Centro",
+        "cep": "013110-100",
+        "cidade": "São Paulo"
+      }
+    }
+  ]
+}

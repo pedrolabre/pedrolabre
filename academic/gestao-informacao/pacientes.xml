@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pacientes>
+    <paciente>
+        <nome>Carlos Eduardo</nome>
+        <genero>Masculino</genero>
+        <idade>26</idade>
+        <dataNascimento>01/11/1999</dataNascimento>
+
+        <endereco>
+            <rua>Av. Paulista</rua>
+            <numero>1111</numero>
+            <bairro>Centro</bairro>
+            <cep>013110-100</cep>
+            <cidade>São Paulo</cidade>
+        </endereco>
+    </paciente>
+</pacientes>

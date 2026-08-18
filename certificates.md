@@ -99,7 +99,7 @@ Certifications and bootcamps focused on data, programming with Python, and busin
 
 | 🎓 Course / Certification | ⏱️ Hours | 🏫 Institution / Issuer | 📅 Year | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
-| **Google Data Analytics - Foundations: Data, Data, Everywhere (1/9)** | 12h | Google / Coursera | 2026 | [view](./academic/certificados/4-dados-python-bi/google-data-analytics/foundations-data-everywhere.pdf) |
+| **Google Data Analytics Professional Certificate (2/9)** | 28h | Google / Coursera | 2026 | [view](./academic/certificados/4-dados-python-bi/google-data-analytics/) |
 | **Professional Data Journey Bootcamp** | 10h | Luciano Vasconcelos | 2026 | [view](./academic/certificados/4-dados-python-bi/imersao-profissional-jornada-dados.pdf) |
 | **Excel Automate Bootcamp** | 8h | Tetra Educação | 2026 | [view](./academic/certificados/4-dados-python-bi/imersao-excel-automate.pdf) |
 | **Power BI and Artificial Intelligence Intensive** | 8h | Letícia Smirelli | 2026 | [view](./academic/certificados/4-dados-python-bi/intensivo-powerbi-inteligencia-artificial.pdf) |

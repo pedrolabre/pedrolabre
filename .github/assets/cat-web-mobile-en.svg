@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 28" width="205" height="28">
+  <defs>
+    <linearGradient id="btnGradDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="100%" stop-color="#7B2FFF"/>
+    </linearGradient>
+    <linearGradient id="btnGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00A3E0"/>
+      <stop offset="100%" stop-color="#6C35DE"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&amp;display=swap');
+    
+    /* Default Dark Mode Styles */
+    .btn-bg { fill: #0a0d14; stroke: url(#btnGradDark); stroke-width: 1.5; }
+    .btn-text {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      fill: #e2e8f0;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    /* Light Mode Overrides */
+    @media (prefers-color-scheme: light) {
+      .btn-bg { fill: #f8fafc !important; stroke: url(#btnGradLight) !important; }
+      .btn-text { fill: #1e293b !important; }
+    }
+  </style>
+
+  <!-- Button Background -->
+  <rect x="0.75" y="0.75" width="203.5" height="26.5" class="btn-bg"/>
+
+  <!-- Button Text -->
+  <text x="50%" y="14" class="btn-text">WEB &amp; MOBILE DEVELOPMENT</text>
+</svg>
