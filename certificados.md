@@ -37,6 +37,7 @@ Certificações focadas em IA generativa, Machine Learning e Gestão de Produtos
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
+| **Python para Machine Learning** | 43h | IDESCO / UECE | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/python-machine-learning-idesco.pdf) |
 | **Google AI Professional Certificate** | 13h | Google / Coursera | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/google-ai-essentials/google-ai-essentials.pdf) |
 | **Engenharia de Prompt para Engenheiros de Software** | 8h | Universidade de São Paulo (USP) - Difusão | 2026 | *indisponível* |
 | **Imersão IA for Devs** | 8h | Full Cycle | 2026 | [visualizar](./academic/certificados/1-inteligencia-artificial/imersao-ia-for-devs-fullcycle.pdf) |
@@ -79,7 +80,9 @@ Certificações focadas em programação, front-end, back-end e design de sistem
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
+| **JavaScript: Fundamentos para Desenvolvimento Web Interativo** | 40h | IFRS | 2026 | *indisponível* |
 | **Lógica de Programação e Estruturas de Dados em C (Letramento Digital)** | 40h | SENAI TO | 2026 | *indisponível* |
+| **React: Construindo Single Page Applications Dinâmicas e Interativas** | 40h | IFRS | 2026 | *indisponível* |
 | **Fundamentos em Python** | 8h | PNAAT / MCTI | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/fundamentos-python-pnaat.pdf) |
 | **Python** | 8h | Santander Open Academy | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/python-santander.pdf) |
 | **Imersão Arquitetura Web com IA** | 4h | Alura | 2026 | [visualizar](./academic/certificados/3-desenvolvimento-arquitetura/imersao-arquitetura-web-ia-alura.pdf) |
@@ -99,7 +102,7 @@ Certificações e imersões focadas em dados, programação com Python e intelig
 
 | 🎓 Curso / Certificação | ⏱️ Carga Horária | 🏫 Instituição / Emissor | 📅 Ano | 🔗 PDF |
 |:---|:---:|:---|:---:|:---:|
-| **Google Data Analytics Professional Certificate (2/9)** | 28h | Google / Coursera | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/google-data-analytics/) |
+| **Google Data Analytics Professional Certificate (3/9)** | 47h | Google / Coursera | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/google-data-analytics/) |
 | **Imersão Profissional Jornada de Dados** | 10h | Luciano Vasconcelos | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-profissional-jornada-dados.pdf) |
 | **Imersão Excel Automate** | 8h | Tetra Educação | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/imersao-excel-automate.pdf) |
 | **Intensivo de Power BI e Inteligência Artificial** | 8h | Letícia Smirelli | 2026 | [visualizar](./academic/certificados/4-dados-python-bi/intensivo-powerbi-inteligencia-artificial.pdf) |

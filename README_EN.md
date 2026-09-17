@@ -239,13 +239,13 @@ Personal utilities, browser extensions, offline dashboards, and micro-scripts de
 
 ## 📜 Certificates & Complementary Education
 
-I collect certifications, free courses, and participation in academic/technological events, totaling **48 records** organized by area of competence.
+I collect certifications, free courses, and participation in academic/technological events, totaling **51 records** organized by area of competence.
 
 <div align="center">
 
 | 🤖 1. AI & ML | ⚙️ 2. Automation | 💻 3. Dev & Web | 📊 4. Data & BI | 🛡️ 5. QA & Sec | 🎨 6. Design | 🏫 7. Events |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **11 Certificates** | **3 Certificates** | **6 Certificates** | **13 Certificates** | **5 Certificates** | **1 Certificate** | **9 Certificates** |
+| **12 Certificates** | **3 Certificates** | **8 Certificates** | **13 Certificates** | **5 Certificates** | **1 Certificate** | **9 Certificates** |
 
 <br/>
 
